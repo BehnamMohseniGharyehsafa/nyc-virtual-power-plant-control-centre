@@ -18,6 +18,7 @@ def test_sharing_admm_matches_central_and_reports_residuals(case):
     last = r["admm"][-1]
     assert last["primal"] <= last["epsilon_primal"]
     assert last["dual"] <= last["epsilon_dual"]
+    assert r["objective"] == pytest.approx(sum(r["objective_terms"].values()), abs=1e-8)
     np.testing.assert_allclose(r["net"], reference["net"], atol=0.03)
     for t in range(c.horizon):
         assert verify(feeder, r["net"][t], r["q"][t], c)["feasible"]

@@ -54,7 +54,7 @@ class DistributedMPC:
         obj += config.admm_rho / 2 * (
             cp.sum_squares(self.z - self.centre)
             + cp.sum_squares(self.zq - self.q_centre)
-        ) + 1e-6 * cp.sum(imp + exp)
+        ) + 1e-6 * config.dt_hours * cp.sum(imp + exp)
         self.problem = cp.Problem(cp.Minimize(obj), cons)
         self.previous = None
 
@@ -146,6 +146,8 @@ class DistributedMPC:
                     and np.max(np.hypot(bp, bq) / self.feeder.ratings_kva) <= 1
                     and np.max(x.sum(axis=1)) <= c.import_limit_kw
                     and np.min(x.sum(axis=1)) >= -c.export_limit_kw
+                    and np.all(x.sum(axis=1) <= self.cap.value + 1e-3)
+                    and np.all(x.sum(axis=1) >= self.floor.value - 1e-3)
                 )
                 if not safe:
                     raise DispatchFailure(
@@ -155,23 +157,34 @@ class DistributedMPC:
                     key: np.concatenate([r["actions"][key] for r in out], axis=1)
                     for key in out[0]["actions"]
                 }
+                aggregate = x.sum(axis=1)
+                terms = dict(
+                    energy=float(
+                        c.dt_hours
+                        * np.sum(
+                            forecast["buy"] * np.maximum(aggregate, 0)
+                            - forecast["sell"] * np.maximum(-aggregate, 0)
+                        )
+                    ),
+                    degradation=float(
+                        sum(r["objective_terms"]["degradation"] for r in out)
+                    ),
+                    curtailment=float(
+                        sum(r["objective_terms"]["curtailment"] for r in out)
+                    ),
+                    demand=float(c.demand_usd_kw * np.maximum(aggregate, 0).max()),
+                    tie_break=float(
+                        1e-6 * c.dt_hours * np.abs(aggregate).sum()
+                        + 1e-4 * c.dt_hours * np.abs(actions["q_inverter"]).sum()
+                    ),
+                )
                 return dict(
                     actions=actions,
                     net=x,
                     q=q,
                     seconds=perf_counter() - begin,
-                    objective=float(
-                        c.dt_hours
-                        * np.sum(
-                            forecast["buy"] * np.maximum(x.sum(axis=1), 0)
-                            - forecast["sell"] * np.maximum(-x.sum(axis=1), 0)
-                        )
-                        + sum(
-                            r["objective_terms"]["degradation"]
-                            + r["objective_terms"]["curtailment"]
-                            for r in out
-                        )
-                    ),
+                    objective=sum(terms.values()),
+                    objective_terms=terms,
                     solver="CLARABEL / sharing ADMM",
                     formulation="convex QP decomposition",
                     status="converged",

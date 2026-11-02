@@ -221,7 +221,9 @@ def command(run, t, asset, layer):
                 [
                     badge("● " + status, "green" if ac["feasible"] else "red"),
                     html.Div(
-                        f"{run.config.date} · {r.timestamp_local[11:16]} EDT",
+                        pd.Timestamp(r.timestamp_utc)
+                        .tz_convert("America/New_York")
+                        .strftime("%Y-%m-%d · %H:%M %Z"),
                         className="timestamp",
                     ),
                 ],
@@ -430,7 +432,7 @@ def command(run, t, asset, layer):
         html.Div(
             [
                 html.Span("↳ MODEL TRANSPARENCY"),
-                " Building geometry is observed; demand schedules and DER installations are assumed. The feeder is synthetic. Weather is reanalysis. Retail rates are illustrative.",
+                f" Building geometry is observed; demand schedules and DER installations are assumed. The feeder is synthetic. Weather: {run.metadata.get('weather_mode', 'historical reanalysis')}. Retail rates are illustrative.",
             ],
             className="transparency",
         ),
@@ -2222,8 +2224,10 @@ def create_app(auto_run=True):
             return [
                 page_heading(
                     "INITIALISING / NUMERICAL MODELS",
-                    "Preparing your district",
-                    "The first simulation is running in the background. Results will appear as soon as the full run has been calculated.",
+                    "Preparing your district" if auto_run else "Choose a scenario",
+                    "The first simulation is running in the background. Results will appear as soon as the full run has been calculated."
+                    if auto_run
+                    else "Select a portfolio and controller, then run the simulation to calculate physical trajectories.",
                 ),
                 panel(
                     "Real geography. Real calculations.",
@@ -2240,12 +2244,12 @@ def create_app(auto_run=True):
             if run.series.empty:
                 return [
                     page_heading(
-                        "SIMULATION / FAILED",
+                        "SIMULATION / " + run.status.upper(),
                         "No control actions executed",
-                        "The optimiser failed before producing a feasible schedule.",
+                        f"Run status: {run.status}. Inspect the recorded diagnostics below.",
                     ),
                     panel(
-                        "Failure diagnostics",
+                        "Execution diagnostics",
                         html.Pre(
                             json.dumps(run.diagnostics, indent=2),
                             className="code-block",
