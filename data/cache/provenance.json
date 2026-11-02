@@ -1,0 +1,86 @@
+{
+  "buildings": {
+    "url": "https://data.cityofnewyork.us/resource/5zhs-2jue.json",
+    "institution": "NYC Open Data",
+    "downloaded_utc": "2026-11-02T21:05:36.205519+00:00",
+    "sha256": "4f353e4e4c99c9a5dda91ad8e1b7eb4d1f22cd162f46e1af0996e9483b7e10fb",
+    "dataset": "NYC OTI Building Footprints",
+    "bounds": [
+      -74.001,
+      40.688,
+      -73.977,
+      40.709
+    ],
+    "original_map": "https://data.cityofnewyork.us/d/3g6p-4u5s",
+    "crs": "EPSG:4326; area EPSG:32618",
+    "units": "source height feet; geometry degrees; processed height/area m/m\u00b2",
+    "count": 1000,
+    "licence": "NYC Open Data terms of use; see docs/data.md",
+    "missing": "height: flagged 12 m assumption",
+    "processing": "filter area >=60 m\u00b2; centroid distance ordering; roof heights ft\u2192m"
+  },
+  "pluto": {
+    "url": "https://data.cityofnewyork.us/resource/64uk-42ks.json",
+    "institution": "NYC Open Data",
+    "downloaded_utc": "2026-11-02T21:05:36.250111+00:00",
+    "sha256": "7952382fe0613a4d6abefd62c403d4ba782c01beebf72d7441e4650ea9517f6d",
+    "dataset": "NYC DCP PLUTO",
+    "units": "feet and ft\u00b2",
+    "matched_lots": 883,
+    "missing": "unmatched use remains assumed",
+    "resolution": "tax lot",
+    "processing": "exact BBL join; use classified at lot level; no one-lot/one-building assumption",
+    "licence": "NYC Open Data terms of use"
+  },
+  "dam_2024-07-17": {
+    "url": "https://mis.nyiso.com/public/csv/damlbmp/20240701damlbmp_zone_csv.zip",
+    "institution": "NYISO",
+    "downloaded_utc": "2026-11-02T20:44:17.899895+00:00",
+    "sha256": "8973ca7036bac839097acda4f57880f75c48e2cc7ca7e3c140a451b40ccc3518",
+    "dataset": "Zone J LBMP",
+    "units": "USD/MWh",
+    "resolution": "hourly DA; native RT intervals retained",
+    "coverage": "Zone J, N.Y.C., PTID 61761",
+    "licence": "NYISO public market data; no software licence asserted",
+    "missing": "fail on missing coverage",
+    "processing": "UTC conversion using source time-zone labels; no price interpolation"
+  },
+  "realtime_2024-07-17": {
+    "url": "https://mis.nyiso.com/public/csv/realtime/20240701realtime_zone_csv.zip",
+    "institution": "NYISO",
+    "downloaded_utc": "2026-11-02T20:44:20.764093+00:00",
+    "sha256": "ba8a31fe8dd931b0e63a6ed7ff043af780b4774cba08896b9e774444b178a558",
+    "dataset": "Zone J LBMP",
+    "units": "USD/MWh",
+    "resolution": "hourly DA; native RT intervals retained",
+    "coverage": "Zone J, N.Y.C., PTID 61761",
+    "licence": "NYISO public market data; no software licence asserted",
+    "missing": "fail on missing coverage",
+    "processing": "UTC conversion using source time-zone labels; no price interpolation"
+  },
+  "weather_2024-07-17": {
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=40.703&longitude=-73.989&start_date=2024-07-16&end_date=2024-07-21&hourly=temperature_2m%2Crelative_humidity_2m%2Cshortwave_radiation%2Cdirect_normal_irradiance%2Cdiffuse_radiation%2Cwind_speed_10m%2Csurface_pressure&timezone=UTC&wind_speed_unit=ms",
+    "institution": "Open-Meteo / ECMWF",
+    "downloaded_utc": "2026-11-02T20:44:21.250622+00:00",
+    "sha256": "a0c6b4862f7eb26d176b50c5c2e5deaea92d533a9caec31c854643540729798c",
+    "dataset": "Historical gridded reanalysis (not a measured roof station)",
+    "units": {
+      "time": "iso8601",
+      "temperature_2m": "\u00b0C",
+      "relative_humidity_2m": "%",
+      "shortwave_radiation": "W/m\u00b2",
+      "direct_normal_irradiance": "W/m\u00b2",
+      "diffuse_radiation": "W/m\u00b2",
+      "wind_speed_10m": "m/s",
+      "surface_pressure": "hPa"
+    },
+    "resolution": "hourly; radiation is preceding-hour mean",
+    "coverage": [
+      40.667835,
+      -73.93768
+    ],
+    "licence": "CC BY 4.0; attribution required",
+    "missing": "fail; no synthetic fallback",
+    "processing": "radiation shifted to interval start; piecewise constant 15 min preserves hourly energy; temperature interpolated"
+  }
+}
