@@ -26,7 +26,7 @@ dev = ["pytest>=8.4,<10", "ruff>=0.14,<1"]
 include = ["app*", "core*", "models*", "optimisation*", "controllers*", "economics*", "flexibility*", "visualisation*", "data*", "experiments*"]
 
 [tool.setuptools.package-data]
-app = ["assets/*"]
+app = ["assets/*", "static/city/*", "static/vendor/*"]
 data = ["cache/*.json", "cache/*.csv", "cache/*.geojson"]
 
 [tool.pytest.ini_options]

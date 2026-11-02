@@ -4,7 +4,13 @@ A Python engineering laboratory that connects **real Brooklyn building geometry*
 
 The application calculates its results. It does not use predetermined savings, decorative optimiser outputs or simulated utility telemetry. **This is a research simulator, not a utility control system.**
 
+**[Public GitHub repository](https://github.com/BehnamMohseniGharyehsafa/nyc-virtual-power-plant-control-centre)**
+
 ![Control centre](docs/images/control-centre.png)
+
+[Watch the moving district preview (WebM)](docs/images/district-demo.webm) · [Street-level façade detail](docs/images/street-view.png)
+
+The spatial command centre includes detailed windowed façades, real NYC streets and waterfront geometry, rooftop equipment and PV, street furniture, and 64 vehicles following a stored illustrative Python traffic scenario. Explore district, street-level and plan views, change lighting, inspect buildings, and enable calculated electrical flows. Architectural details are estimated; traffic is illustrative. [Urban visualisation and provenance](docs/urban-visualisation.md).
 
 ## Run locally
 
@@ -15,6 +21,7 @@ python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -e ".[dev]"
 python -m data.download --date 2024-07-17 --buildings 1000
+python -m data.urban
 python -m app.main
 ```
 
@@ -22,7 +29,7 @@ On Linux/macOS, activate with `source .venv/bin/activate`. Open **http://127.0.0
 
 No API key is needed for the bundled NYC, NYISO and Open-Meteo acquisition routes. Internet access is required for installation and acquisition; numerical simulation and footprint visualisation then work offline. Missing inputs cause a visible error, not a synthetic replacement. Cached local snapshots are included for immediate local use; see [data rights and provenance](docs/data.md) before redistributing data separately.
 
-For the exact tested dependency set, install with `python -m pip install -r requirements-validated.txt` before `python -m pip install -e .`. A fresh environment passed all 29 tests and reproduced the 96-step community experiment with no reported physical violations.
+For the exact tested dependency set, install with `python -m pip install -r requirements-validated.txt` before `python -m pip install -e .`. The validated environment passes all 33 tests, including the numerical foundation and urban scene checks, and reproduced the 96-step community experiment with no reported physical violations.
 
 ```powershell
 python -m pytest
@@ -50,7 +57,7 @@ The deliberately infeasible example exits with status 1 and preserves failure di
 | Forecasting | Strictly historical weather persistence/day-lag forecasts; known assumed retail TOU; completed-interval price persistence for wholesale scenarios |
 | Flexibility | Signed events, explicit counterfactual, requested/delivered response, recovery, hypothetical all-interval settlement; multi-period sustained envelopes with binary modes and AC checks |
 | Economics | Distinct retail/wholesale settlement, window demand charge, no-DER and local-control references, lifecycle cash flows, NPV/IRR/MIRR, discounted payback, seeded NPV scenarios, discrete sizing experiments |
-| Interface | Nine workspaces, selectable extruded real footprints, per-building inspection, synchronous stored-state playback, solver and source audit trails |
+| Interface | Nine workspaces, detailed real-footprint buildings with estimated façades/windows, observed streets and waterfront, modelled traffic, district/street/plan cameras, per-building numerical inspection, synchronous stored-state playback |
 
 There are substantive limits. Roof PV suitability, thermal parameters, HVAC technology, EV availability and DER installations are **assumed**, not surveyed. Building use comes from tax-lot land use and is a **derived** building label. Annual benchmarking calibration is not implemented. The retail tariff is **illustrative**, not a quoted Con Edison service classification. No real market eligibility or revenue entitlement is asserted. See [known limitations](docs/limitations.md).
 

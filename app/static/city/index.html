@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brooklyn · spatial control centre</title>
+<link rel="stylesheet" href="/static/city/scene.css">
+<script type="importmap">{"imports":{"three":"/static/vendor/three.module.js","three/addons/controls/OrbitControls.js":"/static/vendor/OrbitControls.js"}}</script>
+</head><body>
+<div id="world" aria-label="Interactive detailed 3D Brooklyn district. Drag to orbit, right-drag to pan, scroll to zoom."></div>
+<div class="loading" id="loading"><span class="loading-mark">↯</span><strong>Building Brooklyn</strong><span id="loading-detail">Loading observed footprints and street geometry…</span><div class="loading-line"><i></i></div></div>
+<div class="scene-heading"><span class="location-dot"></span><div><strong>DUMBO, BROOKLYN</strong><span>40.703° N · 73.989° W</span></div></div>
+<nav class="view-controls" aria-label="Camera and scene controls">
+<button data-view="district" class="active" title="District perspective"><svg viewBox="0 0 20 20"><path d="M3 17V8l5-3v12M8 17V3l5 3v11M13 17V9l4-2v10M1 17h18"/></svg><span>District</span></button>
+<button data-view="street" title="Inspect the selected building from its street"><svg viewBox="0 0 20 20"><path d="M4 18 8 2m4 0 4 16M10 3v3m0 3v3m0 3v3"/></svg><span>Street</span></button>
+<button data-view="top" title="Plan view"><svg viewBox="0 0 20 20"><path d="m10 2 8 5-8 5-8-5 8-5Zm-8 9 8 5 8-5M2 15l8 5 8-5"/></svg><span>Plan</span></button>
+<span class="control-divider"></span>
+<button id="network" title="Toggle the synthetic electrical network and calculated active power flows"><svg viewBox="0 0 20 20"><path d="m11 1-7 10h6l-1 8 7-11h-6Z"/></svg><span>Grid</span></button>
+<button id="traffic" class="active" title="Play or pause the illustrative traffic scenario"><svg viewBox="0 0 20 20"><path d="m3 12 1-6h12l1 6M2 12h16v4H2v-4Zm2 4v2m12-2v2M4 12h12M5 6l1-3h8l1 3"/></svg><span>Traffic</span></button>
+<button id="lighting" title="Toggle daylight and evening visualisation"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="4"/><path d="M10 0v3m0 14v3M0 10h3m14 0h3M3 3l2 2m10 10 2 2M3 17l2-2M15 5l2-2"/></svg><span>Daylight</span></button>
+<button id="record" title="Record a 10-second WebM clip of the moving district"><svg viewBox="0 0 20 20"><rect x="2" y="5" width="11" height="10" rx="2"/><path d="m13 8 5-3v10l-5-3"/></svg></button>
+<button id="fullscreen" title="Expand the district view"><svg viewBox="0 0 20 20"><path d="M2 7V2h5m6 0h5v5M2 13v5h5m6 0h5v-5"/></svg></button>
+</nav>
+<div class="selection" id="selection" hidden><span class="selection-kicker">SELECTED BUILDING</span><strong id="selected-address"></strong><span id="selected-use"></span><div id="selected-values"></div><button id="focus-building">Inspect at street level <span>↗</span></button></div>
+<div class="hover" id="hover" hidden></div>
+<div class="scene-bottom"><div class="mini-map"><canvas id="minimap" width="280" height="200" aria-label="District orientation map"></canvas><span><b>N ↑</b> District orientation</span></div><div class="navigation-hint"><span>↔ Drag to orbit</span><span>⌘ Right-drag to pan</span><span>⊕ Scroll to explore</span></div></div>
+<div class="scene-attribution"><span id="scene-time">Historical simulation</span><button id="provenance-toggle" aria-expanded="false">Map & model sources ⓘ</button></div>
+<aside class="provenance" id="provenance" hidden><strong>A real place. An explicit model.</strong><p>Building footprints, roof heights and street centre-lines: NYC Open Data. Window positions, materials, roof equipment, street furniture and bridge elevations are estimated architectural dressing, not surveyed details.</p><p>Moving vehicles follow an executed illustrative Python traffic scenario on the observed streets. They are not live traffic or the VPP's EV charging fleet.</p><p>The grid overlay shows hypothetical connections and calculated active power from the selected energy simulation.</p><span>Three.js · MIT / NYC OTI street & building data</span></aside>
+<script type="module" src="/static/city/world.js"></script>
+</body></html>

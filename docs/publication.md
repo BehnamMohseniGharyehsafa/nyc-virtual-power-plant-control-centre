@@ -1,19 +1,19 @@
-# Local repository and GitHub publication
+# Public GitHub repository
 
-The source tree is prepared locally with tests, documentation, citation, MIT software licence and CI. **No remote repository has been created or verified by this task.** The connected GitHub tool can inspect the authenticated account and existing repositories, but does not expose repository creation; the GitHub CLI was not installed. Do not interpret a connected account as a published project.
+The project is published publicly at:
 
-After reviewing the completed scope and dataset terms, install/authenticate GitHub CLI if needed and run from this project directory:
+https://github.com/BehnamMohseniGharyehsafa/nyc-virtual-power-plant-control-centre
+
+The repository was created using the existing Git Credential Manager sign-in, with the authenticated account verified before creation. No credential is stored in source files, command arguments or remote URLs. The numerical and UI source, reproducibility metadata, constrained dependencies and MIT software licence are included. Source datasets and Three.js retain their own terms and attribution.
+
+To update the public main branch from this checkout after reviewing and testing changes:
 
 ```powershell
-git init
 git add .
-git commit -m "Add NYC VPP numerical simulator and control centre"
-gh auth login
-gh repo create nyc-virtual-power-plant-control-centre --public --source . --remote origin --push --description "An open source Python laboratory for network-constrained coordination of urban DERs, predictive control and independent AC verification."
-gh repo view --web
-git ls-remote --heads origin
+git commit -m "Describe the tested change"
+git push origin HEAD:main
 ```
 
-If a local commit already exists, omit `git init`/`git commit`. Use a private repository instead of `--public` if preferred. The intended branch uses the `codex/` prefix. Run `python -m pytest` before publication and use `python -m data.download` to reacquire public inputs. Result folders, raw acquisition chunks, virtual environments and credentials are ignored.
+The local working branch uses the `codex/` prefix. Verify a published commit with `git ls-remote --heads origin`. The publication helper `python -m experiments.publish_github --push` can also verify the public visibility and remote commit using an existing authorised sign-in.
 
-The included processed source snapshots retain source rights and attribution, separate from MIT software licensing. Review NYISO/source terms for your intended redistribution; remove those cached datasets from the publishable tree and retain acquisition scripts if necessary. There are no credentials or API keys in this project.
+Virtual environments, numerical result folders, raw acquisition chunks and credentials are excluded from Git. Software licensing does not relicense third-party source data. See `data.md` and `urban-visualisation.md` for source attribution and explicit model assumptions.

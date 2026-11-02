@@ -19,7 +19,6 @@ from visualisation.figures import (
     COLOURS as C,
     style,
     timeline,
-    district_3d,
     network_graph,
     voltage_plot,
 )
@@ -165,278 +164,19 @@ def page_heading(kicker, title, description, extra=None):
 
 
 def command(run, t, asset, layer):
-    d = run.series
-    r = d.iloc[t]
-    p = run.portfolio
-    ac = run.network[t]
-    status = "AC constraints satisfied" if ac["feasible"] else "AC constraint violation"
-    props = p.features[asset]["properties"]
-    soc = run.assets["energy"][t, asset] / max(p.battery_kwh[asset], 1e-9) * 100
-    charts = timeline(
+    from app.command_view import command_view
+
+    return command_view(
         run,
-        [
-            ("demand_kw", "Demand", C["navy"]),
-            ("pv_kw", "Solar PV", C["green"]),
-            ("grid_kw", "Grid exchange", C["cyan"]),
-        ],
         t,
-        250,
+        asset,
+        layer,
+        panel=panel,
+        graph=graph,
+        metric=metric,
+        badge=badge,
+        page_heading=page_heading,
     )
-    flow = go.Figure(
-        go.Bar(
-            x=[
-                "Solar PV",
-                "Grid import",
-                "Battery discharge",
-                "HVAC",
-                "EV charging",
-                "Battery charge",
-            ],
-            y=[
-                r.pv_kw,
-                max(r.grid_kw, 0),
-                r.discharge_kw,
-                r.hvac_kw,
-                r.ev_kw,
-                r.charge_kw,
-            ],
-            marker_color=[
-                C["green"],
-                C["cyan"],
-                C["violet"],
-                C["orange"],
-                C["navy"],
-                C["violet"],
-            ],
-        )
-    )
-    style(flow, 250)
-    flow.update_yaxes(title="Active power (kW)")
-    return [
-        page_heading(
-            "OPERATIONS / LIVE SIMULATION REPLAY",
-            "District overview",
-            "Distributed energy, coordinated. Explore the physical response of a real Brooklyn district.",
-            html.Div(
-                [
-                    badge("● " + status, "green" if ac["feasible"] else "red"),
-                    html.Div(
-                        pd.Timestamp(r.timestamp_utc)
-                        .tz_convert("America/New_York")
-                        .strftime("%Y-%m-%d · %H:%M %Z"),
-                        className="timestamp",
-                    ),
-                ],
-                className="heading-status",
-            ),
-        ),
-        html.Div(
-            [
-                metric(
-                    "Grid exchange",
-                    f"{r.grid_kw:,.1f}",
-                    "kW",
-                    "Import positive · AC verified",
-                ),
-                metric(
-                    "Solar generation",
-                    f"{r.pv_kw:,.1f}",
-                    "kW",
-                    f"{p.pv_kw.sum():,.0f} kWp assumed capacity",
-                    "green",
-                ),
-                metric(
-                    "Battery state of charge",
-                    f"{r.soc_pct:.1f}",
-                    "%",
-                    f"{r.discharge_kw:.1f} kW out · {r.charge_kw:.1f} kW in",
-                    "violet",
-                ),
-                metric(
-                    "Operating expenditure",
-                    f"${run.accounting.get('total_usd', 0):,.0f}",
-                    "",
-                    f"{len(d) * 0.25:g} simulated hours · {run.config.market}",
-                    "orange",
-                ),
-            ],
-            className="metrics four",
-        ),
-        html.Div(
-            [
-                panel(
-                    "Brooklyn digital district",
-                    [
-                        html.Div(
-                            [
-                                badge("NYC OBSERVED FOOTPRINTS", "blue"),
-                                html.Span(
-                                    "DUMBO / DOWNTOWN BROOKLYN",
-                                    className="map-location",
-                                ),
-                            ],
-                            className="map-topline",
-                        ),
-                        graph(district_3d(run, t, asset, layer), "district-map"),
-                        html.Div(
-                            [
-                                html.Span("● Solar PV", className="legend green"),
-                                html.Span(
-                                    "● Battery dispatch", className="legend violet"
-                                ),
-                                html.Span("● Demand", className="legend orange"),
-                                html.Span(
-                                    "━ Synthetic feeder", className="legend cyan"
-                                ),
-                                html.Span(
-                                    "Drag to orbit · scroll to zoom · select a building",
-                                    className="map-help",
-                                ),
-                            ],
-                            className="map-legend",
-                        ),
-                    ],
-                    "Actual geometry. Hypothetical DER installations and electrical connections.",
-                    extra=badge(f"{p.n} buildings", "grey"),
-                    className="map-panel",
-                ),
-                html.Div(
-                    [
-                        panel(
-                            "Selected building",
-                            [
-                                html.Div(
-                                    "BUILDING " + props["bin"], className="eyebrow"
-                                ),
-                                html.H2(props["address"], className="asset-address"),
-                                html.P(props["use"], className="muted"),
-                                html.Div(
-                                    [
-                                        html.Span("Floor area"),
-                                        html.Strong(f"{p.area[asset]:,.0f} m²"),
-                                    ],
-                                    className="property-row",
-                                ),
-                                html.Div(
-                                    [
-                                        html.Span("Roof height"),
-                                        html.Strong(f"{props['height_m']:.1f} m"),
-                                    ],
-                                    className="property-row",
-                                ),
-                                html.Div(
-                                    [
-                                        html.Span("PV potential"),
-                                        html.Strong(f"{p.pv_kw[asset]:.1f} kWp"),
-                                    ],
-                                    className="property-row",
-                                ),
-                                html.Div(
-                                    [
-                                        html.Span("Battery energy"),
-                                        html.Strong(f"{p.battery_kwh[asset]:.1f} kWh"),
-                                    ],
-                                    className="property-row",
-                                ),
-                                html.Div(
-                                    [
-                                        html.Span("Battery SOC"),
-                                        html.Strong(f"{soc:.1f}%"),
-                                    ],
-                                    className="property-row",
-                                ),
-                                html.Div(
-                                    html.Div(
-                                        style={"width": f"{np.clip(soc, 0, 100)}%"}
-                                    ),
-                                    className="soc-track",
-                                ),
-                                html.Div(
-                                    [
-                                        html.Span("Indoor temperature"),
-                                        html.Strong(
-                                            f"{run.assets['temperature'][t, asset]:.2f} °C"
-                                        ),
-                                    ],
-                                    className="property-row",
-                                ),
-                                html.Div(
-                                    [
-                                        badge("Geometry: observed", "grey"),
-                                        badge("DER: assumed", "grey"),
-                                    ],
-                                    className="tag-row",
-                                ),
-                            ],
-                        ),
-                        panel(
-                            "Network health",
-                            [
-                                html.Div(
-                                    [
-                                        html.Span("Minimum bus voltage"),
-                                        html.Strong(f"{r.min_voltage_pu:.4f} pu"),
-                                    ],
-                                    className="property-row",
-                                ),
-                                html.Div(
-                                    [
-                                        html.Span("Transformer loading"),
-                                        html.Strong(f"{r.max_trafo_pct:.1f}%"),
-                                    ],
-                                    className="property-row",
-                                ),
-                                html.Div(
-                                    [
-                                        html.Span("Network losses"),
-                                        html.Strong(f"{r.loss_kw:.2f} kW"),
-                                    ],
-                                    className="property-row",
-                                ),
-                                html.Div(
-                                    [
-                                        html.Span("Constraint flags"),
-                                        html.Strong(
-                                            str(int(r.violations)),
-                                            className="danger"
-                                            if r.violations
-                                            else "success",
-                                        ),
-                                    ],
-                                    className="property-row",
-                                ),
-                            ],
-                        ),
-                    ],
-                    className="right-stack",
-                ),
-            ],
-            className="district-layout",
-        ),
-        html.Div(
-            [
-                panel(
-                    "Power balance",
-                    graph(charts),
-                    "Executed demand, renewable output and PCC exchange",
-                    extra=badge("15 MIN INTERVALS", "grey"),
-                ),
-                panel(
-                    "Resource dispatch",
-                    graph(flow),
-                    f"Calculated device powers at {r.timestamp_local[11:16]} New York time",
-                ),
-            ],
-            className="two-col",
-        ),
-        html.Div(
-            [
-                html.Span("↳ MODEL TRANSPARENCY"),
-                f" Building geometry is observed; demand schedules and DER installations are assumed. The feeder is synthetic. Weather: {run.metadata.get('weather_mode', 'historical reanalysis')}. Retail rates are illustrative.",
-            ],
-            className="transparency",
-        ),
-    ]
 
 
 def asset_page(run, t, asset):
@@ -1342,6 +1082,7 @@ def create_app(auto_run=True):
             dcc.Location(id="url"),
             dcc.Store(id="job-id", data=job),
             dcc.Store(id="run-id", data=initial),
+            dcc.Store(id="city-state"),
             dcc.Interval(id="job-poll", interval=1200),
             dcc.Interval(id="play-tick", interval=1000, disabled=True),
             html.Aside(
@@ -1416,7 +1157,7 @@ def create_app(auto_run=True):
                             ),
                             html.Div(
                                 [
-                                    badge("PYTHON ENGINEERING MODELS", "blue"),
+                                    badge("RESEARCH ENVIRONMENT", "blue"),
                                     html.Span("NY", className="avatar"),
                                 ],
                                 className="header-right",
@@ -2158,17 +1899,6 @@ def create_app(auto_run=True):
         )
 
     @app.callback(
-        Output("asset", "value", allow_duplicate=True),
-        Input("district-map", "clickData"),
-        prevent_initial_call=True,
-    )
-    def select_building(click):
-        if not click:
-            return no_update
-        value = click["points"][0].get("customdata")
-        return int(value) if value is not None else no_update
-
-    @app.callback(
         Output("play-tick", "disabled"),
         Output("play", "children"),
         Input("play", "n_clicks"),
@@ -2449,6 +2179,55 @@ def create_app(auto_run=True):
             download_name=f"nyc-vpp-{run.id[:8]}.zip",
         )
 
+    from dash import ClientsideFunction
+    from app.city_api import register_city
+
+    register_city(app, jobs)
+    app.clientside_callback(
+        ClientsideFunction(namespace="vppCity", function_name="sync"),
+        Output("city-state", "data"),
+        Input("run-id", "data"),
+        Input("timeline", "value"),
+        Input("asset", "value"),
+        Input("layer", "value"),
+    )
+    workspace = app.layout.children[-1].children[-1]
+    selectors = next(
+        c for c in workspace.children if getattr(c, "className", None) == "controls-row"
+    )
+    settings = next(
+        c for c in workspace.children if getattr(c, "className", None) == "settings"
+    )
+    configuration = html.Details(
+        [
+            html.Summary(
+                [
+                    html.Span("⚙", className="configuration-icon"),
+                    "Scenario configuration",
+                    html.Span(
+                        "Portfolio · controller · financial assumptions",
+                        className="configuration-caption",
+                    ),
+                ]
+            ),
+            selectors,
+            settings,
+        ],
+        className="configuration-drawer",
+    )
+    workspace.children = [
+        configuration if c is selectors else c
+        for c in workspace.children
+        if c is not settings
+    ]
+    sidebar = app.layout.children[-2]
+    for path, label, number in NAV:
+        for component in sidebar.children:
+            if isinstance(component, html.Nav):
+                for link in component.children:
+                    if link.id == "nav-" + number:
+                        link.title = label
+                        setattr(link, "aria-label", label)
     app.vpp_jobs = jobs
     return app
 

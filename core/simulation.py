@@ -443,7 +443,7 @@ def simulate(
     metadata["input_hashes"] = {
         f.name: hashlib.sha256(f.read_bytes()).hexdigest()
         for f in (root / "data" / "cache").iterdir()
-        if f.suffix in (".csv", ".geojson")
+        if f.suffix == ".csv" or f.name == "buildings.geojson"
     }
     metadata["model_sha256"] = hashlib.sha256(
         b"".join(

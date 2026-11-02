@@ -82,5 +82,58 @@
     "licence": "CC BY 4.0; attribution required",
     "missing": "fail; no synthetic fallback",
     "processing": "radiation shifted to interval start; piecewise constant 15 min preserves hourly energy; temperature interpolated"
+  },
+  "streets": {
+    "url": "https://data.cityofnewyork.us/resource/inkn-q76z.json",
+    "institution": "NYC Office of Technology and Innovation",
+    "downloaded_utc": "2026-11-02T21:44:52.364776+00:00",
+    "sha256": "ca398487f49f52ea506b6491f3714ddc160ce83ddad28c2516ddb4a85cd8c9ae",
+    "dataset": "NYC OTI Citywide Street Centerline (CSCL)",
+    "bounds": [
+      -74.002,
+      40.695,
+      -73.979,
+      40.709
+    ],
+    "count": 1059,
+    "units": "WGS84; source width feet; converted width metres; source speed mph",
+    "resolution": "individual street segments",
+    "processing": "spatial intersection; source traffic direction retained; width feet to metres; missing width flagged",
+    "missing": "unknown width explicitly assumed; no fabricated centre-line geometry",
+    "licence": "NYC Open Data terms of use"
+  },
+  "shoreline": {
+    "url": "https://data.cityofnewyork.us/resource/59xk-wagz.json",
+    "institution": "NYC OTI",
+    "downloaded_utc": "2026-11-02T21:43:33.294750+00:00",
+    "sha256": "fb1bfb32db9480c57f1abfce865559ff1d383f4f5cd41bdf3816396490c68792",
+    "dataset": "NYC Planimetric Shoreline",
+    "units": "WGS84 geometry",
+    "bounds": [
+      -74.002,
+      40.695,
+      -73.979,
+      40.709
+    ],
+    "processing": "spatial query; no imputed shoreline",
+    "missing": "fail explicitly",
+    "licence": "NYC Open Data terms of use"
+  },
+  "hydrography": {
+    "url": "https://data.cityofnewyork.us/resource/pjs3-c3z5.json",
+    "institution": "NYC OTI",
+    "downloaded_utc": "2026-11-02T21:55:26.596667+00:00",
+    "sha256": "cb60e60bca4fc0171372556216851a97541368a4af576844d22c2dfe6435987f",
+    "dataset": "NYC Planimetric Hydrography",
+    "units": "WGS84 polygon geometry",
+    "bounds": [
+      -74.002,
+      40.695,
+      -73.979,
+      40.709
+    ],
+    "processing": "clip observed water polygons to study boundary",
+    "missing": "reject absent geometry",
+    "licence": "NYC Open Data terms of use"
   }
 }
