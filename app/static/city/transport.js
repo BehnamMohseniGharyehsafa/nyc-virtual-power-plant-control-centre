@@ -129,8 +129,16 @@ export function buildBridges(scene,bridges,night){
       }
       // Solid anchorages are on the sides of the suspended spans; there are no
       // arbitrary piers under the navigable main channel.
-      const ah=deck(sign*anchor)+5;
-      beam(point(sign*anchor,0),point(sign*anchor,ah),b.width+7,20,b.id==='brooklyn'?stone:concrete);
+      const ay=deck(sign*anchor);
+      if(b.id==='brooklyn'){
+        // A genuine passage through the masonry keeps the road and raised
+        // promenade clear, rather than burying them inside an opaque box.
+        const shape=new THREE.Shape();shape.moveTo(-17,0);shape.lineTo(17,0);shape.lineTo(17,ay+8);shape.lineTo(-17,ay+8);shape.closePath();
+        const opening=new THREE.Path();opening.moveTo(-13.5,Math.max(0,ay-1));opening.lineTo(-13.5,ay+4.7);
+        opening.quadraticCurveTo(0,ay+8,13.5,ay+4.7);opening.lineTo(13.5,Math.max(0,ay-1));opening.closePath();shape.holes.push(opening);
+        const geometry=new THREE.ExtrudeGeometry(shape,{depth:20,bevelEnabled:false,curveSegments:10});geometry.translate(0,0,-10);
+        const anchorage=mesh(geometry,stone);anchorage.position.copy(point(sign*anchor,0));anchorage.rotation.y=Math.atan2(axis.x,axis.y);
+      }else for(const t of [-18,18])beam(point(sign*anchor,0,t),point(sign*anchor,ay+8,t),7,20,concrete);
     }
     const cableOffsets=b.id==='brooklyn'?[-12,-4.5,4.5,12]:[-17,-13.8,13.8,17];
     const cableY=s=>{
