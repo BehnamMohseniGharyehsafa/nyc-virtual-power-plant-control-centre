@@ -1,0 +1,2 @@
+# Numerical snapshots are checksummed as bytes, across Windows and Linux.
+data/demo/community/* -text
