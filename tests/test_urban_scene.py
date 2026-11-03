@@ -71,6 +71,7 @@ def test_offline_renderer_and_compressed_traffic_endpoint():
     response = client.get("/api/city-traffic")
     assert response.status_code == 200
     assert response.headers["Content-Encoding"] == "gzip"
+    assert response.headers["Cache-Control"] == "private, no-cache"
     payload = json.loads(gzip.decompress(response.data))
     assert len(payload["cars"]) == 64 and payload["frames"] == 960
     assert client.get("/api/city/not-a-run").status_code == 404

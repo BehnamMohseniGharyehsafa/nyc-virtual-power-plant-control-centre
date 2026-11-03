@@ -4,19 +4,21 @@ The numerical energy engine remains Python. The browser interpolates these
 Python-generated traffic states and renders estimated architectural details.
 """
 
-from functools import lru_cache
 import json
 import math
+from functools import lru_cache
+
 import numpy as np
 from pyproj import Transformer
-from shapely.geometry import shape, box, Point
-from shapely.ops import unary_union, polygonize
 from shapely import transform
+from shapely.geometry import Point, box, shape
 from shapely.geometry.polygon import orient
+from shapely.ops import polygonize, unary_union
 from shapely.strtree import STRtree
+
 from data.download import CACHE
-from data.urban import SCENE_BOUNDS
 from data.inputs import district
+from data.urban import SCENE_BOUNDS
 
 PROJECTION = Transformer.from_crs(4326, 32618, always_xy=True)
 ORIGIN = np.array(PROJECTION.transform(-73.989, 40.703))
@@ -100,50 +102,6 @@ def fabric(count=320):
     path = CACHE / "streets.geojson"
     if not path.exists():
         raise FileNotFoundError("Acquire real street geometry: python -m data.urban")
-    road_source = json.loads(path.read_text(encoding="utf-8"))["features"]
-    roads = []
-    seen = set()
-    for f in road_source:
-        p = f["properties"]
-        if p["road_type"] == "14" or p["id"] in seen:
-            continue  # ferry routes are not roads
-        seen.add(p["id"])
-        geom = project(shape(f["geometry"]))
-        lines = list(geom.geoms) if geom.geom_type == "MultiLineString" else [geom]
-        for k, line in enumerate(lines):
-            if line.distance(Point(0, 0)) > 850 or line.length < 6:
-                continue
-            coords = [
-                [round(x, 3), round(-y, 3)] for x, y in line.simplify(0.25).coords
-            ]
-            name = p["name"].upper()
-            bridge = p["road_type"] == "3" and (
-                "BRG" in name or "BRIDGE" in name or "EXPY" in name
-            )
-            highway = p["road_type"] in ("2", "9")
-            # Bridge/deck elevations are dressing assumptions, not measured elevations.
-            elevation = (
-                24
-                if bridge and "MANHATTAN" in name
-                else 18
-                if bridge
-                else 8
-                if highway
-                else 0
-            )
-            roads.append(
-                dict(
-                    id=p["id"] + f"-{k}",
-                    name=p["name"],
-                    points=coords,
-                    width=p["width_m"],
-                    direction=p["direction"],
-                    kind=p["road_type"],
-                    speed_mph=p["speed_mph"],
-                    elevation=elevation,
-                    walk=p["direction"] == "NV" or p["road_type"] in ("6", "7"),
-                )
-            )
     # Derive water/land subdivision from the actual clipped NYC shoreline.
     west, south, east, north = SCENE_BOUNDS
     bounds = project(box(west, south, east, north))
@@ -151,7 +109,9 @@ def fabric(count=320):
     hydropath = CACHE / "hydrography.geojson"
     if hydropath.exists():
         for f in json.loads(hydropath.read_text())["features"]:
-            geometry = project(shape(f["geometry"]))
+            geometry = project(shape(f["geometry"])).simplify(
+                1.0, preserve_topology=True
+            )
             for poly in (
                 geometry.geoms if geometry.geom_type == "MultiPolygon" else [geometry]
             ):
@@ -169,16 +129,44 @@ def fabric(count=320):
         for poly in pieces:
             if poly.area > 15000 and not any(poly.covers(c) for c in centres):
                 water.append(rings(poly))
+    from visualisation.transport import transport
+
+    road_source = json.loads(path.read_text(encoding="utf-8"))["features"]
+    roads, bridges, street_surfaces = transport(
+        road_source, water, lambda g: project(shape(g))
+    )
+    # Distant envelopes make the opposite-bank landings legible without adding
+    # thousands of close-up windows, rooftop props or hypothetical energy assets.
+    context = []
+    existing = {b["bin"] for b in buildings}
+    context_path = CACHE / "context_buildings.geojson"
+    if context_path.exists():
+        for f in json.loads(context_path.read_text(encoding="utf-8"))["features"]:
+            p = f["properties"]
+            if p["bin"] in existing:
+                continue
+            geom = project(shape(f["geometry"])).simplify(0.35, preserve_topology=True)
+            if geom.area < 65:
+                continue
+            parts = [
+                rings(poly)
+                for poly in (geom.geoms if geom.geom_type == "MultiPolygon" else [geom])
+            ]
+            context.append(dict(bin=p["bin"], height=p["height_m"], parts=parts))
     return dict(
         buildings=buildings,
         roads=roads,
+        bridges=bridges,
+        street_surfaces=street_surfaces,
+        context_buildings=context,
         water=water,
         provenance=dict(
             buildings="Observed NYC OTI footprints and source roof heights; missing heights remain flagged",
             roads="Observed NYC CSCL geometry, names, widths/directions where available",
             architecture="Estimated façade/window/cornice/roof details; not a photogrammetric reconstruction",
             traffic="Illustrative Python kinematic scenario on observed streets; not live or observed traffic",
-            shoreline="Land/water subdivision derived from observed NYC planimetric shoreline; bridge heights estimated",
+            shoreline="Observed NYC planimetric water includes both East River banks",
+            bridges="CSCL alignment; NYC DOT published main spans; estimated tower stations, heights, approaches and architectural details",
         ),
     )
 
@@ -195,11 +183,7 @@ def traffic_model():
     outgoing = {}
     node = lambda p: (round(p[0] / 3), round(p[1] / 3))
     for road in roads:
-        if (
-            road["walk"]
-            or road["kind"] not in ("1", "10", "12", "13")
-            or road["elevation"]
-        ):
+        if road["walk"] or road["kind"] not in ("1", "10", "13") or road["elevation"]:
             continue
         points = np.array(road["points"], float)
         if np.linalg.norm(points.mean(axis=0)) > 520:

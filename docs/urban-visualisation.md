@@ -60,3 +60,6 @@ python -m app.main
 ```
 
 Three.js 0.180.0 and its selected utilities are bundled from the official npm package with its MIT licence in `app/static/vendor/THREE-LICENSE.txt`. New scene data are visual inputs and are excluded from numerical weather/price/building input hashes. No numerical controller or DER balance is replaced by a visual estimate.
+
+
+See [bridge and street continuity validation](bridge-street-validation.md) for the complete crossings, joined junctions, primary sources and browser evidence.
