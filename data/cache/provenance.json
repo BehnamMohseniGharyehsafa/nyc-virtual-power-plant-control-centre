@@ -86,19 +86,19 @@
   "streets": {
     "url": "https://data.cityofnewyork.us/resource/inkn-q76z.json",
     "institution": "NYC Office of Technology and Innovation",
-    "downloaded_utc": "2026-11-02T21:44:52.364776+00:00",
-    "sha256": "ca398487f49f52ea506b6491f3714ddc160ce83ddad28c2516ddb4a85cd8c9ae",
+    "downloaded_utc": "2026-11-03T14:07:14.183422+00:00",
+    "sha256": "9506a74135e7500d9376b83d0de5e7537b550b1c6a395c627a6d26c0cc8d1c79",
     "dataset": "NYC OTI Citywide Street Centerline (CSCL)",
     "bounds": [
-      -74.002,
+      -74.012,
       40.695,
       -73.979,
-      40.709
+      40.719
     ],
-    "count": 1059,
+    "count": 2483,
     "units": "WGS84; source width feet; converted width metres; source speed mph",
     "resolution": "individual street segments",
-    "processing": "spatial intersection; source traffic direction retained; width feet to metres; missing width flagged",
+    "processing": "spatial selection, complete source segments retained; object IDs preserve separate carriageways; source grade codes and directions retained; width feet to metres",
     "missing": "unknown width explicitly assumed; no fabricated centre-line geometry",
     "licence": "NYC Open Data terms of use"
   },
@@ -122,18 +122,40 @@
   "hydrography": {
     "url": "https://data.cityofnewyork.us/resource/pjs3-c3z5.json",
     "institution": "NYC OTI",
-    "downloaded_utc": "2026-11-02T21:55:26.596667+00:00",
-    "sha256": "cb60e60bca4fc0171372556216851a97541368a4af576844d22c2dfe6435987f",
+    "downloaded_utc": "2026-11-03T14:29:45.346735+00:00",
+    "sha256": "ac7ae67785dca39b4ebb5afd0afa7dba791f90c395109cf2bf597276ad5c327e",
     "dataset": "NYC Planimetric Hydrography",
     "units": "WGS84 polygon geometry",
     "bounds": [
-      -74.002,
+      -74.012,
       40.695,
       -73.979,
-      40.709
+      40.719
     ],
-    "processing": "clip observed water polygons to study boundary",
+    "query_bounds": [
+      -74.032,
+      40.675,
+      -73.959,
+      40.739000000000004
+    ],
+    "processing": "select complete observed water bodies intersecting visual context; no rectangular river clipping",
     "missing": "reject absent geometry",
+    "licence": "NYC Open Data terms of use"
+  },
+  "context_buildings": {
+    "url": "https://data.cityofnewyork.us/resource/5zhs-2jue.json",
+    "institution": "NYC Open Data",
+    "downloaded_utc": "2026-11-03T14:07:27.568144+00:00",
+    "sha256": "337b256231fbadfb2a839675eab26030f23d1e39435b49346fbebb989b3b82d2",
+    "dataset": "NYC OTI Building Footprints",
+    "bounds": [
+      -74.012,
+      40.695,
+      -73.979,
+      40.719
+    ],
+    "count": 3710,
+    "processing": "visual context only; observed footprints and roof heights converted feet to metres; missing heights explicitly assumed",
     "licence": "NYC Open Data terms of use"
   }
 }

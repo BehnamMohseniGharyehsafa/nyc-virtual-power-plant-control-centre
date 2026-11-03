@@ -23,7 +23,7 @@ def register_city(app, jobs):
             mimetype="application/json",
             headers={
                 "Content-Encoding": "gzip",
-                "Cache-Control": "private, max-age=3600",
+                "Cache-Control": "private, no-cache",
             },
         )
 

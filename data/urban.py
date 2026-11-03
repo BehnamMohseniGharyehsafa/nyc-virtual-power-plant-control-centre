@@ -5,16 +5,20 @@ Facade/window/roof dressing and the traffic scenario remain explicitly estimated
 """
 
 import argparse
+import io
 import json
-import tarfile
 import posixpath
 import re
-import io
+import tarfile
 from pathlib import Path
-from shapely.geometry import shape, mapping, box
+
+from shapely.geometry import mapping, shape
+
 from data.download import CACHE, fetch, record
 
-SCENE_BOUNDS = (-74.002, 40.695, -73.979, 40.709)
+# Visual context includes BOTH East River banks and the inland bridge landings.
+# This is deliberately independent of the numerical portfolio's study bounds.
+SCENE_BOUNDS = (-74.012, 40.695, -73.979, 40.719)
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -31,7 +35,9 @@ def streets():
     for row in response.json():
         if not row.get("the_geom"):
             continue
-        geom = shape(row["the_geom"]).intersection(box(*SCENE_BOUNDS))
+        # Keep complete source segments: clipping through a crossing leaves a
+        # suspended road ending in mid-air at an arbitrary map boundary.
+        geom = shape(row["the_geom"])
         if geom.is_empty or geom.geom_type not in ("MultiLineString", "LineString"):
             continue
         source_width = float(row.get("streetwidth", 0) or 0)
@@ -41,7 +47,8 @@ def streets():
                 type="Feature",
                 geometry=mapping(geom),
                 properties=dict(
-                    id=str(row.get("physicalid", row.get("objectid"))),
+                    id=str(row["objectid"]),
+                    physical_id=str(row.get("physicalid", "")),
                     name=row.get("full_street_name")
                     or row.get("street_name")
                     or "Unnamed segment",
@@ -53,6 +60,7 @@ def streets():
                     road_type=row.get("rw_type"),
                     speed_mph=float(row.get("posted_speed", 20) or 20),
                     lanes=float(row.get("number_travel_lanes", 0) or 0),
+                    display_level=row.get("carto_display_level"),
                     from_level=row.get("from_level_code"),
                     to_level=row.get("to_level_code"),
                     geometry_provenance="observed NYC CSCL",
@@ -74,11 +82,60 @@ def streets():
         count=len(features),
         units="WGS84; source width feet; converted width metres; source speed mph",
         resolution="individual street segments",
-        processing="spatial intersection; source traffic direction retained; width feet to metres; missing width flagged",
+        processing="spatial selection, complete source segments retained; object IDs preserve separate carriageways; source grade codes and directions retained; width feet to metres",
         missing="unknown width explicitly assumed; no fabricated centre-line geometry",
         licence="NYC Open Data terms of use",
     )
     print(f"Observed street segments: {len(features)}", flush=True)
+
+
+def context_buildings():
+    """Separate, inexpensive city context; never added to the energy portfolio."""
+    west, south, east, north = SCENE_BOUNDS
+    url = "https://data.cityofnewyork.us/resource/5zhs-2jue.json"
+    response = fetch(
+        url,
+        {
+            "$where": f"within_box(the_geom,{north},{west},{south},{east})",
+            "$limit": 5000,
+            "$order": "bin",
+        },
+    )
+    fs = []
+    for row in response.json():
+        if not row.get("the_geom"):
+            continue
+        geom = shape(row["the_geom"])
+        if not geom.is_valid or geom.is_empty:
+            continue
+        height = float(row.get("height_roof", 0) or 0) * 0.3048
+        fs.append(
+            dict(
+                type="Feature",
+                geometry=mapping(geom),
+                properties=dict(
+                    bin=str(row["bin"]),
+                    height_m=height if height > 2 else 12,
+                    height_provenance="observed" if height > 2 else "assumed 12 m",
+                ),
+            )
+        )
+    if len(fs) < 100:
+        raise ValueError("Insufficient observed bridge landing context")
+    (CACHE / "context_buildings.geojson").write_text(
+        json.dumps(dict(type="FeatureCollection", features=fs)), encoding="utf-8"
+    )
+    record(
+        "context_buildings",
+        url,
+        response.content,
+        dataset="NYC OTI Building Footprints",
+        bounds=SCENE_BOUNDS,
+        count=len(fs),
+        processing="visual context only; observed footprints and roof heights converted feet to metres; missing heights explicitly assumed",
+        licence="NYC Open Data terms of use",
+    )
+    print(f"Observed context buildings: {len(fs)}", flush=True)
 
 
 def shoreline():
@@ -199,6 +256,9 @@ def vendor():
 
 def hydrography():
     west, south, east, north = SCENE_BOUNDS
+    # Neighbouring named water bodies meet at artificial administrative edges.
+    # Include them too, so the East River continues naturally into the harbour.
+    west, south, east, north = west - 0.02, south - 0.02, east + 0.02, north + 0.02
     polygon = f"POLYGON(({west} {south},{east} {south},{east} {north},{west} {north},{west} {south}))"
     url = "https://data.cityofnewyork.us/resource/pjs3-c3z5.json"
     response = fetch(
@@ -206,7 +266,9 @@ def hydrography():
     )
     fs = []
     for r in response.json():
-        geom = shape(r["the_geom"]).intersection(box(*SCENE_BOUNDS))
+        # Full water bodies keep an artificial rectangular map edge out of the
+        # river when the user zooms out to see both complete crossings.
+        geom = shape(r["the_geom"])
         if geom.is_empty:
             continue
         fs.append(
@@ -229,7 +291,8 @@ def hydrography():
         institution="NYC OTI",
         units="WGS84 polygon geometry",
         bounds=SCENE_BOUNDS,
-        processing="clip observed water polygons to study boundary",
+        query_bounds=(west, south, east, north),
+        processing="select complete observed water bodies intersecting visual context; no rectangular river clipping",
         missing="reject absent geometry",
         licence="NYC Open Data terms of use",
     )
@@ -244,4 +307,5 @@ if __name__ == "__main__":
         streets()
         shoreline()
         hydrography()
+        context_buildings()
     vendor()

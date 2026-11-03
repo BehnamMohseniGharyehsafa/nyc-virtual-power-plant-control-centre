@@ -55,7 +55,7 @@ export function createRendering(renderer,scene,camera,host){
   sun.shadow.bias=-.00008;sun.shadow.normalBias=.065;sun.shadow.camera.near=.5;sun.shadow.camera.far=3600;
   scene.add(sun,sun.target);
   const hemi=new THREE.HemisphereLight(0xc7ddf0,0x81735f,1.3);scene.add(hemi);
-  scene.fog=new THREE.FogExp2(0xd4e2ec,.00015);
+  scene.fog=new THREE.FogExp2(0xd4e2ec,.00008);
   // Reflections use the same analytic sky as the visible background.
   const reflectionScene=new THREE.Scene(),reflectionSky=new Sky();reflectionSky.scale.setScalar(10000);reflectionScene.add(reflectionSky);
   const reflectionGround=new THREE.Mesh(new THREE.CircleGeometry(12000,32),new THREE.MeshBasicMaterial({color:0x6f7263}));
@@ -74,7 +74,7 @@ export function createRendering(renderer,scene,camera,host){
     }
     sun.color.copy(current.sunColor);sun.intensity=current.sun;
     hemi.color.copy(current.skyColor);hemi.groundColor.copy(current.groundColor);hemi.intensity=current.hemi;
-    scene.fog.color.copy(current.fog);scene.fog.density=.00015+current.night*.00013;
+    scene.fog.color.copy(current.fog);scene.fog.density=.00008+current.night*.00013;
     renderer.toneMappingExposure=current.exposure;scene.environmentIntensity=current.environment;
     U.night.value=current.night;nightSky.material.opacity=current.night*.95;
     reflectionGround.material.color.copy(current.groundColor).multiplyScalar(.65);
