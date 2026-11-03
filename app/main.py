@@ -1157,6 +1157,20 @@ def create_app(auto_run=True):
                             ),
                             html.Div(
                                 [
+                                    html.Strong(
+                                        "Developer: Behnam Mohseni Gharyehsafa"
+                                    ),
+                                    html.Span("PhD in Electronic Engineering"),
+                                    html.A(
+                                        "Mohseni.Gharyehsafa.Behnam@gmail.com",
+                                        href="mailto:Mohseni.Gharyehsafa.Behnam@gmail.com",
+                                    ),
+                                ],
+                                id="developer-credit",
+                                className="developer-credit",
+                            ),
+                            html.Div(
+                                [
                                     badge("RESEARCH ENVIRONMENT", "blue"),
                                     html.Span("NY", className="avatar"),
                                 ],

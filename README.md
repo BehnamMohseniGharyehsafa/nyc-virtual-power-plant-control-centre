@@ -1,3 +1,9 @@
+<div align="center">
+  <strong>Developer: Behnam Mohseni Gharyehsafa</strong><br>
+  PhD in Electronic Engineering<br>
+  <a href="mailto:Mohseni.Gharyehsafa.Behnam@gmail.com">Mohseni.Gharyehsafa.Behnam@gmail.com</a>
+</div>
+
 # New York Virtual Power Plant Control Centre
 
 A Python engineering laboratory that connects **real Brooklyn building geometry** to physical DER models, predictive control, synthetic distribution networks and independently verified AC power flow.
