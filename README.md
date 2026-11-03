@@ -8,9 +8,9 @@ The application calculates its results. It does not use predetermined savings, d
 
 ![Control centre](docs/images/control-centre.png)
 
-[Watch the moving district preview (WebM)](docs/images/district-demo.webm) · [Street-level façade detail](docs/images/street-view.png)
+[Street-level façade detail](docs/images/rendering/street-golden.png) · [Rendering checks and screenshots](docs/rendering-validation.md)
 
-The spatial command centre includes detailed windowed façades, real NYC streets and waterfront geometry, rooftop equipment and PV, street furniture, and 64 vehicles following a stored illustrative Python traffic scenario. Explore district, street-level and plan views, change lighting, inspect buildings, and enable calculated electrical flows. Architectural details are estimated; traffic is illustrative. [Urban visualisation and provenance](docs/urban-visualisation.md).
+The spatial command centre includes detailed windowed façades, real NYC streets and waterfront geometry, rooftop equipment and PV, street furniture, and 64 vehicles following a stored illustrative Python traffic scenario. Explore district, street-level and plan views, inspect buildings, and enable calculated electrical flows. Sky-matched reflections, masonry relief, varied room lighting, fitted shadows and adaptive quality follow [Open 3D Skills](https://github.com/Moh4696/open-3d-skills). Open **Look** to choose simulation sunlight, daylight, golden hour, blue hour or night and automatic/high/balanced/eco quality. Architectural details are estimated; traffic is illustrative. [Urban visualisation and provenance](docs/urban-visualisation.md).
 
 ## Run locally
 
@@ -29,7 +29,7 @@ On Linux/macOS, activate with `source .venv/bin/activate`. Open **http://127.0.0
 
 No API key is needed for the bundled NYC, NYISO and Open-Meteo acquisition routes. Internet access is required for installation and acquisition; numerical simulation and footprint visualisation then work offline. Missing inputs cause a visible error, not a synthetic replacement. Cached local snapshots are included for immediate local use; see [data rights and provenance](docs/data.md) before redistributing data separately.
 
-For the exact tested dependency set, install with `python -m pip install -r requirements-validated.txt` before `python -m pip install -e .`. The validated environment passes all 33 tests, including the numerical foundation and urban scene checks, and reproduced the 96-step community experiment with no reported physical violations.
+For the exact tested dependency set, install with `python -m pip install -r requirements-validated.txt` before `python -m pip install -e .`. The validated environment passes all 34 tests, including the numerical foundation, urban scene and offline rendering dependency checks, and reproduced the 96-step community experiment with no reported physical violations.
 
 ```powershell
 python -m pytest

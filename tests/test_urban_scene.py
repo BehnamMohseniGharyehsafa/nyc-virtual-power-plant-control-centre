@@ -2,6 +2,9 @@
 
 import gzip
 import json
+import re
+import posixpath
+from pathlib import Path
 import numpy as np
 import pytest
 from app.main import create_app
@@ -59,6 +62,7 @@ def test_offline_renderer_and_compressed_traffic_endpoint():
     for path in (
         "city/world.js",
         "city/scene.css",
+        "city/rendering.js",
         "vendor/three.module.js",
         "vendor/three.core.js",
         "vendor/OrbitControls.js",
@@ -70,3 +74,37 @@ def test_offline_renderer_and_compressed_traffic_endpoint():
     payload = json.loads(gzip.decompress(response.data))
     assert len(payload["cars"]) == 64 and payload["frames"] == 960
     assert client.get("/api/city/not-a-run").status_code == 404
+
+
+def test_renderer_addon_graph_is_complete_and_available_offline():
+    """A missing transitive add-on would leave the entire WebGL view blank."""
+    client = create_app(False).server.test_client()
+    root = Path(__file__).resolve().parents[1] / "app" / "static"
+    pending = ["city/world.js", "city/rendering.js"]
+    visited = set()
+    while pending:
+        name = pending.pop()
+        if name in visited:
+            continue
+        visited.add(name)
+        assert client.get("/static/" + name).status_code == 200, name
+        content = (root / name).read_text(encoding="utf-8")
+        # Match executable imports, not illustrative import snippets in JSDoc.
+        for specifier in re.findall(
+            r"(?m)^import\s+[\s\S]*?\bfrom\s+['\"]([^'\"]+)['\"]", content
+        ):
+            if specifier == "three":
+                dependency = "vendor/three.module.js"
+            elif specifier == "three/addons/controls/OrbitControls.js":
+                dependency = "vendor/OrbitControls.js"
+            elif specifier.startswith("three/addons/"):
+                dependency = specifier.replace("three/addons/", "vendor/addons/")
+            elif specifier.startswith("/static/"):
+                dependency = specifier.removeprefix("/static/")
+            elif specifier.startswith("."):
+                dependency = posixpath.normpath(
+                    posixpath.join(posixpath.dirname(name), specifier)
+                )
+            else:
+                raise AssertionError(f"Unexpected external runtime import: {specifier}")
+            pending.append(dependency)

@@ -7,6 +7,8 @@ Facade/window/roof dressing and the traffic scenario remain explicitly estimated
 import argparse
 import json
 import tarfile
+import posixpath
+import re
 import io
 from pathlib import Path
 from shapely.geometry import shape, mapping, box
@@ -149,6 +151,39 @@ def vendor():
             # Extract only explicitly selected files, never arbitrary archive paths.
             content = archive.extractfile(member).read()
             (target / name).write_bytes(content)
+        # Preserve the official add-on directory structure and vendor only the
+        # selected modules and their relative JS dependencies. No CDN at runtime.
+        pending = [
+            "postprocessing/EffectComposer.js",
+            "postprocessing/RenderPass.js",
+            "postprocessing/GTAOPass.js",
+            "postprocessing/UnrealBloomPass.js",
+            "postprocessing/OutputPass.js",
+            "postprocessing/ShaderPass.js",
+            "shaders/FXAAShader.js",
+            "objects/Sky.js",
+            "geometries/RoundedBoxGeometry.js",
+        ]
+        seen = set()
+        while pending:
+            name = pending.pop()
+            if name in seen:
+                continue
+            if name.startswith("../") or not name.endswith(".js"):
+                raise ValueError("Unsafe Three.js add-on path")
+            seen.add(name)
+            content = archive.extractfile("package/examples/jsm/" + name).read()
+            destination = target / "addons" / name
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(content)
+            for dependency in re.findall(rb"from\s+['\"]([^'\"]+)['\"]", content):
+                specifier = dependency.decode()
+                if specifier.startswith("."):
+                    pending.append(
+                        posixpath.normpath(
+                            posixpath.join(posixpath.dirname(name), specifier)
+                        )
+                    )
     (target / "version.json").write_text(
         json.dumps(
             dict(

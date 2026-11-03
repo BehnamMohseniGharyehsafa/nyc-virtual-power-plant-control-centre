@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Brooklyn · spatial control centre</title>
 <link rel="stylesheet" href="/static/city/scene.css">
-<script type="importmap">{"imports":{"three":"/static/vendor/three.module.js","three/addons/controls/OrbitControls.js":"/static/vendor/OrbitControls.js"}}</script>
+<script type="importmap">{"imports":{"three":"/static/vendor/three.module.js","three/addons/controls/OrbitControls.js":"/static/vendor/OrbitControls.js","three/addons/":"/static/vendor/addons/"}}</script>
 </head><body>
 <div id="world" aria-label="Interactive detailed 3D Brooklyn district. Drag to orbit, right-drag to pan, scroll to zoom."></div>
 <div class="loading" id="loading"><span class="loading-mark">↯</span><strong>Building Brooklyn</strong><span id="loading-detail">Loading observed footprints and street geometry…</span><div class="loading-line"><i></i></div></div>
@@ -14,10 +14,19 @@
 <span class="control-divider"></span>
 <button id="network" title="Toggle the synthetic electrical network and calculated active power flows"><svg viewBox="0 0 20 20"><path d="m11 1-7 10h6l-1 8 7-11h-6Z"/></svg><span>Grid</span></button>
 <button id="traffic" class="active" title="Play or pause the illustrative traffic scenario"><svg viewBox="0 0 20 20"><path d="m3 12 1-6h12l1 6M2 12h16v4H2v-4Zm2 4v2m12-2v2M4 12h12M5 6l1-3h8l1 3"/></svg><span>Traffic</span></button>
-<button id="lighting" title="Toggle daylight and evening visualisation"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="4"/><path d="M10 0v3m0 14v3M0 10h3m14 0h3M3 3l2 2m10 10 2 2M3 17l2-2M15 5l2-2"/></svg><span>Daylight</span></button>
+<button id="lighting" title="Cycle simulation light, golden hour, blue hour, night and daylight"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="4"/><path d="M10 0v3m0 14v3M0 10h3m14 0h3M3 3l2 2m10 10 2 2M3 17l2-2M15 5l2-2"/></svg><span>Sunlight</span></button>
+<button id="inspector-toggle" title="Show building details" aria-expanded="false" aria-controls="selection"><svg viewBox="0 0 20 20"><rect x="3" y="2" width="14" height="16" rx="2"/><path d="M7 6h6M7 10h6M7 14h3"/></svg><span>Building</span></button>
+<button id="appearance-toggle" title="Lighting and rendering quality" aria-expanded="false" aria-controls="appearance"><svg viewBox="0 0 20 20"><path d="M3 5h14M3 10h14M3 15h14M7 2v6m6-1v6m-5-1v6"/></svg><span>Look</span></button>
 <button id="record" title="Record a 10-second WebM clip of the moving district"><svg viewBox="0 0 20 20"><rect x="2" y="5" width="11" height="10" rx="2"/><path d="m13 8 5-3v10l-5-3"/></svg></button>
 <button id="fullscreen" title="Expand the district view"><svg viewBox="0 0 20 20"><path d="M2 7V2h5m6 0h5v5M2 13v5h5m6 0h5v-5"/></svg></button>
 </nav>
+<section class="appearance" id="appearance" hidden aria-label="Scene appearance">
+<div class="appearance-heading"><strong>Scene appearance</strong><button id="appearance-close" aria-label="Close scene appearance">×</button></div>
+<label for="light-preset">Lighting</label><select id="light-preset"><option value="simulation">Simulation sunlight</option><option value="daylight">Daylight</option><option value="golden">Golden hour</option><option value="blue">Blue hour</option><option value="night">Night</option></select>
+<p id="light-note">Sun position follows the historical simulation.</p>
+<label for="quality">Rendering quality <span id="quality-state">Auto</span></label><select id="quality"><option value="auto">Automatic · adapt to your device</option><option value="high">High · contact shadows & fine detail</option><option value="balanced">Balanced · clarity & fluid movement</option><option value="eco">Eco · lighter GPU usage</option></select>
+<p id="performance" aria-live="off">Measuring…</p><span class="appearance-note">Lighting presets change the presentation only. Calculated energy results stay linked to the timeline.</span>
+</section>
 <div class="selection" id="selection" hidden><span class="selection-kicker">SELECTED BUILDING</span><strong id="selected-address"></strong><span id="selected-use"></span><div id="selected-values"></div><button id="focus-building">Inspect at street level <span>↗</span></button></div>
 <div class="hover" id="hover" hidden></div>
 <div class="scene-bottom"><div class="mini-map"><canvas id="minimap" width="280" height="200" aria-label="District orientation map"></canvas><span><b>N ↑</b> District orientation</span></div><div class="navigation-hint"><span>↔ Drag to orbit</span><span>⌘ Right-drag to pan</span><span>⊕ Scroll to explore</span></div></div>

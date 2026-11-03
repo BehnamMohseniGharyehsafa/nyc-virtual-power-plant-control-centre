@@ -24,6 +24,23 @@ District, street and plan camera presets, orbit, pan, zoom, building selection, 
 
 The Dash-to-scene bridge is restricted to the same origin. A scene is retained across timestep changes; state messages update it without rebuilding all geometry. Static road/roof/furniture meshes are merged by material and windows, PV panels, trees and vehicles use instancing to reduce draw calls. Large portfolios retain individual numerical states with visual level-of-detail limits.
 
+## Rendering and presentation upgrade
+
+The lighting, shader, camera and quality workflow adapts the MIT-licensed [Open 3D Skills](https://github.com/Moh4696/open-3d-skills), specifically `threejs-scene` and the `site-check` verification approach. The implementation is adapted to this district and the pinned Three.js **0.180.0**; the source starter's older Three.js version is not substituted. Attribution is retained in `app/static/city/OPEN-3D-SKILLS-LICENSE.txt`.
+
+* A physical sky and sky-derived PMREM reflections are refreshed together with sunlight, atmospheric haze and exposure. Simulation lighting uses the saved state's solar position. Daylight, golden hour, blue hour and night are explicitly presentation overrides; they do not alter PV or other numerical results.
+* A half-float post-processing pipeline uses multisampling and an output colour transform. High quality adds half-resolution GTAO contact shading; evening lighting adds restrained bloom. Eco uses FXAA in place of multisampling. Glass, window dressing, sky, water and electrical lines are excluded from the AO depth pass.
+* Camera-fitted sunlight shadows snap in the light's plane to reduce shimmer. Static shadow maps are refreshed for camera/light changes, rather than redundantly for each colour and normal pass. Animated cars use lightweight estimated contact shadows.
+* Procedural 512-pixel masonry colour and mortar bump maps, tiled pavement, window blinds and stable room-by-room evening illumination add surface depth. Doors, handles, awnings, projecting sills, clustered foliage with matching wind/depth shaders, rounded car bodywork and estimated warm street-lamp pools improve street views. Lamp pools are lightweight visual overlays, not calculated illuminance. These are estimated architectural dressing.
+* Repeated windows use instanced planes, with projecting sill geometry limited to nearby tiles. Building envelopes are batched by spatial tile and material while original geometry remains available for picking. Material textures are shared and shader compilation stays behind the loader.
+* Camera changes follow eased elevated paths; users can interrupt a flight. Portrait screens adapt their field of view. Reduced-motion preferences stop automatic traffic and remove camera-flight transitions. When traffic is paused, the camera has settled and no overlay/transition is active, idle rendering stops.
+
+Open **Look** for lighting and quality controls. `Automatic` selects a tier using frame-time samples and can lower rendering resolution on slower devices. `High`, `Balanced` and `Eco` are explicit choices. Automatic quality never changes during a recording. The historical simulation timeline and traffic controls remain independent. Keys **1**, **2**, **3** select district, street and plan; **Escape** closes presentation settings.
+
+Deep links use `/district?run=<UUID>&view=street&light=golden&quality=high`; valid views are `district`, `street`, `top`, valid lighting modes are `simulation`, `daylight`, `golden`, `blue`, `night`, and valid quality modes are `auto`, `high`, `balanced`, `eco`.
+
+Performance is device- and viewport-dependent. A high-quality image or a smooth exported recording is not evidence of a live 60 FPS interface. Browser frame-time and pass-inclusive draw/triangle diagnostics are exposed as `body` data attributes for reproducible checks; the appearance panel shows measured frame rate and rendering dimensions. See [rendering validation](rendering-validation.md) for the actual checks and limits.
+
 ## Acquisition and verification
 
 ```bash
