@@ -3,10 +3,11 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {mergeGeometries} from '/static/vendor/BufferGeometryUtils.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {createRendering,patchWindows,patchFoliage,motionPreference,U} from './rendering.js';
+import {facadeAttributes,patchFacade,patchNearDetail,DETAIL_DISTANCE} from './clarity.js';
 
 const host=document.querySelector('#world');
 const scene=new THREE.Scene();
-const camera=new THREE.PerspectiveCamera(38,1,.3,7000);
+const camera=new THREE.PerspectiveCamera(38,1,1,7000);
 const renderer=new THREE.WebGLRenderer({antialias:false,alpha:false,powerPreference:'high-performance'});
 host.appendChild(renderer.domElement);
 const presentation=createRendering(renderer,scene,camera,host);
@@ -33,7 +34,7 @@ const clamp=THREE.MathUtils.clamp;
 const loading=(text)=>{document.querySelector('#loading-detail').textContent=text;};
 const colour=(hex)=>new THREE.Color(hex);
 const textureCache=new Map();
-let inspectorOpen=innerWidth>1000;
+let inspectorOpen=false;
 
 function mat(name,params){return materials[name]??=(new THREE.MeshStandardMaterial(params));}
 function makeCanvas(w,h){const c=document.createElement('canvas');c.width=w;c.height=h;return c;}
@@ -84,19 +85,22 @@ function glazingTexture(){
   g.fillStyle='#b6cbd0';g.globalAlpha=.1;g.fillRect(7,0,13,256);g.fillRect(90,0,6,256);g.globalAlpha=1;
   const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;return t;
 }
-const roadMaterial=mat('asphalt',{map:asphaltTexture(),color:0xc5c4bd,roughness:.94});
-const walkMaterial=mat('pavement',{map:pavementTexture(),color:0xe4e0d4,roughness:.96});
-const curbMaterial=mat('curb',{color:0xa6a99e,roughness:.94});
-const whitePaint=mat('white-road-paint',{color:0xe5e1ce,roughness:.92});
-const yellowPaint=mat('yellow-road-paint',{color:0xcbb56b,roughness:.92});
-const roofMaterial=mat('roof',{color:0x626761,roughness:1});
+// Explicit depth ordering keeps almost-coplanar map layers from striping when
+// seen at grazing angles. Geometry coordinates remain the observed street data.
+const roadMaterial=mat('asphalt',{map:asphaltTexture(),color:0xc5c4bd,roughness:.94,polygonOffset:true,polygonOffsetFactor:-3,polygonOffsetUnits:-3});
+const walkMaterial=mat('pavement',{map:pavementTexture(),color:0xe4e0d4,roughness:.96,polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:-2});
+const curbMaterial=mat('curb',{color:0xa6a99e,roughness:.94,polygonOffset:true,polygonOffsetFactor:-1,polygonOffsetUnits:-1});
+const whitePaint=mat('white-road-paint',{color:0xe5e1ce,roughness:.92,polygonOffset:true,polygonOffsetFactor:-4,polygonOffsetUnits:-4});
+const yellowPaint=mat('yellow-road-paint',{color:0xcbb56b,roughness:.92,polygonOffset:true,polygonOffsetFactor:-4,polygonOffsetUnits:-4});
 const copper=mat('copper',{color:0x685347,roughness:.8});
 const mechanical=mat('mechanical',{color:0xaeb6b6,roughness:.64,metalness:.28});
 const dark=mat('dark-metal',{color:0x27383d,roughness:.52,metalness:.32});
 const frameMaterial=mat('window-frame',{color:0x4c514d,roughness:.57,metalness:.3,side:THREE.DoubleSide});
 const glassMaterial=mat('window-glass',{color:0xa0b0b2,map:glazingTexture(),roughness:.16,metalness:.32,envMapIntensity:1.15,side:THREE.DoubleSide});
 patchWindows(glassMaterial);
+patchNearDetail(glassMaterial);patchNearDetail(frameMaterial);
 const panelMaterial=mat('solar-panel',{color:0xffffff,map:panelTexture(),metalness:.35,roughness:.29});
+patchNearDetail(panelMaterial);
 
 function object(geometry,material,position,scale=null,parent=scene){
   const mesh=new THREE.Mesh(geometry,material);mesh.position.set(...position);if(scale)mesh.scale.set(...scale);parent.add(mesh);return mesh;
@@ -145,7 +149,7 @@ function ground(){
   }
   const normal=new THREE.DataTexture(pixels,256,256);normal.wrapS=normal.wrapT=THREE.RepeatWrapping;normal.repeat.set(.028,.028);normal.magFilter=THREE.LinearFilter;normal.minFilter=THREE.LinearMipmapLinearFilter;normal.generateMipmaps=true;normal.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());normal.needsUpdate=true;
   for(const polygon of data.water){
-    const water=new THREE.MeshStandardMaterial({color:0x285461,metalness:.12,roughness:.32,normalMap:normal,normalScale:new THREE.Vector2(.055,.055),envMapIntensity:1.1});
+    const water=new THREE.MeshStandardMaterial({color:0x285461,metalness:.12,roughness:.32,normalMap:normal,normalScale:new THREE.Vector2(.055,.055),envMapIntensity:1.1,polygonOffset:true,polygonOffsetFactor:-1,polygonOffsetUnits:-4});
     waterMaterials.push(water);const surface=flatShape(polygon,-.05,water);surface.userData.noAO=true;
   }
 }
@@ -205,11 +209,14 @@ function makeBuilding(b){
   const palette=style==='brick'?['#8e6250','#a27b61','#765e51','#b0987b','#8b7060']:style==='brownstone'?['#7c6254','#9c8069','#7b7062','#9a8977','#786558']:['#b4b3a8','#a7aca7','#c0baaa','#a9a69d','#c2c2b8'];
   const textureKind=style==='stone'||style==='glass'?'stone':'brick';
   const tone=palette[variant],wall=mat(`wall-${style}-${variant}`,{color:0xffffff,map:brickTexture(textureKind,tone),bumpMap:mortarTexture(textureKind),bumpScale:style==='glass'?.008:.035,roughness:style==='glass'?.45:.94,metalness:style==='glass'?.12:0});
+  if(!wall.userData.filteredFacade){patchFacade(wall,U.night);wall.userData.filteredFacade=true;}
+  const roof=mat(`roof-${variant}`,{color:[0x7f827a,0x777e7d,0x98978b,0x858b88,0x6e7778][variant],roughness:.96});
   const trim=mat(`trim-${variant}`,{color:['#9e9380','#969184','#a19786','#b2a894','#918e83'][variant],roughness:.88});
   const group=new THREE.Group();group.userData.building=b;scene.add(group);
   for(const part of b.parts){
     const s=shapeOf(part.rings),geo=new THREE.ExtrudeGeometry(s,{depth:b.height,bevelEnabled:false,steps:1});geo.rotateX(-Math.PI/2);
-    const mesh=new THREE.Mesh(geo,[roofMaterial,wall]);mesh.castShadow=true;mesh.receiveShadow=true;mesh.userData.building=b;group.add(mesh);pickables.push(mesh);
+    facadeAttributes(geo,b,part);
+    const mesh=new THREE.Mesh(geo,[roof,wall]);mesh.castShadow=true;mesh.receiveShadow=true;mesh.userData.building=b;group.add(mesh);pickables.push(mesh);
     const ring=part.rings[0];
     const detailed=Math.hypot(...b.centre)<620&&b.index<600;
     const floors=clamp(b.floors,1,45),fh=b.height/floors;
@@ -286,14 +293,14 @@ function instances(items,geometry,material,colours=false){
   const mesh=new THREE.InstancedMesh(geometry,material,items.length);mesh.receiveShadow=true;
   for(let i=0;i<items.length;i++){
     const o=items[i];dummy.position.set(...o.p);dummy.rotation.set(o.tilt||0,o.r||0,0);dummy.scale.set(...o.s);dummy.updateMatrix();mesh.setMatrixAt(i,dummy.matrix);
-    if(colours){const v=rand(o.seed);mesh.setColorAt(i,o.color?new THREE.Color(o.color):new THREE.Color().setRGB(.63+v*.32,.7+v*.25,.74+v*.24));}
+    if(colours){const v=rand(o.seed);mesh.setColorAt(i,o.color?new THREE.Color(o.color):material===glassMaterial?new THREE.Color().setRGB(.9+v*.1,.93+v*.07,.95+v*.05):new THREE.Color().setRGB(.63+v*.32,.7+v*.25,.74+v*.24));}
   }
   mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;
   mesh.userData.noAO=material===glassMaterial||material===frameMaterial;scene.add(mesh);return mesh;
 }
 function tiledInstances(items,geometry,material,colours=false,nearOnly=false){
   const tiles=new Map();
-  const tileSize=nearOnly?110:180;
+  const tileSize=nearOnly?75:180;
   for(const item of items){const key=`${Math.floor(item.p[0]/tileSize)},${Math.floor(item.p[2]/tileSize)}`;if(!tiles.has(key))tiles.set(key,[]);tiles.get(key).push(item);}
   for(const tile of tiles.values()){const mesh=instances(tile,geometry,material,colours);mesh.computeBoundingSphere();if(nearOnly)nearDetails.push(mesh);}
 }
@@ -490,6 +497,22 @@ function fly(view){
   document.body.dataset.view=view;
   document.querySelectorAll('button[data-view]').forEach(button=>button.classList.toggle('active',button.dataset.view===view));
 }
+function zoom(factor){
+  const from=camera.position.clone(),offset=from.clone().sub(controls.target),distance=clamp(offset.length()*factor,controls.minDistance,controls.maxDistance);
+  const to=controls.target.clone().add(offset.setLength(distance));
+  flight={start:performance.now(),duration:motionPreference.matches?0:600,from,to,mid:from.clone().lerp(to,.5),oldTarget:controls.target.clone(),target:controls.target.clone()};
+  controls.enabled=false;renderDirty=true;
+}
+document.querySelector('#zoom-in').addEventListener('click',()=>zoom(.78));
+document.querySelector('#zoom-out').addEventListener('click',()=>zoom(1.28));
+document.querySelector('#reset-view').addEventListener('click',()=>fly('district'));
+function mapScale(){
+  const metresPerPixel=2*camera.position.distanceTo(controls.target)*Math.tan(THREE.MathUtils.degToRad(camera.fov)/2)/host.clientHeight;
+  const target=metresPerPixel*78,power=10**Math.floor(Math.log10(target));
+  const metres=[1,2,5,10].map(n=>n*power).reduce((a,b)=>Math.abs(b-target)<Math.abs(a-target)?b:a);
+  document.querySelector('#map-scale').textContent=metres>=1000?`${metres/1000} km`:`${metres} m`;
+  document.querySelector('#map-scale-line').style.width=`${metres/metresPerPixel}px`;
+}
 function minimap(){
   if(!data)return;const canvas=document.querySelector('#minimap'),g=canvas.getContext('2d');g.clearRect(0,0,280,200);g.fillStyle='#e4e8e4';g.fillRect(0,0,280,200);
   const scale=.205,px=x=>140+x*scale,pz=z=>100+z*scale;
@@ -577,12 +600,15 @@ function animate(){
   controls.update();
   if(pausedTraffic&&!networkVisible&&!flight&&!presentation.transitioning&&!renderDirty&&!recording)return;
   presentation.update(now,controls.target);updateVehicles(delta);updateElectrical(now/1000);
-  for(const mesh of nearDetails)mesh.visible=camera.position.distanceTo(mesh.boundingSphere.center)<185+mesh.boundingSphere.radius;
+  let detailTiles=0;
+  for(const mesh of nearDetails){mesh.visible=camera.position.distanceTo(mesh.boundingSphere.center)<DETAIL_DISTANCE+mesh.boundingSphere.radius;if(mesh.visible)detailTiles++;}
+  document.body.dataset.detailTiles=String(detailTiles);
+  document.body.dataset.cameraDistance=camera.position.distanceTo(controls.target).toFixed(1);
   for(const water of waterMaterials){water.normalMap.offset.set(now*.0000018,now*.0000011);}
   if(materials.lamp)materials.lamp.emissiveIntensity=.08+U.night.value*2.2;
   if(materials['street-pools'])materials['street-pools'].opacity=U.night.value*.75;
   if(materials['car-headlight'])materials['car-headlight'].emissiveIntensity=.3+U.night.value*2;
-  if(now-lastMap>350){minimap();lastMap=now;}
+  if(now-lastMap>350){minimap();mapScale();lastMap=now;}
   presentation.render(now);renderFrames++;renderDirty=false;
   // Public rendering diagnostics aid browser QA; numerical powers come from state API.
   document.body.dataset.frames=String(renderFrames);document.body.dataset.trafficFrame=String(trafficFrame);
@@ -595,10 +621,18 @@ async function boot(){
   loading('Adding façades, window frames and rooftop equipment…');
   for(let i=0;i<data.buildings.length;i++){makeBuilding(data.buildings[i]);if(i%35===0)await new Promise(requestAnimationFrame);}
   batchStaticCity();batchEnvelopes();const windowPlane=new THREE.PlaneGeometry(1,1);
-  tiledInstances(windowFrames,windowPlane,frameMaterial);tiledInstances(windowGlass,windowPlane,glassMaterial,true);tiledInstances(windowBars,windowPlane,frameMaterial);tiledInstances(windowSills,boxGeo,frameMaterial,false,true);instances(roofPanels,boxGeo,panelMaterial);trees();streetGlow();electrical();
+  tiledInstances(windowFrames,windowPlane,frameMaterial,false,true);tiledInstances(windowGlass,windowPlane,glassMaterial,true,true);tiledInstances(windowBars,windowPlane,frameMaterial,false,true);tiledInstances(windowSills,boxGeo,frameMaterial,false,true);
+  // Far panels preserve the same cell texture, footprint and tilt with two
+  // triangles, keeping their invisible sides out of district-level rendering.
+  tiledInstances(roofPanels,boxGeo,panelMaterial,false,true);
+  const farPanel=panelMaterial.clone();patchNearDetail(farPanel,true);
+  const panelPlane=new THREE.PlaneGeometry(1,1);panelPlane.rotateX(-Math.PI/2);
+  const farPanels=instances(roofPanels,panelPlane,farPanel);farPanels.userData.noAO=true;
+  trees();streetGlow();electrical();
   loading('Loading the executed street traffic scenario…');
   const tr=await fetch('/api/city-traffic');if(!tr.ok)throw new Error('Traffic scenario could not be loaded');traffic=await tr.json();vehicles();
   document.body.dataset.buildings=String(data.buildings.length);document.body.dataset.windows=String(windowGlass.length);document.body.dataset.roads=String(data.roads.length);document.body.dataset.cars=String(traffic.cars.length);
+  document.body.dataset.roofPanels=String(roofPanels.length);
   select(0);minimap();await sync(pendingState||{step:48,asset:0,layer:'assets'});
   loading('Finishing daylight materials…');if(renderer.compileAsync)await renderer.compileAsync(scene,camera);
   const query=new URLSearchParams(location.search);lightMode=['simulation','daylight','golden','blue','night'].includes(query.get('light'))?query.get('light'):'simulation';lighting();

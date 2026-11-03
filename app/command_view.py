@@ -2,7 +2,9 @@
 
 import pandas as pd
 from dash import html
-from visualisation.figures import timeline, COLOURS as C
+
+from visualisation.figures import COLOURS as C
+from visualisation.figures import timeline
 
 
 def command_view(run, t, asset, layer, *, panel, graph, metric, badge, page_heading):
@@ -65,34 +67,34 @@ def command_view(run, t, asset, layer, *, panel, graph, metric, badge, page_head
                     allow="fullscreen",
                     className="district-world",
                 ),
-                html.Div(
-                    [
-                        metric(
-                            "PCC exchange",
-                            f"{r.grid_kw:,.0f}",
-                            "kW",
-                            "AC power flow",
-                            "cyan",
-                        ),
-                        metric(
-                            "Solar generation",
-                            f"{r.pv_kw:,.0f}",
-                            "kW",
-                            "Calculated PV output",
-                            "green",
-                        ),
-                        metric(
-                            "Battery SOC",
-                            f"{r.soc_pct:.1f}",
-                            "%",
-                            f"{r.discharge_kw:.0f} kW out · {r.charge_kw:.0f} kW in",
-                            "violet",
-                        ),
-                    ],
-                    className="urban-metrics",
-                ),
             ],
             className="world-stage",
+        ),
+        html.Div(
+            [
+                metric(
+                    "PCC exchange",
+                    f"{r.grid_kw:,.0f}",
+                    "kW",
+                    "AC power flow",
+                    "cyan",
+                ),
+                metric(
+                    "Solar generation",
+                    f"{r.pv_kw:,.0f}",
+                    "kW",
+                    "Calculated PV output",
+                    "green",
+                ),
+                metric(
+                    "Battery SOC",
+                    f"{r.soc_pct:.1f}",
+                    "%",
+                    f"{r.discharge_kw:.0f} kW out · {r.charge_kw:.0f} kW in",
+                    "violet",
+                ),
+            ],
+            className="urban-metrics",
         ),
         html.Div(
             [

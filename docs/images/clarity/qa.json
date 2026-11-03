@@ -1,0 +1,123 @@
+{
+  "date": "2026-11-03",
+  "baselineCommit": "a64d6b3d9415705ba401af0cfe1638c3c7d8389e",
+  "samples": [
+    {
+      "name": "before-balanced-district",
+      "viewport": {
+        "dpr": 1.5,
+        "height": 720,
+        "width": 1280
+      },
+      "diagnostics": {
+        "buildings": "320",
+        "cars": "64",
+        "drawCalls": "209",
+        "fps": "18.5",
+        "frameMs": "54.0",
+        "frames": "705",
+        "gpu": "ANGLE (Intel, Intel(R) UHD Graphics (0x00009B41) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "light": "simulation",
+        "p95Ms": "86.7",
+        "pixelRatio": "1.50",
+        "programs": "35",
+        "quality": "balanced",
+        "ready": "true",
+        "resolution": "1920×1080",
+        "roads": "830",
+        "trafficFrame": "156",
+        "triangles": "878844",
+        "view": "district",
+        "windows": "59244"
+      }
+    },
+    {
+      "name": "after-balanced-district",
+      "viewport": {
+        "dpr": 1.5,
+        "height": 720,
+        "width": 1280
+      },
+      "diagnostics": {
+        "buildings": "320",
+        "cameraDistance": "601.6",
+        "cars": "64",
+        "detailTiles": "0",
+        "drawCalls": "184",
+        "fps": "26.5",
+        "frameMs": "37.8",
+        "frames": "1311",
+        "gpu": "ANGLE (Intel, Intel(R) UHD Graphics (0x00009B41) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "light": "simulation",
+        "p95Ms": "65.6",
+        "pixelRatio": "1.50",
+        "programs": "37",
+        "quality": "balanced",
+        "ready": "true",
+        "resolution": "1920×1080",
+        "roads": "830",
+        "roofPanels": "3569",
+        "trafficFrame": "201",
+        "triangles": "455976",
+        "view": "district",
+        "windows": "59244"
+      }
+    }
+  ],
+  "zoomOutDistance": "770.0",
+  "checks": {
+    "zoomOut": true,
+    "streetDetailTiles": true,
+    "trafficPaused": true,
+    "trafficResumed": true,
+    "buildingInspection": true,
+    "nightRender": true
+  },
+  "pausedTrafficFrame": "144",
+  "phone": {
+    "credit": "Developer: Behnam Mohseni Gharyehsafa\nPhD in Electronic Engineering\nMohseni.Gharyehsafa.Behnam@gmail.com",
+    "height": 844,
+    "overflow": false,
+    "width": 390
+  },
+  "tablet": {
+    "height": 1024,
+    "overflow": false,
+    "width": 768
+  },
+  "desktop": {
+    "viewport": {
+      "credit": "Developer: Behnam Mohseni Gharyehsafa\nPhD in Electronic Engineering\nMohseni.Gharyehsafa.Behnam@gmail.com",
+      "creditTop": 13.875,
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "overflow": false,
+      "width": 1440
+    },
+    "diagnostics": {
+      "buildings": "320",
+      "cameraDistance": "419.1",
+      "cars": "64",
+      "detailTiles": "20",
+      "drawCalls": "165",
+      "fps": "52.1",
+      "frameMs": "19.2",
+      "frames": "4117",
+      "gpu": "ANGLE (Intel, Intel(R) UHD Graphics (0x00009B41) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "light": "simulation",
+      "p95Ms": "26.1",
+      "pixelRatio": "1.25",
+      "programs": "37",
+      "quality": "balanced",
+      "ready": "true",
+      "resolution": "1436×599",
+      "roads": "830",
+      "roofPanels": "3569",
+      "trafficFrame": "309",
+      "triangles": "461865",
+      "view": "district",
+      "windows": "59244"
+    }
+  },
+  "console": []
+}

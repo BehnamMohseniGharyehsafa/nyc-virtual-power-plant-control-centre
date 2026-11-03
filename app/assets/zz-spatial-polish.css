@@ -1,0 +1,50 @@
+/* Give the district its own uninterrupted canvas; data stays immediately below. */
+.spatial-heading h1 { color:#193d49;letter-spacing:-.7px;font-weight:650; }
+.spatial-heading p { color:#708994; }
+.world-stage {
+  height:calc(100dvh - 420px);
+  min-height:420px;
+  border-radius:16px;
+  border-color:#cfdddf;
+  box-shadow:0 12px 38px #163d4d0c;
+}
+.urban-metrics {
+  position:static;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  width:100%;max-width:none;gap:0;
+  margin:12px 0 0;
+  border:1px solid #dce6e8;
+  border-radius:12px;
+  background:#fff;
+  overflow:hidden;
+}
+.urban-metrics .metric {
+  width:auto;min-height:0;border:0;border-radius:0;
+  padding:13px 20px;background:transparent;box-shadow:none;backdrop-filter:none;
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 10px;
+}
+.urban-metrics .metric + .metric { border-left:1px solid #e5edef; }
+.urban-metrics .metric-label { font-size:10px;color:#62808b; }
+.urban-metrics .metric-value { margin:0;grid-row:span 2; }
+.urban-metrics .metric-value strong { font-size:26px;color:#214855;letter-spacing:-.8px; }
+.urban-metrics .metric-value span { font-size:10px; }
+.urban-metrics .metric-note { display:block;font-size:8px;color:#8b9fa7; }
+.spatial-ledger { padding:12px 3px 20px; }
+.spatial-analysis .panel { border-radius:12px;border-color:#dfe8ea; }
+@media (min-width:1650px) and (min-height:1000px) { .world-stage { min-height:560px; } }
+@media (max-width:1000px) {
+  .world-stage { min-height:400px; }
+  .urban-metrics .metric { padding:12px 14px;display:block; }
+  .urban-metrics .metric-value { margin-top:6px; }
+  .urban-metrics .metric-note { display:none; }
+  .urban-metrics .metric-value strong { font-size:23px; }
+}
+@media (max-width:540px) {
+  .world-stage { min-height:480px;border-radius:12px; }
+  .urban-metrics .metric { padding:12px 9px; }
+  .urban-metrics .metric-label { font-size:8px;min-height:22px; }
+  .urban-metrics .metric-value { gap:3px; }
+  .urban-metrics .metric-value strong { font-size:20px; }
+  .urban-metrics .metric-value span { font-size:8px; }
+}
