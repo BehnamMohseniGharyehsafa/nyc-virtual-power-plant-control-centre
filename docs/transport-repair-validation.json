@@ -1,0 +1,19 @@
+{
+  "meshes": 724,
+  "matchedDeckEdgeJoins": 580,
+  "openCutSamples": 286,
+  "source_records": 2366,
+  "below_grade_cutouts": 3,
+  "restored_source_ids": [
+    "129657",
+    "130177",
+    "127773",
+    "126550",
+    "130121",
+    "129057",
+    "70310",
+    "126555",
+    "128064"
+  ],
+  "tests_passed": 43
+}

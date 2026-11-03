@@ -1,12 +1,16 @@
 """Regression checks for the real mid-river cuts and disconnected grade joins."""
 
 import json
+import shutil
+import subprocess
 from collections import defaultdict
+from pathlib import Path
 
 import networkx as nx
 import numpy as np
 import pytest
-from shapely.geometry import LineString, Polygon
+from shapely import line_merge
+from shapely.geometry import LineString, Point, Polygon, shape
 from shapely.ops import unary_union
 
 from data.download import CACHE
@@ -85,3 +89,74 @@ def test_joined_street_surfaces_cover_ground_carriageways():
         {b["bin"] for b in scene["buildings"]}
         & {b["bin"] for b in scene["context_buildings"]}
     )
+
+
+def test_multipart_records_keep_one_directed_grade_transition():
+    scene = fabric()
+    features = json.loads((CACHE / "streets.geojson").read_text(encoding="utf-8"))[
+        "features"
+    ]
+    for feature in features:
+        p = feature["properties"]
+        if p["road_type"] in ("4", "11", "12", "14"):
+            continue
+        source = line_merge(shape(feature["geometry"]), directed=True)
+        if source.geom_type != "LineString":
+            continue
+        rows = [r for r in scene["roads"] if r["source_id"] == p["id"]]
+        assert len(rows) == 1, p["id"]
+    for sid in ("129911", "128674", "115101", "71806", "81797"):
+        road = next(r for r in scene["roads"] if r["source_id"] == sid)
+        dy = np.diff(road["heights"])
+        assert (dy >= -0.001).all() or (dy <= 0.001).all(), sid
+        assert not road.get("spine"), sid
+    for road in scene["roads"]:
+        if road["levels"] == ["13", "13"]:
+            assert max(map(abs, road["heights"])) < 0.003, road["id"]
+
+
+def test_below_grade_roads_are_retained_and_terrain_is_open():
+    scene = fabric()
+    omitted = (
+        "129657",
+        "130177",
+        "127773",
+        "126550",
+        "130121",
+        "129057",
+        "70310",
+        "126555",
+        "128064",
+    )
+    assert set(omitted) <= {r["source_id"] for r in scene["roads"]}
+    terrain = scene["road_terrain"]
+    cuts = unary_union([Polygon(p[0], p[1:]) for p in terrain["cutouts"]]).buffer(0.002)
+    ground = unary_union([Polygon(p[0], p[1:]) for p in terrain["terrain"]])
+    assert ground.is_valid and cuts.is_valid
+    for r in scene["roads"]:
+        if r["walk"]:
+            continue
+        for p, y in zip(r["points"], r["heights"]):
+            if y < -0.2:
+                assert cuts.covers(Point(p)), r["id"]
+                assert not ground.contains(Point(p)), r["id"]
+    assert np.isfinite(terrain["floor_vertices"]).all()
+    assert len(terrain["floor_vertices"]) % 3 == 0
+
+
+def test_actual_threejs_mesh_edges_and_winding():
+    node = shutil.which("node")
+    if not node:
+        pytest.skip(
+            "Node is needed for the actual Three.js mesh check; installed in CI"
+        )
+    root = Path(__file__).resolve().parents[1]
+    result = subprocess.run(
+        [node, "tests/validate_road_mesh.mjs"],
+        input=json.dumps(fabric()),
+        text=True,
+        capture_output=True,
+        cwd=root,
+        timeout=60,
+    )
+    assert result.returncode == 0, result.stderr

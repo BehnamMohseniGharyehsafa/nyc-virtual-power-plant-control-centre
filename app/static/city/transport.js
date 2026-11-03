@@ -4,8 +4,13 @@
  */
 import * as THREE from 'three';
 
-export function ribbonGeometry(points,width,heights,thickness=0){
-  const vertices=[],uv=[],indices=[],edges=[];let distance=0;
+export function shapeOf(rings){
+  const contour=rings[0].map(p=>new THREE.Vector2(p[0],-p[1]));const s=new THREE.Shape(contour);
+  for(const ring of rings.slice(1))s.holes.push(new THREE.Path(ring.map(p=>new THREE.Vector2(p[0],-p[1]))));return s;
+}
+
+export function ribbonEdges(points,width,heights,endOffsets=[null,null],pointOffsets=null){
+  const edges=[];
   for(let i=0;i<points.length;i++){
     const p=points[i],prev=points[Math.max(0,i-1)],next=points[Math.min(points.length-1,i+1)];
     const before=new THREE.Vector2(p[0]-prev[0],p[1]-prev[1]),after=new THREE.Vector2(next[0]-p[0],next[1]-p[1]);
@@ -14,8 +19,17 @@ export function ribbonGeometry(points,width,heights,thickness=0){
     const n0=new THREE.Vector2(-before.y,before.x),n1=new THREE.Vector2(-after.y,after.x),miter=n0.clone().add(n1).normalize();
     const half=Math.min(width*1.5,width/2/Math.max(.34,miter.dot(n1)));
     const offset=miter.multiplyScalar(half),y=Array.isArray(heights)?heights[i]:heights;
-    if(i)distance+=Math.hypot(p[0]-prev[0],p[1]-prev[1]);
+    const shared=pointOffsets?.[i]||(i===0?endOffsets[0]:i===points.length-1?endOffsets[1]:null);
+    if(shared)offset.set(...shared);
     edges.push([[p[0]+offset.x,y,p[1]+offset.y],[p[0]-offset.x,y,p[1]-offset.y]]);
+  }
+  return edges;
+}
+
+export function ribbonGeometry(points,width,heights,thickness=0,endOffsets=[null,null],pointOffsets=null){
+  const vertices=[],uv=[],indices=[],edges=ribbonEdges(points,width,heights,endOffsets,pointOffsets);let distance=0;
+  for(let i=0;i<points.length;i++){
+    if(i)distance+=Math.hypot(points[i][0]-points[i-1][0],points[i][1]-points[i-1][1]);
     vertices.push(...edges[i][0],...edges[i][1]);uv.push(0,distance,width,distance);
     if(i){const o=i*2;indices.push(o-2,o,o-1,o-1,o,o+1);}
   }

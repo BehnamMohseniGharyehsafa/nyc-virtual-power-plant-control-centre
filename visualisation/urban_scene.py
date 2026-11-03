@@ -132,7 +132,7 @@ def fabric(count=320):
     from visualisation.transport import transport
 
     road_source = json.loads(path.read_text(encoding="utf-8"))["features"]
-    roads, bridges, street_surfaces = transport(
+    roads, bridges, street_surfaces, road_terrain = transport(
         road_source, water, lambda g: project(shape(g))
     )
     # Distant envelopes make the opposite-bank landings legible without adding
@@ -158,6 +158,7 @@ def fabric(count=320):
         roads=roads,
         bridges=bridges,
         street_surfaces=street_surfaces,
+        road_terrain=road_terrain,
         context_buildings=context,
         water=water,
         provenance=dict(
