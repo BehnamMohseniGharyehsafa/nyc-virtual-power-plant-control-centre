@@ -4,7 +4,7 @@ import {mergeGeometries} from '/static/vendor/BufferGeometryUtils.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {createRendering,patchWindows,patchFoliage,motionPreference,U} from './rendering.js';
 import {facadeAttributes,patchFacade,patchNearDetail,DETAIL_DISTANCE} from './clarity.js';
-import {ribbonGeometry,buildBridges} from './transport.js';
+import {ribbonGeometry,ribbonEdges,buildBridges,shapeOf} from './transport.js';
 
 const host=document.querySelector('#world');
 const scene=new THREE.Scene();
@@ -107,10 +107,6 @@ function object(geometry,material,position,scale=null,parent=scene){
   const mesh=new THREE.Mesh(geometry,material);mesh.position.set(...position);if(scale)mesh.scale.set(...scale);parent.add(mesh);return mesh;
 }
 function cube(material,x,y,z,sx,sy,sz,parent=scene){return object(boxGeo,material,[x,y,z],[sx,sy,sz],parent);}
-function shapeOf(rings){
-  const contour=rings[0].map(p=>new THREE.Vector2(p[0],-p[1]));const s=new THREE.Shape(contour);
-  for(const ring of rings.slice(1))s.holes.push(new THREE.Path(ring.map(p=>new THREE.Vector2(p[0],-p[1]))));return s;
-}
 function flatShape(rings,y,material){
   const geometry=new THREE.ShapeGeometry(shapeOf(rings));geometry.rotateX(-Math.PI/2);
   const mesh=object(geometry,material,[0,y,0]);mesh.receiveShadow=true;return mesh;
@@ -123,9 +119,12 @@ function inside(p,ring){
 function onBuilding(p,margin=0){
   return data.buildings.some(b=>Math.hypot(p[0]-b.centre[0],p[1]-b.centre[1])<Math.sqrt(b.area)+margin&&b.parts.some(part=>inside(p,part.rings[0])));
 }
-function ribbon(points,width,y,material,thickness=0){
-  const mesh=object(ribbonGeometry(points,width,y,thickness),material,[0,0,0]);mesh.receiveShadow=true;return mesh;
+function ribbon(points,width,y,material,thickness=0,endOffsets=[null,null],pointOffsets=null){
+  const mesh=object(ribbonGeometry(points,width,y,thickness,endOffsets,pointOffsets),material,[0,0,0]);mesh.receiveShadow=true;return mesh;
 }
+function roadOffsets(road,width){return road.end_joins.map(join=>join?join.miter.map(v=>v*(join.width+width-road.render_width)/2):null);}
+function roadSections(road,width){const extra=(width-road.render_width)/2;return road.sections.map(s=>[s[0]+s[2]*extra,s[1]+s[3]*extra]);}
+function roadRibbon(road,width,ys,material,thickness=0){return ribbon(road.points,width,ys,material,thickness,roadOffsets(road,width),roadSections(road,width));}
 function segmentBox(a,b,y,width,height,material,endY=y){
   // Paint is a two-triangle surface, rather than a twelve-triangle solid.
   if(material===whitePaint||material===yellowPaint)return ribbon([a,b],width,[y,endY],material);
@@ -134,7 +133,17 @@ function segmentBox(a,b,y,width,height,material,endY=y){
   mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),d.multiplyScalar(1/length));return mesh;
 }
 function ground(){
-  const mesh=object(new THREE.PlaneGeometry(40000,40000),mat('ground',{color:0xa6ad9e,roughness:1}),[0,-.15,0]);mesh.rotation.x=-Math.PI/2;mesh.receiveShadow=true;
+  const groundMaterial=mat('ground',{color:0xa6ad9e,roughness:1});
+  for(const polygon of data.road_terrain.terrain)flatShape(polygon,-.15,groundMaterial);
+  const floorGeometry=new THREE.BufferGeometry();floorGeometry.setAttribute('position',new THREE.Float32BufferAttribute(data.road_terrain.floor_vertices.flat(),3));floorGeometry.computeVertexNormals();
+  object(floorGeometry,mat('cut-floor',{color:0x8d9287,roughness:1}),[0,0,0]).receiveShadow=true;
+  const wallVertices=[];
+  for(const ring of data.road_terrain.walls)for(let i=1;i<ring.length;i++){
+    const a=ring[i-1],b=ring[i],A=[a[0],-.15,a[2]],B=[b[0],-.15,b[2]];
+    wallVertices.push(...A,...a,...B,...B,...a,...b);
+  }
+  const walls=new THREE.BufferGeometry();walls.setAttribute('position',new THREE.Float32BufferAttribute(wallVertices,3));walls.computeVertexNormals();
+  const retaining=object(walls,mat('retaining-wall',{color:0xa4a69e,roughness:.96,side:THREE.DoubleSide}),[0,0,0]);retaining.receiveShadow=true;retaining.castShadow=true;
   const pixels=new Uint8Array(256*256*4);
   for(let y=0;y<256;y++)for(let x=0;x<256;x++){
     const i=(y*256+x)*4,nx=Math.sin(x*.22+y*.13)*.16+Math.sin(y*.39)*.08,ny=Math.cos(y*.27-x*.11)*.17;
@@ -153,13 +162,24 @@ function streets(){
   }
   const bridgeConcrete=mat('bridge-concrete',{color:0xaaa9a1,roughness:1});
   const bridgeEdge=mat('bridge-edge',{color:0x89928f,roughness:.8});
+  for(const junction of data.road_terrain.junctions){
+    flatShape(junction.rings,junction.height+.075,roadMaterial);
+    const g=new THREE.ExtrudeGeometry(shapeOf(junction.rings),{depth:.6,bevelEnabled:false});g.rotateX(-Math.PI/2);
+    object(g,bridgeEdge,[0,junction.height-.7,0]).receiveShadow=true;
+  }
+  const groundRoads=data.roads.filter(r=>!r.walk&&r.heights.every(y=>Math.abs(y)<.05));
+  const blocksPier=p=>groundRoads.some(r=>r.points.slice(1).some((b,i)=>{
+    const a=r.points[i],dx=b[0]-a[0],dz=b[1]-a[1],f=clamp(((p[0]-a[0])*dx+(p[1]-a[1])*dz)/(dx*dx+dz*dz||1),0,1);
+    return Math.hypot(p[0]-a[0]-f*dx,p[1]-a[1]-f*dz)<r.width/2+1;
+  }));
   for(let ri=0;ri<data.roads.length;ri++){
     const road=data.roads[ri],pts=road.points,width=road.width,ys=road.heights;
     const raised=ys.some(y=>Math.abs(y)>.01);
-    if(road.walk){ribbon(pts,Math.min(width,4),ys.map(y=>y+.12),walkMaterial,raised?.25:0);continue;}
+    if(road.walk){roadRibbon(road,road.render_width,ys.map(y=>y+.12),walkMaterial,raised?.25:0);continue;}
     if(raised){
-      ribbon(pts,width+.7,ys.map(y=>y-.1),bridgeEdge,.6);
-      ribbon(pts,width,ys.map(y=>y+.075),roadMaterial);
+      roadRibbon(road,width+.7,ys.map(y=>y-.1),bridgeEdge,.6);
+      roadRibbon(road,width,ys.map(y=>y+.075),roadMaterial);
+      roadRails(road);
     }
     let cumulative=0;
     for(let j=0;j<pts.length-1;j++){
@@ -182,17 +202,16 @@ function streets(){
       }
       if(raised){
         // Every segment gets a slab and rails; suspension supports serve the channel.
-        const bridge=data.bridges.find(v=>v.id===road.bridge),mid=[(a[0]+b[0])/2,(a[1]+b[1])/2];
+        const bridge=road.spine?data.bridges.find(v=>v.id===road.bridge):null,mid=[(a[0]+b[0])/2,(a[1]+b[1])/2];
         const station=bridge?(mid[0]-bridge.centre[0])*bridge.axis[0]+(mid[1]-bridge.centre[1])*bridge.axis[1]:Infinity;
         const approach=!bridge||Math.abs(station)>bridge.main_span/2+bridge.side_span;
         if(approach){
-          for(const side of [-1,1]){
-            const off=(width/2+.2)*side;
-            segmentBox([a[0]-uz*off,a[1]+ux*off],[b[0]-uz*off,b[1]+ux*off],y+.65,.16,1.05,dark,endY+.65);
-          }
           for(let s=Math.ceil((cumulative+1)/48)*48-cumulative;s<length;s+=48){
-            const p=[a[0]+ux*s,a[1]+uz*s],h=height(s);
-            if(h>3&&!data.water.some(poly=>inside(p,poly[0])))cube(bridgeConcrete,p[0],h/2,p[1],1.8,h,2.8);
+            const h=height(s);if(h<3)continue;
+            for(const side of [-1,1]){
+              const off=(width/2+.9)*side,p=[a[0]+ux*s-uz*off,a[1]+uz*s+ux*off];
+              if(!blocksPier(p)&&!onBuilding(p,1)&&!data.road_terrain.cutouts.some(poly=>inside(p,poly[0]))&&!data.water.some(poly=>inside(p,poly[0])))cube(bridgeConcrete,p[0],h/2,p[1],.9,h,1.5);
+            }
           }
         }
       }
@@ -231,6 +250,32 @@ function contextBuildings(){
   for(const {material,geometries} of batches.values()){
     const mesh=object(mergeGeometries(geometries),material,[0,0,0]);mesh.receiveShadow=true;mesh.userData.noAO=true;
     geometries.forEach(g=>g.dispose());
+  }
+}
+function roadRails(road){
+  const edges=ribbonEdges(road.points,road.width+.4,road.heights,roadOffsets(road,road.width+.4),roadSections(road,road.width+.4));
+  const lengths=[0];for(let i=1;i<road.points.length;i++)lengths.push(lengths[i-1]+Math.hypot(road.points[i][0]-road.points[i-1][0],road.points[i][1]-road.points[i-1][1]));
+  const from=road.junction_clearance[0],to=lengths.at(-1)-road.junction_clearance[1];
+  const bridge=road.spine?data.bridges.find(b=>b.id===road.bridge):null;
+  const station=p=>bridge?(p[0]-bridge.centre[0])*bridge.axis[0]+(p[1]-bridge.centre[1])*bridge.axis[1]:Infinity;
+  const anchor=bridge?bridge.main_span/2+bridge.side_span:0;
+  for(const side of [0,1]){
+    let points=[],ys=[];
+    const flush=()=>{if(points.length>1)ribbon(points,.16,ys,dark,1.05);points=[];ys=[];};
+    for(let i=1;i<edges.length;i++){
+      const length=lengths[i]-lengths[i-1],cuts=[0,1],a=edges[i-1][side],b=edges[i][side];
+      for(const s of [from,to]){const t=(s-lengths[i-1])/length;if(t>0&&t<1)cuts.push(t);}
+      if(bridge){const sa=station(road.points[i-1]),sb=station(road.points[i]);for(const s of [-anchor,anchor]){const t=(s-sa)/(sb-sa);if(t>0&&t<1)cuts.push(t);}}
+      cuts.sort((a,b)=>a-b);
+      for(let j=1;j<cuts.length;j++){
+        const lo=cuts[j-1],hi=cuts[j],mid=(lo+hi)/2,s=lengths[i-1]+length*mid;
+        const p=[road.points[i-1][0]+(road.points[i][0]-road.points[i-1][0])*mid,road.points[i-1][1]+(road.points[i][1]-road.points[i-1][1])*mid];
+        if(s<from||s>to||(bridge&&Math.abs(station(p))<=anchor)){flush();continue;}
+        const sample=t=>[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t+1.17,a[2]+(b[2]-a[2])*t];
+        const A=sample(lo),B=sample(hi);if(!points.length){points.push([A[0],A[2]]);ys.push(A[1]);}points.push([B[0],B[2]]);ys.push(B[1]);
+      }
+    }
+    flush();
   }
 }
 function streetLight(p,n){
@@ -531,6 +576,10 @@ function fly(view){
     candidates.sort((a,b)=>a.score-b.score);
     const point=candidates[0]?.p||[c[0]+85,c[1]+65];target=new THREE.Vector3(c[0],Math.min(11,b.height*.27),c[1]);position=new THREE.Vector3(point[0],3.5,point[1]);
     controls.maxPolarAngle=Math.PI*.57;
+  }else if(view==='flatbush-approach'){target=new THREE.Vector3(280,6,500);position=new THREE.Vector3(670,220,900);
+  }else if(view==='manhattan-approach'){target=new THREE.Vector3(-1130,8,-900);position=new THREE.Vector3(-1580,330,-1450);
+  }else if(view==='brooklyn-cut'){target=new THREE.Vector3(-390,-4,220);position=new THREE.Vector3(-640,230,470);
+  }else if(view==='brooklyn-approach'){target=new THREE.Vector3(-240,5,230);position=new THREE.Vector3(160,300,700);
   }else if(view==='bridges'){
     const points=data.bridges.flatMap(b=>[-1,1].flatMap(sign=>[-b.width,b.width].map(t=>{const s=sign*(b.main_span/2+b.side_span+170);return new THREE.Vector3(b.centre[0]+b.axis[0]*s-b.axis[1]*t,70,b.centre[1]+b.axis[1]*s+b.axis[0]*t);})));
     const bounds=new THREE.Box3().setFromPoints(points);target=bounds.getCenter(new THREE.Vector3());target.y=25;
@@ -666,7 +715,7 @@ function animate(){
 animate();
 async function boot(){
   if(!runId)throw new Error('Choose a completed energy simulation first.');
-  const response=await fetch('/api/city/'+encodeURIComponent(runId)+'?scene=bridges-v1');if(!response.ok)throw new Error(await response.text());data=await response.json();
+  const response=await fetch('/api/city/'+encodeURIComponent(runId)+'?scene=street-repair-v2');if(!response.ok)throw new Error(await response.text());data=await response.json();
   ground();loading('Connecting streets and the East River suspension bridges…');streets();contextBuildings();
   loading('Adding façades, window frames and rooftop equipment…');
   for(let i=0;i<data.buildings.length;i++){makeBuilding(data.buildings[i]);if(i%35===0)await new Promise(requestAnimationFrame);}
@@ -680,7 +729,7 @@ async function boot(){
   const farPanels=instances(roofPanels,panelPlane,farPanel);farPanels.userData.noAO=true;
   trees();streetGlow();electrical();
   loading('Loading the executed street traffic scenario…');
-  const tr=await fetch('/api/city-traffic?scene=bridges-v1');if(!tr.ok)throw new Error('Traffic scenario could not be loaded');traffic=await tr.json();vehicles();
+  const tr=await fetch('/api/city-traffic?scene=street-repair-v2');if(!tr.ok)throw new Error('Traffic scenario could not be loaded');traffic=await tr.json();vehicles();
   document.body.dataset.buildings=String(data.buildings.length);document.body.dataset.windows=String(windowGlass.length);document.body.dataset.roads=String(data.roads.length);document.body.dataset.cars=String(traffic.cars.length);
   document.body.dataset.roofPanels=String(roofPanels.length);
   document.body.dataset.bridges=String(data.bridges.length);document.body.dataset.contextBuildings=String(data.context_buildings.length);
@@ -689,7 +738,7 @@ async function boot(){
   const query=new URLSearchParams(location.search);lightMode=['simulation','daylight','golden','blue','night'].includes(query.get('light'))?query.get('light'):'simulation';lighting();
   presentation.update(performance.now(),controls.target);presentation.render(performance.now());presentation.ready();
   readyForRender=true;document.body.dataset.ready='true';document.body.dataset.view='district';
-  if(['district','street','top','bridges'].includes(query.get('view')))fly(query.get('view'));
+  if(['district','street','top','bridges','manhattan-approach','brooklyn-approach','brooklyn-cut','flatbush-approach'].includes(query.get('view')))fly(query.get('view'));
   const loadingPanel=document.querySelector('#loading');loadingPanel.classList.add('hide');loadingPanel.setAttribute('aria-hidden','true');
   setTimeout(()=>loadingPanel.style.display='none',650);parent.postMessage({type:'vpp-city-ready'},location.origin);
 }

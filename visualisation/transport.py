@@ -8,7 +8,7 @@ calibrate the two suspension assemblies. This module never enters the VPP model.
 from collections import defaultdict
 
 import numpy as np
-from shapely import set_precision
+from shapely import line_merge, set_precision
 from shapely.geometry import LineString, Polygon
 from shapely.ops import unary_union
 
@@ -43,14 +43,21 @@ def transport(road_source, water, project):
         p = feature["properties"]
         if p["road_type"] in ("4", "11", "12", "14"):
             continue  # tunnels, unknown/nonphysical links and ferries aren't surface roads
-        geom = project(feature["geometry"])
+        # CSCL grade codes and travel direction describe the WHOLE feature.
+        # Its connected MultiLineString parts are storage fragments, not new
+        # ramps. Directed merging preserves the original FT/TF digitisation.
+        geom = line_merge(project(feature["geometry"]), directed=True)
         for k, line in enumerate(
             geom.geoms if geom.geom_type == "MultiLineString" else [geom]
         ):
             if line.length < 0.5:
                 continue
             line = line.simplify(0.15)
-            if bridge_name(p["name"]):
+            if (
+                bridge_name(p["name"])
+                or p.get("from_level") != "13"
+                or p.get("to_level") != "13"
+            ):
                 line = line.segmentize(12)
             points = [[round(x, 3), round(-y, 3)] for x, y in line.coords]
             raw.append(
@@ -76,7 +83,9 @@ def transport(road_source, water, project):
         ("brooklyn", 1595.5 * 0.3048, 26, 84.3, 930 * 0.3048),
         ("manhattan", 1470 * 0.3048, 36, 100, 221),
     ):
-        members = [r for r in raw if r["bridge"] == key and not r["walk"]]
+        members = [
+            r for r in raw if r["name"] == key.upper() + " BRG" and not r["walk"]
+        ]
         # Fit the straight crossing to equally spaced samples, rather than
         # overweighting the densely digitised curved approach ramps.
         samples = []
@@ -116,16 +125,7 @@ def transport(road_source, water, project):
             for r in members
             for p in r["points"]
         ]
-        landings = [
-            float(np.dot(np.asarray(r["points"][end]) - centre, axis))
-            for r in members
-            for end in (0, -1)
-            if r["levels"][end] == "13"
-        ]
-        ends = [
-            max((s for s in landings if s < -span / 2 - side), default=min(stations)),
-            min((s for s in landings if s > span / 2 + side), default=max(stations)),
-        ]
+        ends = [min(stations), max(stations)]
         bridge = dict(
             id=key,
             name=key.title() + " Bridge",
@@ -146,6 +146,16 @@ def transport(road_source, water, project):
         if not r["bridge"]:
             continue
         b = lookup[r["bridge"]]
+        spine = r["name"] == b["id"].upper() + " BRG" and r["levels"] != ["13", "13"]
+        spine_walk = (
+            r["walk"]
+            and r["kind"] == "3"
+            and all(int(level or 13) > 13 for level in r["levels"])
+            and LineString(r["points"]).intersects(water_shape)
+        )
+        if not (spine or spine_walk):
+            continue  # named entrance/exit ramps use their actual route length
+        r["spine"] = True
         # Manhattan has separate upper carriageways, lower road and rail deck;
         # Brooklyn's central promenade is raised above its vehicle lanes.
         offset = (
@@ -160,7 +170,8 @@ def transport(road_source, water, project):
             ys.append(round(deck_height(b, s) + offset * taper, 3))
         r["heights"] = ys
         for end, level in ((0, r["levels"][0]), (-1, r["levels"][1])):
-            candidates[node(r["points"][end], level)].append(ys[end])
+            baseline = (int(level or 13) - 13) * 1.6
+            candidates[node(r["points"][end], level)].append(max(ys[end], baseline))
     heights = {
         key: 0 if key[2] == "13" else float(np.median(values))
         for key, values in candidates.items()
@@ -177,7 +188,7 @@ def transport(road_source, water, project):
         ]
         correction = np.interp(lengths, [0, lengths[-1]], deltas)
         r["heights"] = [
-            round(y + float(d), 3) for y, d in zip(r["heights"], correction)
+            round(max(0, y + float(d)), 3) for y, d in zip(r["heights"], correction)
         ]
     # Reuse bridge endpoint heights on connecting ramps. Grade codes distinguish
     # an overpass from the ground street at the same horizontal position.
@@ -195,7 +206,10 @@ def transport(road_source, water, project):
                 round(float(y), 3) for y in np.interp(lengths, [0, lengths[-1]], ends)
             ]
         r["elevation"] = max(r["heights"])
-    roads = [r for r in raw if max(r["heights"]) >= 0]
+    roads = raw  # below-grade physical carriageways remain part of the network
+    from visualisation.road_mesh import prepare_road_mesh
+
+    road_terrain = prepare_road_mesh(roads)
     # A unified ground network removes internal sidewalk stripes and seams at
     # T-junctions. Separate vertical layers remain separate at real overpasses.
     ground = [r for r in roads if not r["walk"] and max(map(abs, r["heights"])) < 0.01]
@@ -231,4 +245,4 @@ def transport(road_source, water, project):
             len(junctions[(round(p[0], 1), round(p[1], 1))]) > 1
             for p in (r["points"][0], r["points"][-1])
         ]
-    return roads, bridges, surfaces
+    return roads, bridges, surfaces, road_terrain

@@ -1,0 +1,5449 @@
+{
+  "omitted": [
+    {
+      "id": "129657",
+      "physical_id": "194162",
+      "name": "BROOKLYN QUEENS EXPY",
+      "width_m": 10.972800000000001,
+      "width_provenance": "observed source feet",
+      "direction": "FT",
+      "road_type": "2",
+      "speed_mph": 45.0,
+      "lanes": 3.0,
+      "display_level": "10",
+      "from_level": "9",
+      "to_level": "9",
+      "geometry_provenance": "observed NYC CSCL"
+    },
+    {
+      "id": "130177",
+      "physical_id": "148109",
+      "name": "FDR DR  VIADUCT",
+      "width_m": 6.7056000000000004,
+      "width_provenance": "observed source feet",
+      "direction": "FT",
+      "road_type": "2",
+      "speed_mph": 35.0,
+      "lanes": 2.0,
+      "display_level": "30",
+      "from_level": "9",
+      "to_level": "9",
+      "geometry_provenance": "observed NYC CSCL"
+    },
+    {
+      "id": "127773",
+      "physical_id": "51533",
+      "name": "BROOKLYN QUEENS EXPY",
+      "width_m": 10.972800000000001,
+      "width_provenance": "observed source feet",
+      "direction": "FT",
+      "road_type": "2",
+      "speed_mph": 45.0,
+      "lanes": 3.0,
+      "display_level": "10",
+      "from_level": "9",
+      "to_level": "9",
+      "geometry_provenance": "observed NYC CSCL"
+    },
+    {
+      "id": "126550",
+      "physical_id": "51534",
+      "name": "BROOKLYN QUEENS EXPY",
+      "width_m": 10.972800000000001,
+      "width_provenance": "observed source feet",
+      "direction": "FT",
+      "road_type": "2",
+      "speed_mph": 45.0,
+      "lanes": 3.0,
+      "display_level": "10",
+      "from_level": "9",
+      "to_level": "9",
+      "geometry_provenance": "observed NYC CSCL"
+    },
+    {
+      "id": "130121",
+      "physical_id": "51421",
+      "name": "BROOKLYN QUEENS EXPY",
+      "width_m": 5.486400000000001,
+      "width_provenance": "observed source feet",
+      "direction": "TF",
+      "road_type": "2",
+      "speed_mph": 45.0,
+      "lanes": 2.0,
+      "display_level": "10",
+      "from_level": "5",
+      "to_level": "5",
+      "geometry_provenance": "observed NYC CSCL"
+    },
+    {
+      "id": "129057",
+      "physical_id": "148065",
+      "name": "FDR DR  VIADUCT",
+      "width_m": 6.7056000000000004,
+      "width_provenance": "observed source feet",
+      "direction": "TF",
+      "road_type": "2",
+      "speed_mph": 30.0,
+      "lanes": 2.0,
+      "display_level": "30",
+      "from_level": "9",
+      "to_level": "9",
+      "geometry_provenance": "observed NYC CSCL"
+    },
+    {
+      "id": "70310",
+      "physical_id": "77500",
+      "name": "BQE WB ENTRANCE OLD FULTON ST",
+      "width_m": 5,
+      "width_provenance": "observed source feet",
+      "direction": "TF",
+      "road_type": "9",
+      "speed_mph": 20.0,
+      "lanes": 1.0,
+      "display_level": null,
+      "from_level": "5",
+      "to_level": "9",
+      "geometry_provenance": "observed NYC CSCL"
+    },
+    {
+      "id": "126555",
+      "physical_id": "194161",
+      "name": "BROOKLYN QUEENS EXPY",
+      "width_m": 10.3632,
+      "width_provenance": "observed source feet",
+      "direction": "TF",
+      "road_type": "2",
+      "speed_mph": 45.0,
+      "lanes": 3.0,
+      "display_level": "10",
+      "from_level": "5",
+      "to_level": "5",
+      "geometry_provenance": "observed NYC CSCL"
+    },
+    {
+      "id": "128064",
+      "physical_id": "51420",
+      "name": "BROOKLYN QUEENS EXPY",
+      "width_m": 9.144,
+      "width_provenance": "observed source feet",
+      "direction": "TF",
+      "road_type": "2",
+      "speed_mph": 45.0,
+      "lanes": 2.0,
+      "display_level": "10",
+      "from_level": "5",
+      "to_level": "5",
+      "geometry_provenance": "observed NYC CSCL"
+    }
+  ],
+  "internal_resets": [
+    [
+      "112731",
+      [
+        202.401,
+        372.697
+      ],
+      [
+        [
+          0.0,
+          "112731-0",
+          "13"
+        ],
+        [
+          1.287,
+          "112731-1",
+          "15"
+        ]
+      ]
+    ],
+    [
+      "112731",
+      [
+        199.763,
+        377.965
+      ],
+      [
+        [
+          0.0,
+          "112731-1",
+          "13"
+        ],
+        [
+          1.12,
+          "112731-2",
+          "15"
+        ]
+      ]
+    ],
+    [
+      "119112",
+      [
+        265.873,
+        -1653.531
+      ],
+      [
+        [
+          6.4,
+          "119112-0",
+          "17"
+        ],
+        [
+          0.0,
+          "119112-1",
+          "13"
+        ]
+      ]
+    ],
+    [
+      "119112",
+      [
+        272.263,
+        -1647.866
+      ],
+      [
+        [
+          6.4,
+          "119112-1",
+          "17"
+        ],
+        [
+          0.0,
+          "119112-2",
+          "13"
+        ]
+      ]
+    ],
+    [
+      "128674",
+      [
+        -324.756,
+        166.393
+      ],
+      [
+        [
+          12.8,
+          "128674-0",
+          "21"
+        ],
+        [
+          -6.4,
+          "128674-1",
+          "9"
+        ]
+      ]
+    ],
+    [
+      "128674",
+      [
+        -301.169,
+        160.147
+      ],
+      [
+        [
+          12.8,
+          "128674-1",
+          "21"
+        ],
+        [
+          -6.4,
+          "128674-2",
+          "9"
+        ]
+      ]
+    ],
+    [
+      "128674",
+      [
+        -277.129,
+        155.97
+      ],
+      [
+        [
+          12.8,
+          "128674-2",
+          "21"
+        ],
+        [
+          -6.4,
+          "128674-3",
+          "9"
+        ]
+      ]
+    ],
+    [
+      "129911",
+      [
+        -321.757,
+        158.074
+      ],
+      [
+        [
+          6.4,
+          "129911-0",
+          "17"
+        ],
+        [
+          -12.8,
+          "129911-1",
+          "5"
+        ]
+      ]
+    ],
+    [
+      "129911",
+      [
+        -302.637,
+        153.398
+      ],
+      [
+        [
+          6.4,
+          "129911-1",
+          "17"
+        ],
+        [
+          -12.8,
+          "129911-2",
+          "5"
+        ]
+      ]
+    ],
+    [
+      "129911",
+      [
+        -283.24,
+        150.052
+      ],
+      [
+        [
+          6.4,
+          "129911-2",
+          "17"
+        ],
+        [
+          -12.8,
+          "129911-3",
+          "5"
+        ]
+      ]
+    ],
+    [
+      "129911",
+      [
+        -275.431,
+        148.797
+      ],
+      [
+        [
+          6.4,
+          "129911-3",
+          "17"
+        ],
+        [
+          -12.8,
+          "129911-4",
+          "5"
+        ]
+      ]
+    ],
+    [
+      "130469",
+      [
+        -20.594,
+        184.22
+      ],
+      [
+        [
+          6.4,
+          "130469-0",
+          "17"
+        ],
+        [
+          12.8,
+          "130469-1",
+          "21"
+        ]
+      ]
+    ],
+    [
+      "130469",
+      [
+        6.122,
+        209.948
+      ],
+      [
+        [
+          6.4,
+          "130469-1",
+          "17"
+        ],
+        [
+          12.8,
+          "130469-2",
+          "21"
+        ]
+      ]
+    ],
+    [
+      "130469",
+      [
+        17.063,
+        242.149
+      ],
+      [
+        [
+          6.4,
+          "130469-2",
+          "17"
+        ],
+        [
+          12.8,
+          "130469-3",
+          "21"
+        ]
+      ]
+    ],
+    [
+      "130469",
+      [
+        17.748,
+        247.511
+      ],
+      [
+        [
+          6.4,
+          "130469-3",
+          "17"
+        ],
+        [
+          12.8,
+          "130469-4",
+          "21"
+        ]
+      ]
+    ],
+    [
+      "61232",
+      [
+        673.808,
+        755.313
+      ],
+      [
+        [
+          6.4,
+          "61232-0",
+          "17"
+        ],
+        [
+          0.0,
+          "61232-1",
+          "13"
+        ]
+      ]
+    ],
+    [
+      "61232",
+      [
+        704.529,
+        742.515
+      ],
+      [
+        [
+          6.4,
+          "61232-1",
+          "17"
+        ],
+        [
+          0.0,
+          "61232-2",
+          "13"
+        ]
+      ]
+    ],
+    [
+      "81797",
+      [
+        661.088,
+        663.624
+      ],
+      [
+        [
+          0.0,
+          "81797-0",
+          "13"
+        ],
+        [
+          6.4,
+          "81797-1",
+          "17"
+        ]
+      ]
+    ],
+    [
+      "81797",
+      [
+        654.187,
+        643.134
+      ],
+      [
+        [
+          0.0,
+          "81797-1",
+          "13"
+        ],
+        [
+          6.4,
+          "81797-2",
+          "17"
+        ]
+      ]
+    ],
+    [
+      "81797",
+      [
+        676.284,
+        621.949
+      ],
+      [
+        [
+          0.0,
+          "81797-2",
+          "13"
+        ],
+        [
+          6.4,
+          "81797-3",
+          "17"
+        ]
+      ]
+    ],
+    [
+      "81797",
+      [
+        696.537,
+        624.709
+      ],
+      [
+        [
+          0.0,
+          "81797-3",
+          "13"
+        ],
+        [
+          6.4,
+          "81797-4",
+          "17"
+        ]
+      ]
+    ],
+    [
+      "81797",
+      [
+        708.607,
+        641.205
+      ],
+      [
+        [
+          0.0,
+          "81797-4",
+          "13"
+        ],
+        [
+          6.4,
+          "81797-5",
+          "17"
+        ]
+      ]
+    ],
+    [
+      "82402",
+      [
+        451.8,
+        425.762
+      ],
+      [
+        [
+          0.0,
+          "82402-0",
+          "13"
+        ],
+        [
+          6.4,
+          "82402-1",
+          "17"
+        ]
+      ]
+    ],
+    [
+      "82402",
+      [
+        481.01,
+        434.736
+      ],
+      [
+        [
+          0.0,
+          "82402-1",
+          "13"
+        ],
+        [
+          6.4,
+          "82402-2",
+          "17"
+        ]
+      ]
+    ],
+    [
+      "87160",
+      [
+        616.166,
+        656.203
+      ],
+      [
+        [
+          0.0,
+          "87160-0",
+          "13"
+        ],
+        [
+          6.4,
+          "87160-1",
+          "17"
+        ]
+      ]
+    ],
+    [
+      "87160",
+      [
+        626.972,
+        692.734
+      ],
+      [
+        [
+          0.0,
+          "87160-1",
+          "13"
+        ],
+        [
+          6.4,
+          "87160-2",
+          "17"
+        ]
+      ]
+    ],
+    [
+      "87160",
+      [
+        623.315,
+        731.841
+      ],
+      [
+        [
+          0.0,
+          "87160-2",
+          "13"
+        ],
+        [
+          6.4,
+          "87160-3",
+          "17"
+        ]
+      ]
+    ],
+    [
+      "87160",
+      [
+        614.579,
+        744.344
+      ],
+      [
+        [
+          0.0,
+          "87160-3",
+          "13"
+        ],
+        [
+          6.4,
+          "87160-4",
+          "17"
+        ]
+      ]
+    ],
+    [
+      "87160",
+      [
+        602.005,
+        752.976
+      ],
+      [
+        [
+          0.0,
+          "87160-4",
+          "13"
+        ],
+        [
+          6.4,
+          "87160-5",
+          "17"
+        ]
+      ]
+    ],
+    [
+      "87160",
+      [
+        585.539,
+        757.678
+      ],
+      [
+        [
+          0.0,
+          "87160-5",
+          "13"
+        ],
+        [
+          6.4,
+          "87160-6",
+          "17"
+        ]
+      ]
+    ]
+  ],
+  "multipart": [
+    {
+      "id": "129911",
+      "name": "BROOKLYN QUEENS EXPY",
+      "kind": "2",
+      "levels": [
+        "5",
+        "17"
+      ],
+      "parts": 5,
+      "merged": "LineString",
+      "lengths": [
+        199.4,
+        19.7,
+        19.7,
+        7.9,
+        7.9
+      ]
+    },
+    {
+      "id": "99346",
+      "name": "PEDESTRIAN PATH",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        42.0,
+        42.0
+      ]
+    },
+    {
+      "id": "104191",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "kind": "3",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        4.8,
+        7.1,
+        14.4
+      ]
+    },
+    {
+      "id": "118937",
+      "name": "CLINTON ST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 6,
+      "merged": "LineString",
+      "lengths": [
+        52.2,
+        52.2,
+        13.3,
+        31.7,
+        31.7,
+        7.3
+      ]
+    },
+    {
+      "id": "108816",
+      "name": "SANDS ST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        30.5,
+        30.5,
+        72.4
+      ]
+    },
+    {
+      "id": "103047",
+      "name": "CONNECTOR",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 5,
+      "merged": "LineString",
+      "lengths": [
+        19.9,
+        5.3,
+        25.1,
+        10.4,
+        10.4
+      ]
+    },
+    {
+      "id": "115774",
+      "name": "BROOKLYN BRIDGE PARK GREENWAY",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 12,
+      "merged": "LineString",
+      "lengths": [
+        59.2,
+        34.2,
+        40.8,
+        7.8,
+        27.4,
+        26.5,
+        35.3,
+        28.9,
+        77.4,
+        19.9,
+        22.3,
+        13.3
+      ]
+    },
+    {
+      "id": "132076",
+      "name": "CORLEARS HOOK PARK PATH",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        11.9,
+        11.9
+      ]
+    },
+    {
+      "id": "117733",
+      "name": "SQUIBB PARK AND BRIDGE PATH",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        6.4,
+        6.4
+      ]
+    },
+    {
+      "id": "128674",
+      "name": "BROOKLYN QUEENS EXPY",
+      "kind": "2",
+      "levels": [
+        "9",
+        "21"
+      ],
+      "parts": 4,
+      "merged": "LineString",
+      "lengths": [
+        150.6,
+        24.4,
+        24.4,
+        16.8
+      ]
+    },
+    {
+      "id": "113794",
+      "name": "PEDESTRIAN AND BIKE PATH LINK",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        45.1,
+        13.9
+      ]
+    },
+    {
+      "id": "68783",
+      "name": "BQE EB ENTRANCE SANDS ST",
+      "kind": "9",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        74.8,
+        74.8
+      ]
+    },
+    {
+      "id": "79",
+      "name": "WATER ST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        37.3,
+        37.3
+      ]
+    },
+    {
+      "id": "82820",
+      "name": "AVE OF THE FINEST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        95.9,
+        95.9
+      ]
+    },
+    {
+      "id": "99364",
+      "name": "PEDESTRIAN PATH",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        19.5,
+        19.5,
+        55.6
+      ]
+    },
+    {
+      "id": "99356",
+      "name": "PEDESTRIAN PATH",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 6,
+      "merged": "LineString",
+      "lengths": [
+        22.8,
+        13.2,
+        13.2,
+        26.0,
+        26.0,
+        21.7
+      ]
+    },
+    {
+      "id": "108845",
+      "name": "SANDS STREET BIKE PATH",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        42.2,
+        25.1,
+        58.6
+      ]
+    },
+    {
+      "id": "130969",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "kind": "3",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 11,
+      "merged": "LineString",
+      "lengths": [
+        25.2,
+        34.1,
+        31.7,
+        17.1,
+        13.1,
+        15.4,
+        6.6,
+        11.8,
+        27.4,
+        22.6,
+        29.1
+      ]
+    },
+    {
+      "id": "71037",
+      "name": "SOUTH ST",
+      "kind": "13",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        8.8,
+        3.9,
+        8.2
+      ]
+    },
+    {
+      "id": "117721",
+      "name": "SQUIBB PARK BRG",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        13.8,
+        13.8
+      ]
+    },
+    {
+      "id": "62809",
+      "name": "E  BROADWAY",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        19.5,
+        19.5,
+        31.3
+      ]
+    },
+    {
+      "id": "98959",
+      "name": "FLEET WALK",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        23.2,
+        23.2
+      ]
+    },
+    {
+      "id": "130494",
+      "name": "BROOKLYN QUEENS EP EB ET 28 B",
+      "kind": "9",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "parts": 4,
+      "merged": "LineString",
+      "lengths": [
+        13.6,
+        3.2,
+        3.2,
+        86.8
+      ]
+    },
+    {
+      "id": "132226",
+      "name": "BROOKLYN HEIGHTS PROMENADE",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 4,
+      "merged": "LineString",
+      "lengths": [
+        12.4,
+        17.3,
+        16.8,
+        80.4
+      ]
+    },
+    {
+      "id": "81797",
+      "name": "BROOKLYN QUEENS EXPWY WB ET 29",
+      "kind": "9",
+      "levels": [
+        "17",
+        "13"
+      ],
+      "parts": 6,
+      "merged": "LineString",
+      "lengths": [
+        21.7,
+        21.7,
+        32.5,
+        21.0,
+        21.0,
+        56.4
+      ]
+    },
+    {
+      "id": "131433",
+      "name": "BROOKLYN BRG",
+      "kind": "1",
+      "levels": [
+        "13",
+        "17"
+      ],
+      "parts": 8,
+      "merged": "LineString",
+      "lengths": [
+        52.4,
+        11.7,
+        11.7,
+        13.0,
+        13.0,
+        18.1,
+        20.2,
+        30.9
+      ]
+    },
+    {
+      "id": "108829",
+      "name": "SANDS ST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        26.0,
+        26.0,
+        78.6
+      ]
+    },
+    {
+      "id": "85706",
+      "name": "YORK ST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        74.2,
+        74.2,
+        67.5
+      ]
+    },
+    {
+      "id": "66111",
+      "name": "GOLD ST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "id": "103431",
+      "name": "CADMAN PLZ W",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        57.1,
+        60.8,
+        60.8
+      ]
+    },
+    {
+      "id": "101529",
+      "name": "SOUTH ST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        12.4,
+        12.4
+      ]
+    },
+    {
+      "id": "91344",
+      "name": "CHATHAM SQ",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        25.6,
+        25.6,
+        6.2
+      ]
+    },
+    {
+      "id": "14765",
+      "name": "MANHATTAN BRG",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        43.9,
+        43.9
+      ]
+    },
+    {
+      "id": "113795",
+      "name": "BROOKLYN BRIDGE PARK GREENWAY",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        16.0,
+        16.0,
+        15.3
+      ]
+    },
+    {
+      "id": "87160",
+      "name": "BROOKLYN QUEENS EP EB ET 29 B",
+      "kind": "9",
+      "levels": [
+        "17",
+        "13"
+      ],
+      "parts": 7,
+      "merged": "LineString",
+      "lengths": [
+        24.2,
+        38.2,
+        39.7,
+        15.3,
+        15.3,
+        17.2,
+        17.2
+      ]
+    },
+    {
+      "id": "82402",
+      "name": "BQE WB ENTRANCE SANDS ST",
+      "kind": "9",
+      "levels": [
+        "17",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        44.2,
+        31.9,
+        174.7
+      ]
+    },
+    {
+      "id": "99366",
+      "name": "PEDESTRIAN PATH",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        19.8,
+        19.8,
+        97.8
+      ]
+    },
+    {
+      "id": "72132",
+      "name": "SOUTH ST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        170.9,
+        10.5,
+        10.5
+      ]
+    },
+    {
+      "id": "117410",
+      "name": "MANHATTAN BRG",
+      "kind": "9",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        13.2,
+        13.2
+      ]
+    },
+    {
+      "id": "120052",
+      "name": "BROOKLYN QUEENS EXPY",
+      "kind": "3",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "parts": 4,
+      "merged": "LineString",
+      "lengths": [
+        10.3,
+        48.7,
+        48.7,
+        20.2
+      ]
+    },
+    {
+      "id": "130469",
+      "name": "BROOKLYN QUEENS EP EB ET 28 B",
+      "kind": "9",
+      "levels": [
+        "21",
+        "17"
+      ],
+      "parts": 5,
+      "merged": "LineString",
+      "lengths": [
+        27.8,
+        37.3,
+        34.2,
+        5.4,
+        5.4
+      ]
+    },
+    {
+      "id": "984",
+      "name": "BROOKLYN BRIDGE ENTRANCE RAMP",
+      "kind": "3",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        44.1,
+        27.4,
+        27.4
+      ]
+    },
+    {
+      "id": "102716",
+      "name": "E  RIVER ESPL",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        75.5,
+        75.5,
+        26.3
+      ]
+    },
+    {
+      "id": "377",
+      "name": "STONE ST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        35.3,
+        35.3
+      ]
+    },
+    {
+      "id": "50265",
+      "name": "SANDS ST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        32.9,
+        29.9,
+        48.5
+      ]
+    },
+    {
+      "id": "102715",
+      "name": "E  RIVER ESPL",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        201.7,
+        8.2,
+        107.6
+      ]
+    },
+    {
+      "id": "133581",
+      "name": "BROOKLYN WATERFRONT GREENWAY",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 8,
+      "merged": "LineString",
+      "lengths": [
+        5.0,
+        33.4,
+        30.0,
+        26.6,
+        26.4,
+        19.2,
+        7.0,
+        7.0
+      ]
+    },
+    {
+      "id": "111831",
+      "name": "BROOKLYN BRIDGE PARK GREENWAY",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        144.3,
+        12.4,
+        14.0
+      ]
+    },
+    {
+      "id": "133593",
+      "name": "BROOKLYN WATERFRONT GREENWAY",
+      "kind": "7",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        9.5,
+        9.5
+      ]
+    },
+    {
+      "id": "133595",
+      "name": "BROOKLYN WATERFRONT GREENWAY",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 4,
+      "merged": "LineString",
+      "lengths": [
+        7.9,
+        7.9,
+        12.4,
+        12.4
+      ]
+    },
+    {
+      "id": "134427",
+      "name": "E  RIVER PARK PATH",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        3.4,
+        4.8,
+        4.8
+      ]
+    },
+    {
+      "id": "133597",
+      "name": "BROOKLYN WATERFRONT GREENWAY",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 4,
+      "merged": "LineString",
+      "lengths": [
+        21.8,
+        21.8,
+        7.8,
+        7.8
+      ]
+    },
+    {
+      "id": "133587",
+      "name": "BROOKLYN WATERFRONT GREENWAY",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        43.5,
+        27.4
+      ]
+    },
+    {
+      "id": "133531",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "kind": "3",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        28.0,
+        17.6,
+        15.5
+      ]
+    },
+    {
+      "id": "133591",
+      "name": "BROOKLYN WATERFRONT GREENWAY",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 8,
+      "merged": "LineString",
+      "lengths": [
+        10.8,
+        8.4,
+        8.1,
+        4.6,
+        10.9,
+        10.9,
+        4.7,
+        4.7
+      ]
+    },
+    {
+      "id": "132029",
+      "name": "CORLEARS HOOK PARK PATH",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        40.1,
+        10.3,
+        10.3
+      ]
+    },
+    {
+      "id": "104190",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "kind": "3",
+      "levels": [
+        "13",
+        "17"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        17.4,
+        18.5,
+        19.1
+      ]
+    },
+    {
+      "id": "132059",
+      "name": "CORLEARS HOOK PARK PATH",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        3.8,
+        3.8
+      ]
+    },
+    {
+      "id": "103430",
+      "name": "CADMAN PLZ W",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        54.5,
+        61.0,
+        61.0
+      ]
+    },
+    {
+      "id": "61232",
+      "name": "BQE EB ENTRANCE TILLARY ST",
+      "kind": "9",
+      "levels": [
+        "13",
+        "17"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        93.2,
+        33.4,
+        33.4
+      ]
+    },
+    {
+      "id": "134509",
+      "name": "E  RIVER PARK PATH",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        17.6,
+        17.6
+      ]
+    },
+    {
+      "id": "134481",
+      "name": "E  RIVER PARK PATH",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        107.1,
+        9.2,
+        9.2
+      ]
+    },
+    {
+      "id": "134475",
+      "name": "E  RIVER ESPL",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 7,
+      "merged": "LineString",
+      "lengths": [
+        7.5,
+        7.5,
+        6.3,
+        6.3,
+        4.1,
+        4.1,
+        45.5
+      ]
+    },
+    {
+      "id": "134476",
+      "name": "E  RIVER ESPL",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 6,
+      "merged": "LineString",
+      "lengths": [
+        37.2,
+        6.0,
+        6.0,
+        15.3,
+        15.3,
+        10.3
+      ]
+    },
+    {
+      "id": "72147",
+      "name": "SOUTH ST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        46.6,
+        46.6
+      ]
+    },
+    {
+      "id": "134498",
+      "name": "E  RIVER ESPL",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        7.4,
+        7.4
+      ]
+    },
+    {
+      "id": "134486",
+      "name": "E  RIVER ESPL",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        17.3,
+        17.3
+      ]
+    },
+    {
+      "id": "134495",
+      "name": "E  RIVER PARK PATH",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        11.2,
+        11.2
+      ]
+    },
+    {
+      "id": "134437",
+      "name": "E  RIVER PARK PATH",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 4,
+      "merged": "LineString",
+      "lengths": [
+        4.7,
+        11.9,
+        11.9,
+        45.8
+      ]
+    },
+    {
+      "id": "91539",
+      "name": "SAMUEL DICKSTEIN PLZ",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        42.1,
+        42.1
+      ]
+    },
+    {
+      "id": "134485",
+      "name": "E  RIVER PARK PATH",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        13.4,
+        13.4
+      ]
+    },
+    {
+      "id": "134462",
+      "name": "E  RIVER ESPL",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        34.4,
+        17.7,
+        17.7
+      ]
+    },
+    {
+      "id": "135044",
+      "name": "PIKE SLIP GREENWAY",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        35.4,
+        50.4,
+        36.9
+      ]
+    },
+    {
+      "id": "135032",
+      "name": "PIKE STREET GREENWAY",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        124.7,
+        42.2,
+        12.8
+      ]
+    },
+    {
+      "id": "119112",
+      "name": "WILLIAMSBURG BRG",
+      "kind": "1",
+      "levels": [
+        "13",
+        "17"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        8.6,
+        8.6,
+        41.7
+      ]
+    },
+    {
+      "id": "117724",
+      "name": "BROOKLYN BRIDGE PARK GREENWAY",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 6,
+      "merged": "LineString",
+      "lengths": [
+        48.3,
+        30.6,
+        37.7,
+        33.0,
+        71.4,
+        34.9
+      ]
+    },
+    {
+      "id": "109358",
+      "name": "FRONT ST",
+      "kind": "9",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        20.4,
+        26.5
+      ]
+    },
+    {
+      "id": "120051",
+      "name": "BROOKLYN QUEENS EXPY",
+      "kind": "3",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "parts": 4,
+      "merged": "LineString",
+      "lengths": [
+        9.6,
+        37.2,
+        37.2,
+        18.3
+      ]
+    },
+    {
+      "id": "134089",
+      "name": "DRIVEWAY",
+      "kind": "8",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 4,
+      "merged": "LineString",
+      "lengths": [
+        10.6,
+        17.1,
+        8.6,
+        12.9
+      ]
+    },
+    {
+      "id": "120048",
+      "name": "BROOKLYN QUEENS EP EB ET 29 A",
+      "kind": "9",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        20.3,
+        26.3,
+        13.6
+      ]
+    },
+    {
+      "id": "134070",
+      "name": "DRIVEWAY",
+      "kind": "8",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        61.1,
+        13.9
+      ]
+    },
+    {
+      "id": "134061",
+      "name": "DRIVEWAY",
+      "kind": "8",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        12.3,
+        12.3
+      ]
+    },
+    {
+      "id": "122043",
+      "name": "TILLARY ST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        43.7,
+        43.7
+      ]
+    },
+    {
+      "id": "133888",
+      "name": "DRIVEWAY",
+      "kind": "8",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        14.8,
+        14.8
+      ]
+    },
+    {
+      "id": "109125",
+      "name": "DRIVEWAY",
+      "kind": "8",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        31.6,
+        23.4
+      ]
+    },
+    {
+      "id": "50254",
+      "name": "SANDS ST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        84.7,
+        24.8,
+        24.8
+      ]
+    },
+    {
+      "id": "107392",
+      "name": "CONCORD ST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 4,
+      "merged": "LineString",
+      "lengths": [
+        13.0,
+        13.0,
+        18.7,
+        27.6
+      ]
+    },
+    {
+      "id": "104704",
+      "name": "MANHATTAN BRIDGE SB ET BQE",
+      "kind": "9",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        37.6,
+        46.2,
+        50.1
+      ]
+    },
+    {
+      "id": "120985",
+      "name": "MANHATTAN BRIDGE EN NASSAU ST",
+      "kind": "9",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        33.7,
+        33.7
+      ]
+    },
+    {
+      "id": "103241",
+      "name": "BROOKLYN QUEENS EP EB ET 29 A",
+      "kind": "9",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 4,
+      "merged": "LineString",
+      "lengths": [
+        21.6,
+        21.6,
+        32.6,
+        32.6
+      ]
+    },
+    {
+      "id": "103055",
+      "name": "PARK ROW",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        15.1,
+        15.1
+      ]
+    },
+    {
+      "id": "120425",
+      "name": "BROOKLYN BRIDGE ENTRANCE RAMP",
+      "kind": "9",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        30.4,
+        55.8
+      ]
+    },
+    {
+      "id": "968",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "kind": "3",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "parts": 4,
+      "merged": "LineString",
+      "lengths": [
+        15.3,
+        15.3,
+        19.7,
+        14.8
+      ]
+    },
+    {
+      "id": "71803",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "kind": "9",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        24.2,
+        30.4,
+        27.2
+      ]
+    },
+    {
+      "id": "115777",
+      "name": "BROOKLYN BRIDGE PARK GREENWAY",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 8,
+      "merged": "LineString",
+      "lengths": [
+        35.8,
+        47.9,
+        40.9,
+        69.4,
+        23.4,
+        7.2,
+        67.3,
+        13.2
+      ]
+    },
+    {
+      "id": "71806",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "kind": "9",
+      "levels": [
+        "17",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        37.3,
+        37.3
+      ]
+    },
+    {
+      "id": "71804",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "kind": "9",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 5,
+      "merged": "LineString",
+      "lengths": [
+        15.4,
+        15.4,
+        15.9,
+        15.9,
+        23.6
+      ]
+    },
+    {
+      "id": "120100",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "kind": "9",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 5,
+      "merged": "LineString",
+      "lengths": [
+        11.5,
+        18.7,
+        18.7,
+        15.0,
+        15.0
+      ]
+    },
+    {
+      "id": "76",
+      "name": "PEARL ST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        43.1,
+        43.1
+      ]
+    },
+    {
+      "id": "754",
+      "name": "PARK ROW",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        50.2,
+        36.2,
+        13.1
+      ]
+    },
+    {
+      "id": "121542",
+      "name": "BROOKLYN BRG",
+      "kind": "3",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        20.6,
+        15.5,
+        18.4
+      ]
+    },
+    {
+      "id": "115101",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "kind": "9",
+      "levels": [
+        "17",
+        "13"
+      ],
+      "parts": 8,
+      "merged": "LineString",
+      "lengths": [
+        36.8,
+        28.4,
+        9.3,
+        17.5,
+        4.7,
+        42.6,
+        14.1,
+        17.1
+      ]
+    },
+    {
+      "id": "756",
+      "name": "PARK ROW",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 6,
+      "merged": "LineString",
+      "lengths": [
+        26.0,
+        14.7,
+        14.7,
+        24.6,
+        19.8,
+        41.5
+      ]
+    },
+    {
+      "id": "108809",
+      "name": "DRIVEWAY",
+      "kind": "8",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        34.0,
+        11.6,
+        30.6
+      ]
+    },
+    {
+      "id": "103567",
+      "name": "CHATHAM SQ",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 5,
+      "merged": "LineString",
+      "lengths": [
+        22.5,
+        22.5,
+        2.3,
+        2.3,
+        4.0
+      ]
+    },
+    {
+      "id": "120498",
+      "name": "DRIVEWAY",
+      "kind": "8",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 10,
+      "merged": "LineString",
+      "lengths": [
+        7.3,
+        9.9,
+        10.2,
+        7.9,
+        26.1,
+        25.6,
+        13.5,
+        9.6,
+        10.6,
+        6.2
+      ]
+    },
+    {
+      "id": "120644",
+      "name": "NAVY ST",
+      "kind": "1",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 2,
+      "merged": "LineString",
+      "lengths": [
+        22.0,
+        22.0
+      ]
+    },
+    {
+      "id": "115143",
+      "name": "DRIVEWAY",
+      "kind": "8",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        57.9,
+        17.6,
+        44.5
+      ]
+    },
+    {
+      "id": "112731",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "kind": "7",
+      "levels": [
+        "15",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        6.5,
+        6.6,
+        20.2
+      ]
+    },
+    {
+      "id": "120097",
+      "name": "BROOKLYN HEIGHTS PROMENADE",
+      "kind": "6",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 4,
+      "merged": "LineString",
+      "lengths": [
+        50.0,
+        12.2,
+        12.3,
+        25.1
+      ]
+    },
+    {
+      "id": "112730",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "kind": "3",
+      "levels": [
+        "15",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        80.7,
+        11.2,
+        11.2
+      ]
+    },
+    {
+      "id": "103571",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "kind": "6",
+      "levels": [
+        "13",
+        "15"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        85.9,
+        29.7,
+        186.9
+      ]
+    },
+    {
+      "id": "103240",
+      "name": "BROOKLYN QUEENS EP EB ET 29 A",
+      "kind": "9",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 3,
+      "merged": "LineString",
+      "lengths": [
+        30.0,
+        30.0,
+        21.8
+      ]
+    },
+    {
+      "id": "108789",
+      "name": "DRIVEWAY",
+      "kind": "8",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "parts": 4,
+      "merged": "LineString",
+      "lengths": [
+        6.2,
+        6.2,
+        8.5,
+        5.0
+      ]
+    }
+  ],
+  "edge_joins": [
+    {
+      "node": [
+        -936.93,
+        -525.42,
+        "21"
+      ],
+      "roads": [
+        "61979-0",
+        "61978-0"
+      ],
+      "names": [
+        "FDR DRIVE EXIT 2 NB",
+        "FDR DRIVE EXIT 2 NB"
+      ],
+      "edge_mismatch_m": 0.796
+    },
+    {
+      "node": [
+        -55.82,
+        158.31,
+        "17"
+      ],
+      "roads": [
+        "46820-0",
+        "46821-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EXPY",
+        "BROOKLYN QUEENS EXPY"
+      ],
+      "edge_mismatch_m": 0.276
+    },
+    {
+      "node": [
+        -461.4,
+        228.81,
+        "9"
+      ],
+      "roads": [
+        "82607-0",
+        "128674-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EP EB ET 28 A",
+        "BROOKLYN QUEENS EXPY"
+      ],
+      "edge_mismatch_m": 2.742
+    },
+    {
+      "node": [
+        -1060.63,
+        -726.07,
+        "17"
+      ],
+      "roads": [
+        "60895-0",
+        "60896-0"
+      ],
+      "names": [
+        "BROOKLYN BRG",
+        "BROOKLYN BRG"
+      ],
+      "edge_mismatch_m": 0.305
+    },
+    {
+      "node": [
+        167.0,
+        260.13,
+        "17"
+      ],
+      "roads": [
+        "63827-0",
+        "63828-0"
+      ],
+      "names": [
+        "MANHATTAN BRG",
+        "MANHATTAN BRG"
+      ],
+      "edge_mismatch_m": 0.324
+    },
+    {
+      "node": [
+        -239.17,
+        -733.28,
+        "17"
+      ],
+      "roads": [
+        "128898-0",
+        "129109-0"
+      ],
+      "names": [
+        "FRANKLIN D ROOSEVELT DR",
+        "FRANKLIN D ROOSEVELT DR"
+      ],
+      "edge_mismatch_m": 0.305
+    },
+    {
+      "node": [
+        473.45,
+        458.5,
+        "17"
+      ],
+      "roads": [
+        "120200-0",
+        "131831-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EXPY",
+        "BROOKLYN QUEENS EXPY"
+      ],
+      "edge_mismatch_m": 1.525
+    },
+    {
+      "node": [
+        -883.3,
+        -565.88,
+        "17"
+      ],
+      "roads": [
+        "129323-0",
+        "129806-0"
+      ],
+      "names": [
+        "FRANKLIN D ROOSEVELT DR",
+        "FRANKLIN D ROOSEVELT DR"
+      ],
+      "edge_mismatch_m": 0.904
+    },
+    {
+      "node": [
+        -942.35,
+        -509.52,
+        "21"
+      ],
+      "roads": [
+        "61978-0",
+        "131090-0"
+      ],
+      "names": [
+        "FDR DRIVE EXIT 2 NB",
+        "FDR DRIVE EXIT 2 NB"
+      ],
+      "edge_mismatch_m": 0.606
+    },
+    {
+      "node": [
+        -888.82,
+        -561.0,
+        "17"
+      ],
+      "roads": [
+        "129806-0",
+        "127335-0"
+      ],
+      "names": [
+        "FRANKLIN D ROOSEVELT DR",
+        "FRANKLIN D ROOSEVELT DR"
+      ],
+      "edge_mismatch_m": 0.554
+    },
+    {
+      "node": [
+        -887.1,
+        -548.97,
+        "17"
+      ],
+      "roads": [
+        "129800-0",
+        "127553-0"
+      ],
+      "names": [
+        "FRANKLIN D ROOSEVELT DR",
+        "FRANKLIN D ROOSEVELT DR"
+      ],
+      "edge_mismatch_m": 0.362
+    },
+    {
+      "node": [
+        -893.42,
+        -576.77,
+        "21"
+      ],
+      "roads": [
+        "71238-0",
+        "71237-0"
+      ],
+      "names": [
+        "BROOKLYN BRG",
+        "BROOKLYN BRG"
+      ],
+      "edge_mismatch_m": 0.349
+    },
+    {
+      "node": [
+        -1767.44,
+        140.94,
+        "13"
+      ],
+      "roads": [
+        "128963-0",
+        "126399-0"
+      ],
+      "names": [
+        "FRANKLIN D ROOSEVELT DR",
+        "FRANKLIN D ROOSEVELT DR"
+      ],
+      "edge_mismatch_m": 1.532
+    },
+    {
+      "node": [
+        691.78,
+        706.23,
+        "17"
+      ],
+      "roads": [
+        "128795-0",
+        "127485-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EXPY",
+        "BROOKLYN QUEENS EXPY"
+      ],
+      "edge_mismatch_m": 0.515
+    },
+    {
+      "node": [
+        303.11,
+        262.83,
+        "17"
+      ],
+      "roads": [
+        "46824-0",
+        "120052-3"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EXPY",
+        "BROOKLYN QUEENS EXPY"
+      ],
+      "edge_mismatch_m": 0.774
+    },
+    {
+      "node": [
+        813.08,
+        736.52,
+        "17"
+      ],
+      "roads": [
+        "127151-0",
+        "133646-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EXPY",
+        "BROOKLYN QUEENS EXPY"
+      ],
+      "edge_mismatch_m": 1.528
+    },
+    {
+      "node": [
+        -284.7,
+        45.41,
+        "17"
+      ],
+      "roads": [
+        "69790-0",
+        "131451-0"
+      ],
+      "names": [
+        "BROOKLYN BRG",
+        "BROOKLYN BRG"
+      ],
+      "edge_mismatch_m": 0.28
+    },
+    {
+      "node": [
+        189.5,
+        218.38,
+        "17"
+      ],
+      "roads": [
+        "128958-0",
+        "120051-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EXPY",
+        "BROOKLYN QUEENS EXPY"
+      ],
+      "edge_mismatch_m": 1.223
+    },
+    {
+      "node": [
+        382.68,
+        414.09,
+        "17"
+      ],
+      "roads": [
+        "119862-0",
+        "119861-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EP EB ET 29 A",
+        "BROOKLYN QUEENS EP EB ET 29 A"
+      ],
+      "edge_mismatch_m": 0.972
+    },
+    {
+      "node": [
+        734.55,
+        712.0,
+        "17"
+      ],
+      "roads": [
+        "127020-0",
+        "129070-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EXPY",
+        "BROOKLYN QUEENS EXPY"
+      ],
+      "edge_mismatch_m": 0.914
+    },
+    {
+      "node": [
+        -1046.58,
+        -765.43,
+        "17"
+      ],
+      "roads": [
+        "66000-0",
+        "120692-0"
+      ],
+      "names": [
+        "FDR DRIVE NB EN BROOKLYN BR",
+        "FDR DRIVE NB EN BROOKLYN BR"
+      ],
+      "edge_mismatch_m": 0.252
+    },
+    {
+      "node": [
+        -945.49,
+        -533.55,
+        "17"
+      ],
+      "roads": [
+        "102027-0",
+        "121639-0"
+      ],
+      "names": [
+        "FDR DRIVE SB ENTRANCE PEARL ST",
+        "FDR DRIVE SB ENTRANCE PEARL ST"
+      ],
+      "edge_mismatch_m": 0.335
+    },
+    {
+      "node": [
+        -936.87,
+        -543.35,
+        "17"
+      ],
+      "roads": [
+        "102027-0",
+        "87451-0"
+      ],
+      "names": [
+        "FDR DRIVE SB ENTRANCE PEARL ST",
+        "FDR DRIVE SB ENTRANCE PEARL ST"
+      ],
+      "edge_mismatch_m": 0.662
+    },
+    {
+      "node": [
+        737.57,
+        738.51,
+        "17"
+      ],
+      "roads": [
+        "61231-0",
+        "61232-2"
+      ],
+      "names": [
+        "BQE EB ENTRANCE TILLARY ST",
+        "BQE EB ENTRANCE TILLARY ST"
+      ],
+      "edge_mismatch_m": 0.892
+    },
+    {
+      "node": [
+        814.35,
+        723.39,
+        "17"
+      ],
+      "roads": [
+        "129070-0",
+        "133644-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EXPY",
+        "BROOKLYN QUEENS EXPY"
+      ],
+      "edge_mismatch_m": 0.916
+    },
+    {
+      "node": [
+        -925.41,
+        -608.65,
+        "17"
+      ],
+      "roads": [
+        "992-0",
+        "993-0"
+      ],
+      "names": [
+        "BROOKLYN BRIDGE EN RP FDR DR",
+        "BROOKLYN BRIDGE EN RP FDR DR"
+      ],
+      "edge_mismatch_m": 0.319
+    },
+    {
+      "node": [
+        -1720.92,
+        107.94,
+        "13"
+      ],
+      "roads": [
+        "129725-0",
+        "127940-0"
+      ],
+      "names": [
+        "FRANKLIN D ROOSEVELT DR",
+        "FRANKLIN D ROOSEVELT DR"
+      ],
+      "edge_mismatch_m": 1.933
+    },
+    {
+      "node": [
+        18.14,
+        252.9,
+        "17"
+      ],
+      "roads": [
+        "130494-0",
+        "130469-4"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EP EB ET 28 B",
+        "BROOKLYN QUEENS EP EB ET 28 B"
+      ],
+      "edge_mismatch_m": 0.504
+    },
+    {
+      "node": [
+        -59.33,
+        263.69,
+        "17"
+      ],
+      "roads": [
+        "130494-3",
+        "64693-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EP EB ET 28 B",
+        "BROOKLYN QUEENS EP EB ET 28 B"
+      ],
+      "edge_mismatch_m": 0.3
+    },
+    {
+      "node": [
+        -938.2,
+        -647.99,
+        "13"
+      ],
+      "roads": [
+        "972-0",
+        "971-0"
+      ],
+      "names": [
+        "BROOKLYN BRIDGE EXIT RAMP",
+        "BROOKLYN BRIDGE EXIT RAMP"
+      ],
+      "edge_mismatch_m": 0.827
+    },
+    {
+      "node": [
+        -873.05,
+        -536.48,
+        "17"
+      ],
+      "roads": [
+        "102102-0",
+        "60902-0"
+      ],
+      "names": [
+        "BROOKLYN BRG",
+        "BROOKLYN BRG"
+      ],
+      "edge_mismatch_m": 0.306
+    },
+    {
+      "node": [
+        -304.44,
+        46.4,
+        "17"
+      ],
+      "roads": [
+        "87020-0",
+        "81757-0"
+      ],
+      "names": [
+        "BROOKLYN BRG",
+        "BROOKLYN BRG"
+      ],
+      "edge_mismatch_m": 0.298
+    },
+    {
+      "node": [
+        622.4,
+        651.24,
+        "17"
+      ],
+      "roads": [
+        "120196-0",
+        "127485-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EXPY",
+        "BROOKLYN QUEENS EXPY"
+      ],
+      "edge_mismatch_m": 1.381
+    },
+    {
+      "node": [
+        -887.1,
+        -548.97,
+        "25"
+      ],
+      "roads": [
+        "102101-0",
+        "60901-0"
+      ],
+      "names": [
+        "BROOKLYN BRG",
+        "BROOKLYN BRG"
+      ],
+      "edge_mismatch_m": 0.558
+    },
+    {
+      "node": [
+        -913.39,
+        -559.96,
+        "17"
+      ],
+      "roads": [
+        "66005-0",
+        "130414-0"
+      ],
+      "names": [
+        "FDR DRIVE NB EN BROOKLYN BR",
+        "FDR DRIVE NB EN BROOKLYN BR"
+      ],
+      "edge_mismatch_m": 0.614
+    },
+    {
+      "node": [
+        -952.5,
+        -616.11,
+        "17"
+      ],
+      "roads": [
+        "66003-0",
+        "102652-0"
+      ],
+      "names": [
+        "FDR DRIVE NB EN BROOKLYN BR",
+        "FDR DRIVE NB EN BROOKLYN BR"
+      ],
+      "edge_mismatch_m": 1.076
+    },
+    {
+      "node": [
+        -925.25,
+        -567.08,
+        "17"
+      ],
+      "roads": [
+        "66003-0",
+        "130414-0"
+      ],
+      "names": [
+        "FDR DRIVE NB EN BROOKLYN BR",
+        "FDR DRIVE NB EN BROOKLYN BR"
+      ],
+      "edge_mismatch_m": 1.221
+    },
+    {
+      "node": [
+        -428.95,
+        -697.75,
+        "17"
+      ],
+      "roads": [
+        "129243-0",
+        "126395-0"
+      ],
+      "names": [
+        "FRANKLIN D ROOSEVELT DR",
+        "FRANKLIN D ROOSEVELT DR"
+      ],
+      "edge_mismatch_m": 2.377
+    },
+    {
+      "node": [
+        -601.83,
+        -659.95,
+        "17"
+      ],
+      "roads": [
+        "102099-0",
+        "112937-0"
+      ],
+      "names": [
+        "FDR DRIVE NB EN BROOKLYN BR",
+        "FDR DRIVE NB EN BROOKLYN BR"
+      ],
+      "edge_mismatch_m": 0.308
+    },
+    {
+      "node": [
+        385.94,
+        352.48,
+        "17"
+      ],
+      "roads": [
+        "120201-0",
+        "108840-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EXPY",
+        "BROOKLYN QUEENS EXPY"
+      ],
+      "edge_mismatch_m": 0.293
+    },
+    {
+      "node": [
+        -955.91,
+        -595.06,
+        "17"
+      ],
+      "roads": [
+        "991-0",
+        "103039-0"
+      ],
+      "names": [
+        "BROOKLYN BRIDGE EN RP FDR DR",
+        "BROOKLYN BRIDGE EN RP FDR DR"
+      ],
+      "edge_mismatch_m": 0.556
+    },
+    {
+      "node": [
+        -300.98,
+        49.43,
+        "17"
+      ],
+      "roads": [
+        "81757-0",
+        "81756-0"
+      ],
+      "names": [
+        "BROOKLYN BRG",
+        "BROOKLYN BRG"
+      ],
+      "edge_mismatch_m": 0.384
+    },
+    {
+      "node": [
+        189.55,
+        205.66,
+        "17"
+      ],
+      "roads": [
+        "120052-0",
+        "127437-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EXPY",
+        "BROOKLYN QUEENS EXPY"
+      ],
+      "edge_mismatch_m": 0.64
+    },
+    {
+      "node": [
+        -255.19,
+        -725.65,
+        "19"
+      ],
+      "roads": [
+        "102724-0",
+        "102723-0"
+      ],
+      "names": [
+        "MANHATTAN BRG",
+        "MANHATTAN BRG"
+      ],
+      "edge_mismatch_m": 0.435
+    },
+    {
+      "node": [
+        -253.88,
+        -722.45,
+        "19"
+      ],
+      "roads": [
+        "102724-0",
+        "14750-0"
+      ],
+      "names": [
+        "MANHATTAN BRG",
+        "MANHATTAN BRG"
+      ],
+      "edge_mismatch_m": 0.339
+    },
+    {
+      "node": [
+        736.01,
+        725.22,
+        "17"
+      ],
+      "roads": [
+        "127212-0",
+        "127756-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EXPY",
+        "BROOKLYN QUEENS EXPY"
+      ],
+      "edge_mismatch_m": 0.405
+    },
+    {
+      "node": [
+        -453.76,
+        -1186.73,
+        "17"
+      ],
+      "roads": [
+        "14753-0",
+        "14754-0"
+      ],
+      "names": [
+        "MANHATTAN BRG",
+        "MANHATTAN BRG"
+      ],
+      "edge_mismatch_m": 0.309
+    },
+    {
+      "node": [
+        -421.9,
+        -1114.77,
+        "17"
+      ],
+      "roads": [
+        "14753-0",
+        "14752-0"
+      ],
+      "names": [
+        "MANHATTAN BRG",
+        "MANHATTAN BRG"
+      ],
+      "edge_mismatch_m": 0.336
+    },
+    {
+      "node": [
+        352.85,
+        338.25,
+        "17"
+      ],
+      "roads": [
+        "120032-0",
+        "108811-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EP EB ET 29 A",
+        "BROOKLYN QUEENS EP EB ET 29 A"
+      ],
+      "edge_mismatch_m": 0.359
+    },
+    {
+      "node": [
+        -885.12,
+        -557.02,
+        "21"
+      ],
+      "roads": [
+        "102668-0",
+        "66006-0"
+      ],
+      "names": [
+        "FDR DRIVE NB EN BROOKLYN BR",
+        "FDR DRIVE NB EN BROOKLYN BR"
+      ],
+      "edge_mismatch_m": 0.695
+    },
+    {
+      "node": [
+        -876.41,
+        -558.26,
+        "21"
+      ],
+      "roads": [
+        "102668-0",
+        "66007-0"
+      ],
+      "names": [
+        "FDR DRIVE NB EN BROOKLYN BR",
+        "FDR DRIVE NB EN BROOKLYN BR"
+      ],
+      "edge_mismatch_m": 0.361
+    },
+    {
+      "node": [
+        -952.78,
+        -626.59,
+        "17"
+      ],
+      "roads": [
+        "102652-0",
+        "66002-0"
+      ],
+      "names": [
+        "FDR DRIVE NB EN BROOKLYN BR",
+        "FDR DRIVE NB EN BROOKLYN BR"
+      ],
+      "edge_mismatch_m": 0.416
+    },
+    {
+      "node": [
+        515.08,
+        506.75,
+        "17"
+      ],
+      "roads": [
+        "46826-0",
+        "46827-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EXPY",
+        "BROOKLYN QUEENS EXPY"
+      ],
+      "edge_mismatch_m": 0.261
+    },
+    {
+      "node": [
+        -894.84,
+        -557.24,
+        "17"
+      ],
+      "roads": [
+        "127335-0",
+        "127539-0"
+      ],
+      "names": [
+        "FRANKLIN D ROOSEVELT DR",
+        "FRANKLIN D ROOSEVELT DR"
+      ],
+      "edge_mismatch_m": 0.299
+    },
+    {
+      "node": [
+        -823.15,
+        -584.07,
+        "17"
+      ],
+      "roads": [
+        "112937-0",
+        "66007-0"
+      ],
+      "names": [
+        "FDR DRIVE NB EN BROOKLYN BR",
+        "FDR DRIVE NB EN BROOKLYN BR"
+      ],
+      "edge_mismatch_m": 0.323
+    },
+    {
+      "node": [
+        382.54,
+        404.77,
+        "17"
+      ],
+      "roads": [
+        "119861-0",
+        "120048-2"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EP EB ET 29 A",
+        "BROOKLYN QUEENS EP EB ET 29 A"
+      ],
+      "edge_mismatch_m": 0.487
+    },
+    {
+      "node": [
+        -245.38,
+        153.65,
+        "21"
+      ],
+      "roads": [
+        "120096-0",
+        "46902-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EXPY",
+        "BROOKLYN QUEENS EXPY"
+      ],
+      "edge_mismatch_m": 0.529
+    },
+    {
+      "node": [
+        697.03,
+        695.25,
+        "17"
+      ],
+      "roads": [
+        "127085-0",
+        "128030-0"
+      ],
+      "names": [
+        "BROOKLYN QUEENS EXPY",
+        "BROOKLYN QUEENS EXPY"
+      ],
+      "edge_mismatch_m": 0.895
+    },
+    {
+      "node": [
+        -942.35,
+        -509.52,
+        "17"
+      ],
+      "roads": [
+        "127412-0",
+        "127252-0"
+      ],
+      "names": [
+        "FRANKLIN D ROOSEVELT DR",
+        "FRANKLIN D ROOSEVELT DR"
+      ],
+      "edge_mismatch_m": 1.524
+    },
+    {
+      "node": [
+        -931.5,
+        -517.27,
+        "17"
+      ],
+      "roads": [
+        "127553-0",
+        "127252-0"
+      ],
+      "names": [
+        "FRANKLIN D ROOSEVELT DR",
+        "FRANKLIN D ROOSEVELT DR"
+      ],
+      "edge_mismatch_m": 2.072
+    },
+    {
+      "node": [
+        -1588.15,
+        10.14,
+        "17"
+      ],
+      "roads": [
+        "126470-0",
+        "126399-0"
+      ],
+      "names": [
+        "FRANKLIN D ROOSEVELT DR",
+        "FRANKLIN D ROOSEVELT DR"
+      ],
+      "edge_mismatch_m": 0.31
+    },
+    {
+      "node": [
+        196.63,
+        -824.36,
+        "17"
+      ],
+      "roads": [
+        "128224-0",
+        "128434-0"
+      ],
+      "names": [
+        "FRANKLIN D ROOSEVELT DR",
+        "FRANKLIN D ROOSEVELT DR"
+      ],
+      "edge_mismatch_m": 0.309
+    }
+  ],
+  "baseline_commit": "1f4592737957944620d9fb839aea315592063abc",
+  "terrain_clipped_pieces": [
+    {
+      "id": "129911-0",
+      "source_id": "129911",
+      "name": "BROOKLYN QUEENS EXPY",
+      "min_height": -12.8,
+      "max_height": 6.4
+    },
+    {
+      "id": "129911-1",
+      "source_id": "129911",
+      "name": "BROOKLYN QUEENS EXPY",
+      "min_height": -12.8,
+      "max_height": 6.4
+    },
+    {
+      "id": "129911-2",
+      "source_id": "129911",
+      "name": "BROOKLYN QUEENS EXPY",
+      "min_height": -12.8,
+      "max_height": 6.4
+    },
+    {
+      "id": "129911-3",
+      "source_id": "129911",
+      "name": "BROOKLYN QUEENS EXPY",
+      "min_height": -12.8,
+      "max_height": 6.4
+    },
+    {
+      "id": "129911-4",
+      "source_id": "129911",
+      "name": "BROOKLYN QUEENS EXPY",
+      "min_height": -12.8,
+      "max_height": 6.4
+    },
+    {
+      "id": "82607-0",
+      "source_id": "82607",
+      "name": "BROOKLYN QUEENS EP EB ET 28 A",
+      "min_height": -6.4,
+      "max_height": 0.0
+    },
+    {
+      "id": "128963-0",
+      "source_id": "128963",
+      "name": "FRANKLIN D ROOSEVELT DR",
+      "min_height": -6.4,
+      "max_height": 0.0
+    },
+    {
+      "id": "128674-0",
+      "source_id": "128674",
+      "name": "BROOKLYN QUEENS EXPY",
+      "min_height": -6.4,
+      "max_height": 12.8
+    },
+    {
+      "id": "128674-1",
+      "source_id": "128674",
+      "name": "BROOKLYN QUEENS EXPY",
+      "min_height": -6.4,
+      "max_height": 12.8
+    },
+    {
+      "id": "128674-2",
+      "source_id": "128674",
+      "name": "BROOKLYN QUEENS EXPY",
+      "min_height": -6.4,
+      "max_height": 12.8
+    },
+    {
+      "id": "128674-3",
+      "source_id": "128674",
+      "name": "BROOKLYN QUEENS EXPY",
+      "min_height": -6.4,
+      "max_height": 12.8
+    },
+    {
+      "id": "130969-1",
+      "source_id": "130969",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "min_height": -0.245,
+      "max_height": 0.0
+    },
+    {
+      "id": "129725-0",
+      "source_id": "129725",
+      "name": "FRANKLIN D ROOSEVELT DR",
+      "min_height": -6.4,
+      "max_height": 0.0
+    },
+    {
+      "id": "132045-0",
+      "source_id": "132045",
+      "name": "FRANKLIN D ROOSEVELT DR",
+      "min_height": -14.4,
+      "max_height": 0.0
+    },
+    {
+      "id": "70309-0",
+      "source_id": "70309",
+      "name": "BQE WB ENTRANCE OLD FULTON ST",
+      "min_height": -6.4,
+      "max_height": 0.0
+    },
+    {
+      "id": "971-0",
+      "source_id": "971",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "min_height": -0.642,
+      "max_height": 0.0
+    },
+    {
+      "id": "132363-0",
+      "source_id": "132363",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "min_height": -0.528,
+      "max_height": 6.685
+    }
+  ],
+  "approaches_previously_given_span_profile": [
+    {
+      "source_id": "120665",
+      "name": "MANHATTAN BRIDGE EN NASSAU ST",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "987",
+      "name": "BROOKLYN BRIDGE EN RP FDR DR",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.035,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "104191",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 3,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "103406",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "973",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": -0.01,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "982",
+      "name": "BROOKLYN BRIDGE ENTRANCE RAMP",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "132293",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "102669",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "25",
+        "25"
+      ],
+      "old_parts": 1,
+      "before_min_height": 34.725,
+      "before_max_height": 35.36,
+      "after_min_height": 19.2,
+      "after_max_height": 19.2
+    },
+    {
+      "source_id": "104705",
+      "name": "MANHATTAN BRIDGE SB ET BQE",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "102665",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "21",
+        "25"
+      ],
+      "old_parts": 1,
+      "before_min_height": 31.823,
+      "before_max_height": 33.952,
+      "after_min_height": 12.8,
+      "after_max_height": 19.2
+    },
+    {
+      "source_id": "131241",
+      "name": "MANHATTAN BRG",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "120920",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 20.303
+    },
+    {
+      "source_id": "131458",
+      "name": "MANHATTAN BRG",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "131232",
+      "name": "MANHATTAN BRG",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "130841",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 1.295,
+      "before_max_height": 2.515,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "102643",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "71805",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "130969",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 11,
+      "before_min_height": -0.245,
+      "before_max_height": 0.012,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "109387",
+      "name": "MANHATTAN BRG",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "992",
+      "name": "BROOKLYN BRIDGE EN RP FDR DR",
+      "levels": [
+        "17",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 22.404,
+      "after_min_height": 0.0,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "107389",
+      "name": "MANHATTAN BRG",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "989",
+      "name": "BROOKLYN BRIDGE EN RP FDR DR",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.035,
+      "before_max_height": 2.285,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "103572",
+      "name": "MANHATTAN BRG",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "122090",
+      "name": "BROOKLYN BRIDGE EN RAMP SANDS ST",
+      "levels": [
+        "13",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "972",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": -0.028,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "131298",
+      "name": "MANHATTAN BRG",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "983",
+      "name": "BROOKLYN BRIDGE ENTRANCE RAMP",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "14766",
+      "name": "MANHATTAN BRG",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "121700",
+      "name": "BROOKLYN BRIDGE EN RP FDR DR",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 24.011,
+      "before_max_height": 29.017,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "105029",
+      "name": "MANHATTAN BRG",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "14765",
+      "name": "MANHATTAN BRG",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 2,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "107391",
+      "name": "MANHATTAN BRG",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "991",
+      "name": "BROOKLYN BRIDGE EN RP FDR DR",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 2.285,
+      "before_max_height": 20.809,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "969",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "17",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "131456",
+      "name": "MANHATTAN BRG",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "117410",
+      "name": "MANHATTAN BRG",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 2,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "984",
+      "name": "BROOKLYN BRIDGE ENTRANCE RAMP",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 3,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "102729",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "19",
+        "19"
+      ],
+      "old_parts": 1,
+      "before_min_height": 36.152,
+      "before_max_height": 36.375,
+      "after_min_height": 9.6,
+      "after_max_height": 9.6
+    },
+    {
+      "source_id": "102654",
+      "name": "BROOKLYN BRIDGE EN RP FDR DR",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": -0.002,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "102718",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "19",
+        "19"
+      ],
+      "old_parts": 1,
+      "before_min_height": 36.029,
+      "before_max_height": 36.126,
+      "after_min_height": 9.6,
+      "after_max_height": 36.617
+    },
+    {
+      "source_id": "102717",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "19",
+        "19"
+      ],
+      "old_parts": 1,
+      "before_min_height": 35.738,
+      "before_max_height": 36.029,
+      "after_min_height": 9.6,
+      "after_max_height": 9.6
+    },
+    {
+      "source_id": "102730",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "19",
+        "19"
+      ],
+      "old_parts": 1,
+      "before_min_height": 36.375,
+      "before_max_height": 36.526,
+      "after_min_height": 9.6,
+      "after_max_height": 36.972
+    },
+    {
+      "source_id": "115104",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "131542",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "131551",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "102650",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "21",
+        "21"
+      ],
+      "old_parts": 1,
+      "before_min_height": 14.19,
+      "before_max_height": 19.353,
+      "after_min_height": 12.8,
+      "after_max_height": 12.8
+    },
+    {
+      "source_id": "134153",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "102644",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "102651",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "21",
+        "21"
+      ],
+      "old_parts": 1,
+      "before_min_height": 19.353,
+      "before_max_height": 20.732,
+      "after_min_height": 12.8,
+      "after_max_height": 12.8
+    },
+    {
+      "source_id": "103959",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "102653",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "21",
+        "21"
+      ],
+      "old_parts": 1,
+      "before_min_height": 20.732,
+      "before_max_height": 21.938,
+      "after_min_height": 12.8,
+      "after_max_height": 12.8
+    },
+    {
+      "source_id": "134155",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "21",
+        "21"
+      ],
+      "old_parts": 1,
+      "before_min_height": 25.483,
+      "before_max_height": 27.473,
+      "after_min_height": 12.8,
+      "after_max_height": 12.8
+    },
+    {
+      "source_id": "103956",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "21",
+        "21"
+      ],
+      "old_parts": 1,
+      "before_min_height": 21.938,
+      "before_max_height": 24.024,
+      "after_min_height": 12.8,
+      "after_max_height": 12.8
+    },
+    {
+      "source_id": "133531",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 3,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "115096",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "102667",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "25",
+        "25"
+      ],
+      "old_parts": 1,
+      "before_min_height": 33.952,
+      "before_max_height": 34.725,
+      "after_min_height": 19.2,
+      "after_max_height": 19.2
+    },
+    {
+      "source_id": "102671",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "25",
+        "25"
+      ],
+      "old_parts": 1,
+      "before_min_height": 35.36,
+      "before_max_height": 36.624,
+      "after_min_height": 19.2,
+      "after_max_height": 40.781
+    },
+    {
+      "source_id": "102647",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 1.042,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "102663",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "21",
+        "21"
+      ],
+      "old_parts": 1,
+      "before_min_height": 27.473,
+      "before_max_height": 31.823,
+      "after_min_height": 12.8,
+      "after_max_height": 12.8
+    },
+    {
+      "source_id": "134161",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "104190",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "13",
+        "17"
+      ],
+      "old_parts": 3,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "102649",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "17",
+        "21"
+      ],
+      "old_parts": 1,
+      "before_min_height": 1.042,
+      "before_max_height": 14.19,
+      "after_min_height": 6.4,
+      "after_max_height": 12.8
+    },
+    {
+      "source_id": "134167",
+      "name": "BROOKLYN BRIDGE BIKE PATH",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "71821",
+      "name": "MANHATTAN BRIDGE UPPER LEVEL EN",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "102645",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "993",
+      "name": "BROOKLYN BRIDGE EN RP FDR DR",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 22.404,
+      "before_max_height": 24.011,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "102655",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "21",
+        "21"
+      ],
+      "old_parts": 1,
+      "before_min_height": 24.024,
+      "before_max_height": 25.483,
+      "after_min_height": 12.8,
+      "after_max_height": 12.8
+    },
+    {
+      "source_id": "990",
+      "name": "BROOKLYN BRIDGE EN RP FDR DR",
+      "levels": [
+        "13",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 2.285,
+      "after_min_height": 0.0,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "109384",
+      "name": "MANHATTAN BRG",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "977",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 13.365
+    },
+    {
+      "source_id": "986",
+      "name": "BROOKLYN BRIDGE ENTRANCE RAMP",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "63831",
+      "name": "MANHATTAN BRG",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "103039",
+      "name": "BROOKLYN BRIDGE EN RP FDR DR",
+      "levels": [
+        "21",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 20.809,
+      "before_max_height": 27.775,
+      "after_min_height": 6.4,
+      "after_max_height": 12.8
+    },
+    {
+      "source_id": "104704",
+      "name": "MANHATTAN BRIDGE SB ET BQE",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 3,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "120985",
+      "name": "MANHATTAN BRIDGE EN NASSAU ST",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 2,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "974",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "17",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "971",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": -0.642,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "976",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "970",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "988",
+      "name": "BROOKLYN BRIDGE EN RP PEARL ST",
+      "levels": [
+        "13",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "120425",
+      "name": "BROOKLYN BRIDGE ENTRANCE RAMP",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 2,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 9.736
+    },
+    {
+      "source_id": "115103",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.862
+    },
+    {
+      "source_id": "968",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "17",
+        "17"
+      ],
+      "old_parts": 4,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 6.4,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "71803",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 3,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "71806",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "17",
+        "13"
+      ],
+      "old_parts": 2,
+      "before_min_height": 0.0,
+      "before_max_height": 0.109,
+      "after_min_height": 0.0,
+      "after_max_height": 8.873
+    },
+    {
+      "source_id": "71804",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 5,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "120100",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 5,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "115101",
+      "name": "BROOKLYN BRIDGE EXIT RAMP",
+      "levels": [
+        "17",
+        "13"
+      ],
+      "old_parts": 8,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "102223",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "19",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 7.435,
+      "before_max_height": 9.322,
+      "after_min_height": 3.2,
+      "after_max_height": 9.6
+    },
+    {
+      "source_id": "101624",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 18.032,
+      "before_max_height": 19.194,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "102202",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "19"
+      ],
+      "old_parts": 1,
+      "before_min_height": 34.527,
+      "before_max_height": 35.017,
+      "after_min_height": 3.2,
+      "after_max_height": 9.6
+    },
+    {
+      "source_id": "101544",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 17.886,
+      "before_max_height": 22.237,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "102203",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "19",
+        "19"
+      ],
+      "old_parts": 1,
+      "before_min_height": 35.017,
+      "before_max_height": 35.738,
+      "after_min_height": 9.6,
+      "after_max_height": 9.6
+    },
+    {
+      "source_id": "112982",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "101617",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 19.194,
+      "before_max_height": 29.345,
+      "after_min_height": 3.2,
+      "after_max_height": 31.977
+    },
+    {
+      "source_id": "104546",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 3.778,
+      "before_max_height": 4.532,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "101898",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 3.996,
+      "before_max_height": 6.598,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "101625",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 12.597,
+      "before_max_height": 18.032,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "115236",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 6.598,
+      "before_max_height": 7.435,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "102198",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 4.532,
+      "before_max_height": 7.346,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "120611",
+      "name": "BROOKLYN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "13",
+        "17"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 6.4
+    },
+    {
+      "source_id": "101702",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 13.082,
+      "before_max_height": 17.359,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "101706",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 17.359,
+      "before_max_height": 21.724,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "104706",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "13",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 0.0,
+      "after_min_height": 0.0,
+      "after_max_height": 0.0
+    },
+    {
+      "source_id": "101699",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 9.169,
+      "before_max_height": 13.082,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "104551",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 2.933,
+      "before_max_height": 3.778,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "101906",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 14.117,
+      "before_max_height": 20.285,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "101738",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 24.45,
+      "before_max_height": 27.721,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "101537",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 9.651,
+      "before_max_height": 13.581,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "101901",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "15",
+        "13"
+      ],
+      "old_parts": 1,
+      "before_min_height": 0.0,
+      "before_max_height": 3.996,
+      "after_min_height": 0.0,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "101534",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 6.685,
+      "before_max_height": 9.651,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "112731",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "13"
+      ],
+      "old_parts": 3,
+      "before_min_height": 0.0,
+      "before_max_height": 1.295,
+      "after_min_height": 0.0,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "102212",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "15",
+        "19"
+      ],
+      "old_parts": 1,
+      "before_min_height": 34.818,
+      "before_max_height": 35.421,
+      "after_min_height": 3.2,
+      "after_max_height": 9.6
+    },
+    {
+      "source_id": "102213",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "19",
+        "19"
+      ],
+      "old_parts": 1,
+      "before_min_height": 35.421,
+      "before_max_height": 36.152,
+      "after_min_height": 9.6,
+      "after_max_height": 9.6
+    },
+    {
+      "source_id": "112909",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 20.285,
+      "before_max_height": 24.45,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "112730",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "13"
+      ],
+      "old_parts": 3,
+      "before_min_height": 0.0,
+      "before_max_height": 1.295,
+      "after_min_height": 0.0,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "103571",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "13",
+        "15"
+      ],
+      "old_parts": 3,
+      "before_min_height": -0.002,
+      "before_max_height": 6.22,
+      "after_min_height": 0.0,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "132363",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "13",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": -0.528,
+      "before_max_height": 6.685,
+      "after_min_height": 0.0,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "101547",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 22.237,
+      "before_max_height": 27.966,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "101889",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "15",
+        "19"
+      ],
+      "old_parts": 1,
+      "before_min_height": 10.05,
+      "before_max_height": 12.597,
+      "after_min_height": 3.2,
+      "after_max_height": 9.6
+    },
+    {
+      "source_id": "112273",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 2.515,
+      "before_max_height": 2.933,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "101540",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 13.581,
+      "before_max_height": 17.886,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "102177",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "19"
+      ],
+      "old_parts": 1,
+      "before_min_height": 11.305,
+      "before_max_height": 13.575,
+      "after_min_height": 3.2,
+      "after_max_height": 9.6
+    },
+    {
+      "source_id": "108390",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 32.025,
+      "before_max_height": 34.818,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "101713",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 27.689,
+      "before_max_height": 34.527,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "101696",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 6.22,
+      "before_max_height": 9.169,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "103964",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "19",
+        "19"
+      ],
+      "old_parts": 1,
+      "before_min_height": 10.623,
+      "before_max_height": 11.305,
+      "after_min_height": 9.6,
+      "after_max_height": 9.6
+    },
+    {
+      "source_id": "101892",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "19",
+        "19"
+      ],
+      "old_parts": 1,
+      "before_min_height": 9.322,
+      "before_max_height": 10.05,
+      "after_min_height": 9.6,
+      "after_max_height": 9.6
+    },
+    {
+      "source_id": "101911",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 13.575,
+      "before_max_height": 14.117,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "102194",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "19",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 7.346,
+      "before_max_height": 10.623,
+      "after_min_height": 3.2,
+      "after_max_height": 9.6
+    },
+    {
+      "source_id": "101709",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 21.724,
+      "before_max_height": 27.689,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    },
+    {
+      "source_id": "101735",
+      "name": "MANHATTAN BRIDGE PEDESTRIAN PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 27.721,
+      "before_max_height": 30.396,
+      "after_min_height": 3.2,
+      "after_max_height": 32.784
+    },
+    {
+      "source_id": "101884",
+      "name": "MANHATTAN BRIDGE BIKE PATH",
+      "levels": [
+        "15",
+        "15"
+      ],
+      "old_parts": 1,
+      "before_min_height": 27.966,
+      "before_max_height": 32.025,
+      "after_min_height": 3.2,
+      "after_max_height": 3.2
+    }
+  ]
+}
