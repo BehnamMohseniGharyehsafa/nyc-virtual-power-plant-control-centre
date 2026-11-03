@@ -1,0 +1,13 @@
+{
+  "run_id": "4c443515-673a-410e-aa8f-10aaadca333f",
+  "description": "Calculated 16-building, 96-step network-aware community simulation; source inputs and diagnostics are preserved in run.json.",
+  "files": {
+    "run.json": "edad5d68d643de3e90046c5a95354271d251778a915cf8d9a40719ce48bb1f85",
+    "timeseries.parquet": "313f720230b61411b730b93f80c309714a8bb4ba5cc8ecc30773003568cbdb0b",
+    "assets.npz": "35c24703dabcbfe5c0cb40def5c355f92010f5fc10fa14472b5608c1e50f0364",
+    "buildings.geojson": "f6522aee2e52c87e416f1f59d215e760e11f1265df360fe1e5150e03de6db865",
+    "weather.parquet": "e5b693a7ff59de4e9a992c81519da3efced0ab1285dba1dfd9032f393368d91d",
+    "pv_details.parquet": "17d0fa9ebd4dad63a8742a877c09cb9387ffab5e7956de9439df06353a8765d7",
+    "network.pandapower.json": "848af79e8c26553cc23208ef8118e0bdf6e01d9c58dc483da167abae5a62c920"
+  }
+}

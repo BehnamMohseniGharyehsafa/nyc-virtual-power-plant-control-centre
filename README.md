@@ -14,6 +14,8 @@ The spatial command centre includes detailed windowed façades, real NYC streets
 
 ## Run locally
 
+For the hosted production configuration, saved demonstration bootstrap and branch-protection workflow, see [Render deployment](docs/deployment.md).
+
 Supported: Python **3.12–3.13**. Development and numerical validation were performed with Python 3.13.15 on Windows. All default solvers are open source.
 
 ```powershell
@@ -29,7 +31,7 @@ On Linux/macOS, activate with `source .venv/bin/activate`. Open **http://127.0.0
 
 No API key is needed for the bundled NYC, NYISO and Open-Meteo acquisition routes. Internet access is required for installation and acquisition; numerical simulation and footprint visualisation then work offline. Missing inputs cause a visible error, not a synthetic replacement. Cached local snapshots are included for immediate local use; see [data rights and provenance](docs/data.md) before redistributing data separately.
 
-For the exact tested dependency set, install with `python -m pip install -r requirements-validated.txt` before `python -m pip install -e .`. The validated environment passes all 34 tests, including the numerical foundation, urban scene and offline rendering dependency checks, and reproduced the 96-step community experiment with no reported physical violations.
+For the exact tested dependency set, install with `python -m pip install -r requirements-validated.txt` before `python -m pip install -e .`. The validated environment passes all 37 tests, including the numerical foundation, urban scene, offline rendering dependencies and hosted first-boot checks, and reproduced the 96-step community experiment with no reported physical violations.
 
 ```powershell
 python -m pytest

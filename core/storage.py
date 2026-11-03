@@ -2,6 +2,7 @@
 
 import io
 import json
+import os
 import sqlite3
 import threading
 from pathlib import Path
@@ -15,7 +16,9 @@ from data.inputs import district
 from models.physics import make_portfolio
 from models.network import build_feeder
 
-ROOT = Path(__file__).resolve().parents[1] / "results"
+ROOT = Path(
+    os.environ.get("VPP_RESULTS_DIR", Path(__file__).resolve().parents[1] / "results")
+)
 
 
 def json_safe(value):

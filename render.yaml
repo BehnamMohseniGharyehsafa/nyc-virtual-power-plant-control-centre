@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: behnamproject-nyc-virtual-power-plant-control-centre
+    runtime: python
+    plan: free
+    region: frankfurt
+    repo: https://github.com/BehnamMohseniGharyehsafa/nyc-virtual-power-plant-control-centre
+    branch: main
+    buildCommand: pip install -r requirements-render.txt
+    startCommand: gunicorn --config gunicorn.conf.py app.wsgi:server
+    healthCheckPath: /api/health
+    # Public-repository deployments do not require granting GitHub access.
+    # Deploy approved main commits manually; enable checksPass after connecting GitHub.
+    autoDeployTrigger: off
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.15
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: MPLBACKEND
+        value: Agg
+      - key: OPENBLAS_NUM_THREADS
+        value: "1"
+      - key: OMP_NUM_THREADS
+        value: "1"
+      - key: MKL_NUM_THREADS
+        value: "1"
+      - key: NUMBA_NUM_THREADS
+        value: "1"
+      - key: NUMBA_DISABLE_JIT
+        value: "1"

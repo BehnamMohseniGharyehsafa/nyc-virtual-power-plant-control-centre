@@ -1,0 +1,1433 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -73.98866039969,
+                40.702836718093
+              ],
+              [
+                -73.988675946652,
+                40.702571884459
+              ],
+              [
+                -73.989500332002,
+                40.702599909983
+              ],
+              [
+                -73.9894992203,
+                40.702618863857
+              ],
+              [
+                -73.989476852088,
+                40.702999980082
+              ],
+              [
+                -73.989468390233,
+                40.703144155768
+              ],
+              [
+                -73.989103588059,
+                40.70313175509
+              ],
+              [
+                -73.988825972583,
+                40.70312231723
+              ],
+              [
+                -73.988823804841,
+                40.703122244079
+              ],
+              [
+                -73.988803194732,
+                40.703086230605
+              ],
+              [
+                -73.988667509016,
+                40.702849139554
+              ],
+              [
+                -73.98866039969,
+                40.702836718093
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3000088",
+        "bin": "3000088",
+        "bbl": "3000380001",
+        "lon": -73.98909368179034,
+        "lat": 40.70284811563247,
+        "footprint_m2": 3980.435920282285,
+        "height_m": 38.344236032736,
+        "height_provenance": "observed",
+        "construction_year": "1904",
+        "geometry_provenance": "observed",
+        "use": "Office",
+        "use_provenance": "derived from observed tax-lot land use",
+        "floors": 12,
+        "floors_provenance": "derived",
+        "address": "39 WASHINGTON STREET",
+        "lot_building_count": 1.0,
+        "lot_floor_area_ft2": 448300.0,
+        "floor_area_m2": 47765.23104338742,
+        "floor_area_provenance": "derived footprint × estimated floors; not lot floor area",
+        "benchmark_provenance": "unmatched; no LL84 calibration claimed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -73.989252374852,
+                40.703258776768
+              ],
+              [
+                -73.989235998241,
+                40.703515862374
+              ],
+              [
+                -73.98910339146,
+                40.703509866899
+              ],
+              [
+                -73.988882357243,
+                40.703502788455
+              ],
+              [
+                -73.988896708671,
+                40.703243262316
+              ],
+              [
+                -73.989117742029,
+                40.703250341633
+              ],
+              [
+                -73.989251425351,
+                40.703254622618
+              ],
+              [
+                -73.989251247195,
+                40.703258748747
+              ],
+              [
+                -73.989252374852,
+                40.703258776768
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3391540",
+        "bin": "3391540",
+        "bbl": "3000287502",
+        "lon": -73.98906710809804,
+        "lat": 40.70337875042414,
+        "footprint_m2": 866.2856321906619,
+        "height_m": 43.618774164360005,
+        "height_provenance": "observed",
+        "construction_year": "1894",
+        "geometry_provenance": "observed",
+        "use": "Mixed use",
+        "use_provenance": "derived from observed tax-lot land use",
+        "floors": 13,
+        "floors_provenance": "derived",
+        "address": "133 WATER STREET",
+        "lot_building_count": 1.0,
+        "lot_floor_area_ft2": 57668.0,
+        "floor_area_m2": 11261.713218478604,
+        "floor_area_provenance": "derived footprint × estimated floors; not lot floor area",
+        "benchmark_provenance": "unmatched; no LL84 calibration claimed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -73.989235998241,
+                40.703515862374
+              ],
+              [
+                -73.989252374852,
+                40.703258776768
+              ],
+              [
+                -73.989465733854,
+                40.703264098702
+              ],
+              [
+                -73.98946020542,
+                40.703392461662
+              ],
+              [
+                -73.98945413065,
+                40.703533501076
+              ],
+              [
+                -73.989358733833,
+                40.703531121251
+              ],
+              [
+                -73.989359255224,
+                40.703519021121
+              ],
+              [
+                -73.989327442881,
+                40.703518227527
+              ],
+              [
+                -73.989240164538,
+                40.703516050971
+              ],
+              [
+                -73.989235998241,
+                40.703515862374
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3388012",
+        "bin": "3388012",
+        "bbl": "3000287501",
+        "lon": -73.98935327019802,
+        "lat": 40.70339334184735,
+        "footprint_m2": 532.676774786716,
+        "height_m": 43.618774164360005,
+        "height_provenance": "observed",
+        "construction_year": "1930",
+        "geometry_provenance": "observed",
+        "use": "Mixed use",
+        "use_provenance": "derived from observed tax-lot land use",
+        "floors": 13,
+        "floors_provenance": "derived",
+        "address": "31 WASHINGTON STREET",
+        "lot_building_count": 1.0,
+        "lot_floor_area_ft2": 35978.0,
+        "floor_area_m2": 6924.798072227308,
+        "floor_area_provenance": "derived footprint × estimated floors; not lot floor area",
+        "benchmark_provenance": "unmatched; no LL84 calibration claimed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -73.988775224848,
+                40.702423739249
+              ],
+              [
+                -73.988777238485,
+                40.702390198075
+              ],
+              [
+                -73.988781348819,
+                40.702321707334
+              ],
+              [
+                -73.988876530744,
+                40.702325016046
+              ],
+              [
+                -73.988872642394,
+                40.70238981111
+              ],
+              [
+                -73.988870406918,
+                40.702427047965
+              ],
+              [
+                -73.988775224848,
+                40.702423739249
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3000127",
+        "bin": "3000127",
+        "bbl": "3000510018",
+        "lon": -73.98882587809543,
+        "lat": 40.7023743776693,
+        "footprint_m2": 91.27652250659166,
+        "height_m": 14.717042460192001,
+        "height_provenance": "observed",
+        "construction_year": "1877",
+        "geometry_provenance": "observed",
+        "use": "Multifamily",
+        "use_provenance": "derived from observed tax-lot land use",
+        "floors": 4,
+        "floors_provenance": "derived",
+        "address": "100 FRONT STREET",
+        "lot_building_count": 1.0,
+        "lot_floor_area_ft2": 2870.0,
+        "floor_area_m2": 365.10609002636664,
+        "floor_area_provenance": "derived footprint × estimated floors; not lot floor area",
+        "benchmark_provenance": "unmatched; no LL84 calibration claimed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -73.989358881656,
+                40.703531137979
+              ],
+              [
+                -73.989454278473,
+                40.703533517804
+              ],
+              [
+                -73.989442517217,
+                40.703806597843
+              ],
+              [
+                -73.989001694635,
+                40.70379560095
+              ],
+              [
+                -73.988963046016,
+                40.703725224052
+              ],
+              [
+                -73.988883334679,
+                40.703580076386
+              ],
+              [
+                -73.988873909713,
+                40.703552527918
+              ],
+              [
+                -73.988875350613,
+                40.703519075842
+              ],
+              [
+                -73.989323028424,
+                40.703530244053
+              ],
+              [
+                -73.989358881656,
+                40.703531137979
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3329408",
+        "bin": "3329408",
+        "bbl": "3000280005",
+        "lon": -73.98918651867595,
+        "lat": 40.70365686142223,
+        "footprint_m2": 1334.7504219798666,
+        "height_m": 24.822445656,
+        "height_provenance": "observed",
+        "construction_year": "1902",
+        "geometry_provenance": "observed",
+        "use": "Mixed use",
+        "use_provenance": "derived from observed tax-lot land use",
+        "floors": 8,
+        "floors_provenance": "derived",
+        "address": "25 WASHINGTON STREET",
+        "lot_building_count": 1.0,
+        "lot_floor_area_ft2": 101790.0,
+        "floor_area_m2": 10678.003375838933,
+        "floor_area_provenance": "derived footprint × estimated floors; not lot floor area",
+        "benchmark_provenance": "unmatched; no LL84 calibration claimed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -73.988695690162,
+                40.702288142276
+              ],
+              [
+                -73.988783180904,
+                40.702291183758
+              ],
+              [
+                -73.988781348819,
+                40.702321707334
+              ],
+              [
+                -73.988777238485,
+                40.702390198075
+              ],
+              [
+                -73.988775224848,
+                40.702423739249
+              ],
+              [
+                -73.988687733932,
+                40.702420697761
+              ],
+              [
+                -73.988689549449,
+                40.702390457846
+              ],
+              [
+                -73.988695690162,
+                40.702288142276
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3000128",
+        "bin": "3000128",
+        "bbl": "3000510019",
+        "lon": -73.98873545765761,
+        "lat": 40.70235594080665,
+        "footprint_m2": 109.00042175070185,
+        "height_m": 14.729951691168,
+        "height_provenance": "observed",
+        "construction_year": "1877",
+        "geometry_provenance": "observed",
+        "use": "Multifamily",
+        "use_provenance": "derived from observed tax-lot land use",
+        "floors": 4,
+        "floors_provenance": "derived",
+        "address": "104 FRONT STREET",
+        "lot_building_count": 1.0,
+        "lot_floor_area_ft2": 4800.0,
+        "floor_area_m2": 436.0016870028074,
+        "floor_area_provenance": "derived footprint × estimated floors; not lot floor area",
+        "benchmark_provenance": "unmatched; no LL84 calibration claimed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -73.989346362856,
+                40.702277640419
+              ],
+              [
+                -73.989339858912,
+                40.702386020939
+              ],
+              [
+                -73.989336424224,
+                40.702443246357
+              ],
+              [
+                -73.988964012904,
+                40.702430301521
+              ],
+              [
+                -73.988966485635,
+                40.702389103334
+              ],
+              [
+                -73.988973785157,
+                40.702267488988
+              ],
+              [
+                -73.98897394534,
+                40.702264807278
+              ],
+              [
+                -73.988973371487,
+                40.702264646932
+              ],
+              [
+                -73.988979242415,
+                40.702166803262
+              ],
+              [
+                -73.989152642794,
+                40.702172830648
+              ],
+              [
+                -73.989299749044,
+                40.702177943113
+              ],
+              [
+                -73.989352235609,
+                40.702179767014
+              ],
+              [
+                -73.989346362856,
+                40.702277640419
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3389054",
+        "bin": "3389054",
+        "bbl": "3000517501",
+        "lon": -73.98915801961085,
+        "lat": 40.70230498301326,
+        "footprint_m2": 922.758090352183,
+        "height_m": 36.8808,
+        "height_provenance": "observed",
+        "construction_year": "2006",
+        "geometry_provenance": "observed",
+        "use": "Mixed use",
+        "use_provenance": "derived from observed tax-lot land use",
+        "floors": 11,
+        "floors_provenance": "derived",
+        "address": "84 FRONT STREET",
+        "lot_building_count": 1.0,
+        "lot_floor_area_ft2": 63294.0,
+        "floor_area_m2": 10150.338993874013,
+        "floor_area_provenance": "derived footprint × estimated floors; not lot floor area",
+        "benchmark_provenance": "unmatched; no LL84 calibration claimed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -73.989336424224,
+                40.702443246357
+              ],
+              [
+                -73.989339858912,
+                40.702386020939
+              ],
+              [
+                -73.989346362856,
+                40.702277640419
+              ],
+              [
+                -73.989346882508,
+                40.702268970338
+              ],
+              [
+                -73.989352235609,
+                40.702179767014
+              ],
+              [
+                -73.989395813493,
+                40.702181282095
+              ],
+              [
+                -73.989395314019,
+                40.70218960188
+              ],
+              [
+                -73.989527762228,
+                40.702194205714
+              ],
+              [
+                -73.989522603923,
+                40.702280178927
+              ],
+              [
+                -73.98951655702,
+                40.70238092946
+              ],
+              [
+                -73.989512450996,
+                40.702449364396
+              ],
+              [
+                -73.989336424224,
+                40.702443246357
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3335874",
+        "bin": "3335874",
+        "bbl": "3000510012",
+        "lon": -73.98943162661287,
+        "lat": 40.70231765249273,
+        "footprint_m2": 425.5470375989313,
+        "height_m": 36.572597377392,
+        "height_provenance": "observed",
+        "construction_year": "2000",
+        "geometry_provenance": "observed",
+        "use": "Mixed use",
+        "use_provenance": "derived from observed tax-lot land use",
+        "floors": 11,
+        "floors_provenance": "derived",
+        "address": "65 WASHINGTON STREET",
+        "lot_building_count": 2.0,
+        "lot_floor_area_ft2": 55677.0,
+        "floor_area_m2": 4681.017413588244,
+        "floor_area_provenance": "derived footprint × estimated floors; not lot floor area",
+        "benchmark_provenance": "unmatched; no LL84 calibration claimed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -73.989302872676,
+                40.702090448755
+              ],
+              [
+                -73.989300630329,
+                40.702127821597
+              ],
+              [
+                -73.989297642902,
+                40.702177607927
+              ],
+              [
+                -73.98915212694,
+                40.702172551441
+              ],
+              [
+                -73.989153276891,
+                40.702122699203
+              ],
+              [
+                -73.989154926085,
+                40.702095219334
+              ],
+              [
+                -73.989255486748,
+                40.702098714645
+              ],
+              [
+                -73.989256081153,
+                40.702088821675
+              ],
+              [
+                -73.989302872676,
+                40.702090448755
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3421721",
+        "bin": "3421721",
+        "bbl": "3000510012",
+        "lon": -73.98922864695842,
+        "lat": 40.70213469777309,
+        "footprint_m2": 110.93125038939517,
+        "height_m": 5.1816,
+        "height_provenance": "observed",
+        "construction_year": "2000",
+        "geometry_provenance": "observed",
+        "use": "Mixed use",
+        "use_provenance": "derived from observed tax-lot land use",
+        "floors": 2,
+        "floors_provenance": "derived",
+        "address": "65 WASHINGTON STREET",
+        "lot_building_count": 2.0,
+        "lot_floor_area_ft2": 55677.0,
+        "floor_area_m2": 221.86250077879035,
+        "floor_area_provenance": "derived footprint × estimated floors; not lot floor area",
+        "benchmark_provenance": "unmatched; no LL84 calibration claimed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -73.990177789381,
+                40.702622936429
+              ],
+              [
+                -73.990174267428,
+                40.702682950748
+              ],
+              [
+                -73.990164442935,
+                40.702850378494
+              ],
+              [
+                -73.990013696589,
+                40.702845255112
+              ],
+              [
+                -73.990007618005,
+                40.702948833268
+              ],
+              [
+                -73.990035140711,
+                40.702949768584
+              ],
+              [
+                -73.990125654448,
+                40.702952845327
+              ],
+              [
+                -73.990122264106,
+                40.703010618279
+              ],
+              [
+                -73.990152365172,
+                40.703011641138
+              ],
+              [
+                -73.990146642665,
+                40.703109162487
+              ],
+              [
+                -73.990108440914,
+                40.703107864275
+              ],
+              [
+                -73.990105042243,
+                40.703165795714
+              ],
+              [
+                -73.989956139902,
+                40.703160734551
+              ],
+              [
+                -73.989699692828,
+                40.703152018352
+              ],
+              [
+                -73.98971753614,
+                40.702847962997
+              ],
+              [
+                -73.989731632712,
+                40.702607771602
+              ],
+              [
+                -73.990177789381,
+                40.702622936429
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3329425",
+        "bin": "3329425",
+        "bbl": "3000370001",
+        "lon": -73.98992446171005,
+        "lat": 40.70288297046008,
+        "footprint_m2": 2092.860662876936,
+        "height_m": 46.211506066008,
+        "height_provenance": "observed",
+        "construction_year": "1906",
+        "geometry_provenance": "observed",
+        "use": "Office",
+        "use_provenance": "derived from observed tax-lot land use",
+        "floors": 14,
+        "floors_provenance": "derived",
+        "address": "45 MAIN STREET",
+        "lot_building_count": 3.0,
+        "lot_floor_area_ft2": 476000.0,
+        "floor_area_m2": 29300.049280277108,
+        "floor_area_provenance": "derived footprint × estimated floors; not lot floor area",
+        "benchmark_provenance": "unmatched; no LL84 calibration claimed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -73.989664231812,
+                40.703698479997
+              ],
+              [
+                -73.989674052874,
+                40.703470437058
+              ],
+              [
+                -73.989682705329,
+                40.703269523728
+              ],
+              [
+                -73.989798797186,
+                40.703272419313
+              ],
+              [
+                -73.989990753274,
+                40.703277207073
+              ],
+              [
+                -73.989985588012,
+                40.703397156607
+              ],
+              [
+                -73.989946400381,
+                40.703396178838
+              ],
+              [
+                -73.989933657962,
+                40.703692079618
+              ],
+              [
+                -73.989933093925,
+                40.703705185618
+              ],
+              [
+                -73.989926051052,
+                40.703705010302
+              ],
+              [
+                -73.989664231812,
+                40.703698479997
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3344163",
+        "bin": "3344163",
+        "bbl": "3000270040",
+        "lon": -73.98981419147285,
+        "lat": 40.70348145491561,
+        "footprint_m2": 1126.969720778092,
+        "height_m": 26.364496085736004,
+        "height_provenance": "observed",
+        "construction_year": "1888",
+        "geometry_provenance": "observed",
+        "use": "Mixed use",
+        "use_provenance": "derived from observed tax-lot land use",
+        "floors": 8,
+        "floors_provenance": "derived",
+        "address": "26 WASHINGTON STREET",
+        "lot_building_count": 1.0,
+        "lot_floor_area_ft2": 87129.0,
+        "floor_area_m2": 9015.757766224737,
+        "floor_area_provenance": "derived footprint × estimated floors; not lot floor area",
+        "benchmark_provenance": "unmatched; no LL84 calibration claimed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -73.988963148854,
+                40.702439594215
+              ],
+              [
+                -73.988871501167,
+                40.70243623909
+              ],
+              [
+                -73.988880340695,
+                40.702297985238
+              ],
+              [
+                -73.988688252996,
+                40.702290950635
+              ],
+              [
+                -73.988728831118,
+                40.701663994718
+              ],
+              [
+                -73.989126442389,
+                40.701677336223
+              ],
+              [
+                -73.9890951032,
+                40.702167589128
+              ],
+              [
+                -73.988980808523,
+                40.702163315221
+              ],
+              [
+                -73.988963148854,
+                40.702439594215
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3346567",
+        "bin": "3346567",
+        "bbl": "3000517502",
+        "lon": -73.98890018248152,
+        "lat": 40.701988281170664,
+        "footprint_m2": 2317.7642680775957,
+        "height_m": 36.576,
+        "height_provenance": "observed",
+        "construction_year": "2018",
+        "geometry_provenance": "observed",
+        "use": "Mixed use",
+        "use_provenance": "derived from observed tax-lot land use",
+        "floors": 11,
+        "floors_provenance": "derived",
+        "address": "98 FRONT STREET",
+        "lot_building_count": 1.0,
+        "lot_floor_area_ft2": 145464.0,
+        "floor_area_m2": 25495.406948853553,
+        "floor_area_provenance": "derived footprint × estimated floors; not lot floor area",
+        "benchmark_provenance": "unmatched; no LL84 calibration claimed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -73.987717537266,
+                40.702628284321
+              ],
+              [
+                -73.987723242585,
+                40.702540363443
+              ],
+              [
+                -73.987728624024,
+                40.702540565731
+              ],
+              [
+                -73.98775392436,
+                40.702541517565
+              ],
+              [
+                -73.987760577797,
+                40.702541767714
+              ],
+              [
+                -73.987776405003,
+                40.702542361933
+              ],
+              [
+                -73.987792428629,
+                40.702542963374
+              ],
+              [
+                -73.987796183094,
+                40.702543104252
+              ],
+              [
+                -73.987810295765,
+                40.702543634347
+              ],
+              [
+                -73.987818305212,
+                40.702543935966
+              ],
+              [
+                -73.987862109279,
+                40.702545581325
+              ],
+              [
+                -73.987897593888,
+                40.702546915117
+              ],
+              [
+                -73.987905618717,
+                40.702547216732
+              ],
+              [
+                -73.987907739109,
+                40.7025472962
+              ],
+              [
+                -73.987935177591,
+                40.702548327463
+              ],
+              [
+                -73.987992759476,
+                40.70255049111
+              ],
+              [
+                -73.987998184697,
+                40.702550695191
+              ],
+              [
+                -73.988064943908,
+                40.702553204654
+              ],
+              [
+                -73.988073770986,
+                40.702553536057
+              ],
+              [
+                -73.988083747004,
+                40.702553910802
+              ],
+              [
+                -73.988092111429,
+                40.702554225046
+              ],
+              [
+                -73.988126203357,
+                40.702555506393
+              ],
+              [
+                -73.988168725974,
+                40.702557104677
+              ],
+              [
+                -73.988176725958,
+                40.70255740537
+              ],
+              [
+                -73.988186280738,
+                40.702557764754
+              ],
+              [
+                -73.988196791589,
+                40.702558160257
+              ],
+              [
+                -73.988213761826,
+                40.702558798657
+              ],
+              [
+                -73.988227557391,
+                40.702559316963
+              ],
+              [
+                -73.988234916052,
+                40.702559594172
+              ],
+              [
+                -73.988280024086,
+                40.702561288133
+              ],
+              [
+                -73.988339861277,
+                40.702563535584
+              ],
+              [
+                -73.988409339006,
+                40.702685480024
+              ],
+              [
+                -73.98832169899,
+                40.702714401015
+              ],
+              [
+                -73.988315292421,
+                40.702716515667
+              ],
+              [
+                -73.988303776217,
+                40.702720315559
+              ],
+              [
+                -73.988290552461,
+                40.702724678996
+              ],
+              [
+                -73.988280910656,
+                40.702727860424
+              ],
+              [
+                -73.988279994755,
+                40.702728162903
+              ],
+              [
+                -73.9882728912,
+                40.702730507113
+              ],
+              [
+                -73.988266270445,
+                40.702732691981
+              ],
+              [
+                -73.988230997612,
+                40.702744331099
+              ],
+              [
+                -73.988203977344,
+                40.702753247004
+              ],
+              [
+                -73.988195995749,
+                40.702755881084
+              ],
+              [
+                -73.988188831838,
+                40.702758245094
+              ],
+              [
+                -73.988182348345,
+                40.702760384045
+              ],
+              [
+                -73.988124008717,
+                40.70277963549
+              ],
+              [
+                -73.988075152315,
+                40.702795757708
+              ],
+              [
+                -73.988050271479,
+                40.702803967797
+              ],
+              [
+                -73.988050174445,
+                40.702804000206
+              ],
+              [
+                -73.988043556042,
+                40.70280618416
+              ],
+              [
+                -73.988012707629,
+                40.702816363942
+              ],
+              [
+                -73.987978552961,
+                40.702827633889
+              ],
+              [
+                -73.98797193692,
+                40.70282981694
+              ],
+              [
+                -73.987958122635,
+                40.702834375688
+              ],
+              [
+                -73.98795424602,
+                40.70283565491
+              ],
+              [
+                -73.987938964393,
+                40.702840697978
+              ],
+              [
+                -73.987927868231,
+                40.702844359197
+              ],
+              [
+                -73.987925080286,
+                40.702845279228
+              ],
+              [
+                -73.987857314031,
+                40.702867640817
+              ],
+              [
+                -73.987847749102,
+                40.702870797003
+              ],
+              [
+                -73.987716723237,
+                40.702640823863
+              ],
+              [
+                -73.987717537266,
+                40.702628284321
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3000089",
+        "bin": "3000089",
+        "bbl": "3000390001",
+        "lon": -73.98802269827826,
+        "lat": 40.702672760476716,
+        "footprint_m2": 1392.2669137403027,
+        "height_m": 9.452498104872001,
+        "height_provenance": "observed",
+        "construction_year": "2000",
+        "geometry_provenance": "observed",
+        "use": "Warehouse",
+        "use_provenance": "derived from observed tax-lot land use",
+        "floors": 3,
+        "floors_provenance": "derived",
+        "address": "59 ADAMS STREET",
+        "lot_building_count": 1.0,
+        "lot_floor_area_ft2": 50000.0,
+        "floor_area_m2": 4176.800741220908,
+        "floor_area_provenance": "derived footprint × estimated floors; not lot floor area",
+        "benchmark_provenance": "unmatched; no LL84 calibration claimed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -73.988180448531,
+                40.701843452302
+              ],
+              [
+                -73.988497028655,
+                40.701854458909
+              ],
+              [
+                -73.988463207361,
+                40.702417919406
+              ],
+              [
+                -73.988222418988,
+                40.702409548179
+              ],
+              [
+                -73.988150802473,
+                40.702354677137
+              ],
+              [
+                -73.988169848497,
+                40.702026244352
+              ],
+              [
+                -73.988127584036,
+                40.702025382714
+              ],
+              [
+                -73.988137082448,
+                40.701856637641
+              ],
+              [
+                -73.988147461853,
+                40.701856998015
+              ],
+              [
+                -73.988148341247,
+                40.701842335968
+              ],
+              [
+                -73.988180448531,
+                40.701843452302
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3427430",
+        "bin": "3427430",
+        "bbl": "3000527502",
+        "lon": -73.98831674564114,
+        "lat": 40.70211970488459,
+        "footprint_m2": 1726.6871813728526,
+        "height_m": 92.3544,
+        "height_provenance": "observed",
+        "construction_year": "2022",
+        "geometry_provenance": "observed",
+        "use": "Mixed use",
+        "use_provenance": "derived from observed tax-lot land use",
+        "floors": 28,
+        "floors_provenance": "derived",
+        "address": "69 ADAMS STREET",
+        "lot_building_count": 1.0,
+        "lot_floor_area_ft2": 312269.0,
+        "floor_area_m2": 48347.241078439874,
+        "floor_area_provenance": "derived footprint × estimated floors; not lot floor area",
+        "benchmark_provenance": "unmatched; no LL84 calibration claimed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -73.989263790288,
+                40.704262693245
+              ],
+              [
+                -73.989243353713,
+                40.704225564137
+              ],
+              [
+                -73.989088873531,
+                40.703944907801
+              ],
+              [
+                -73.98936739158,
+                40.703955520276
+              ],
+              [
+                -73.98937177965,
+                40.70393790667
+              ],
+              [
+                -73.989433923838,
+                40.703943325367
+              ],
+              [
+                -73.989480717825,
+                40.704020116294
+              ],
+              [
+                -73.989448766099,
+                40.704135908381
+              ],
+              [
+                -73.989419330849,
+                40.704134120865
+              ],
+              [
+                -73.989413092867,
+                40.704228960392
+              ],
+              [
+                -73.989263790288,
+                40.704262693245
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3000007",
+        "bin": "3000007",
+        "bbl": "3000070021",
+        "lon": -73.98930527218403,
+        "lat": 40.704076487161956,
+        "footprint_m2": 760.6674240111341,
+        "height_m": 5.7912,
+        "height_provenance": "observed",
+        "construction_year": "1988",
+        "geometry_provenance": "observed",
+        "use": "Institutional",
+        "use_provenance": "derived from observed tax-lot land use",
+        "floors": 2,
+        "floors_provenance": "derived",
+        "address": "1 PLYMOUTH STREET",
+        "lot_building_count": 1.0,
+        "lot_floor_area_ft2": 9585.0,
+        "floor_area_m2": 1521.3348480222683,
+        "floor_area_provenance": "derived footprint × estimated floors; not lot floor area",
+        "benchmark_provenance": "unmatched; no LL84 calibration claimed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -73.989664231812,
+                40.703698479997
+              ],
+              [
+                -73.989926051052,
+                40.703705010302
+              ],
+              [
+                -73.989933093925,
+                40.703705185618
+              ],
+              [
+                -73.990087283385,
+                40.703709030674
+              ],
+              [
+                -73.990085623423,
+                40.703747585045
+              ],
+              [
+                -73.990047433089,
+                40.70374663261
+              ],
+              [
+                -73.990044204547,
+                40.703821604444
+              ],
+              [
+                -73.989860116885,
+                40.703817012878
+              ],
+              [
+                -73.989659342632,
+                40.703812006185
+              ],
+              [
+                -73.989664231812,
+                40.703698479997
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "3344162",
+        "bin": "3344162",
+        "bbl": "3000270020",
+        "lon": -73.9898611666439,
+        "lat": 40.703758992148416,
+        "footprint_m2": 424.04607526355,
+        "height_m": 19.455360253032,
+        "height_provenance": "observed",
+        "construction_year": "1891",
+        "geometry_provenance": "observed",
+        "use": "Mixed use",
+        "use_provenance": "derived from observed tax-lot land use",
+        "floors": 6,
+        "floors_provenance": "derived",
+        "address": "96 PLYMOUTH STREET",
+        "lot_building_count": 1.0,
+        "lot_floor_area_ft2": 12000.0,
+        "floor_area_m2": 2544.2764515813,
+        "floor_area_provenance": "derived footprint × estimated floors; not lot floor area",
+        "benchmark_provenance": "unmatched; no LL84 calibration claimed"
+      }
+    }
+  ]
+}

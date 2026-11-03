@@ -10,6 +10,8 @@ Numerical foundation: **29 tests passed in a clean virtual environment**, with `
 
 The subsequent rendering upgrade adds an offline ES-module dependency-graph check. The complete suite now passes **34 tests** (63.39 s in the validated environment). Browser verification and its platform limits are documented in [rendering validation](rendering-validation.md).
 
+The hosting preparation adds checks for first-boot restoration without resimulation, rejection of damaged demonstration files and correct single-worker production configuration. The complete suite passes **37 tests** (43.14 s). Linux CI also validates the Gunicorn WSGI entry point. Hosting configuration and operational limits are described in [deployment](deployment.md).
+
 ## Full community experiment
 
 The 16-building network-aware run on 17 July 2024 executed **96 quarter-hour steps**, solving a **96-step prediction horizon at each decision**, then independently AC-checking each applied action. The clean-environment run `4c443515-673a-410e-aa8f-10aaadca333f` completed in **132.72 s**, with no reported network, SOC, EV or comfort flags. Realised scenario operating cost was **$5,936.71**, identical to development-environment run `59097493-25de-412f-9739-0042721f6702` (198.68 s under concurrent validation load). That is a model result under illustrative tariff/asset assumptions, not an observed customer bill. Run folders contain the authoritative diagnostics, input hashes, package versions and data-quality report.

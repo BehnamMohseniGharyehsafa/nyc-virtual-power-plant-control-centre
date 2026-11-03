@@ -21,13 +21,14 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.4,<10", "ruff>=0.14,<1"]
+hosting = ["gunicorn>=26.2,<27; sys_platform != 'win32'"]
 
 [tool.setuptools.packages.find]
 include = ["app*", "core*", "models*", "optimisation*", "controllers*", "economics*", "flexibility*", "visualisation*", "data*", "experiments*"]
 
 [tool.setuptools.package-data]
 app = ["assets/*", "static/city/*", "static/vendor/*", "static/vendor/addons/*/*.js"]
-data = ["cache/*.json", "cache/*.csv", "cache/*.geojson"]
+data = ["cache/*.json", "cache/*.csv", "cache/*.geojson", "demo/community/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
