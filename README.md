@@ -1,3 +1,9 @@
+<div align="center">
+  <strong>Developer: Behnam Mohseni Gharyehsafa</strong><br>
+  PhD in Electronic Engineering<br>
+  <a href="mailto:Mohseni.Gharyehsafa.Behnam@gmail.com">Mohseni.Gharyehsafa.Behnam@gmail.com</a>
+</div>
+
 # New York Virtual Power Plant Control Centre
 
 A Python engineering laboratory that connects **real Brooklyn building geometry** to physical DER models, predictive control, synthetic distribution networks and independently verified AC power flow.
@@ -6,9 +12,11 @@ The application calculates its results. It does not use predetermined savings, d
 
 **[Public GitHub repository](https://github.com/BehnamMohseniGharyehsafa/nyc-virtual-power-plant-control-centre)**
 
-![Control centre](docs/images/control-centre.png)
+![Control centre](docs/images/clarity/desktop-workspace.png)
 
-[Street-level façade detail](docs/images/rendering/street-golden.png) · [Rendering checks and screenshots](docs/rendering-validation.md)
+[Street-level façade detail](docs/images/clarity/street-golden.png) · [Rendering checks and screenshots](docs/district-clarity-validation.md)
+
+Distant buildings use filtered window patterns to keep the district readable while close views retain geometric frames and sills. Energy cards sit below the canvas, with dedicated zoom controls and an approximate scale bar. [District clarity checks and comparison](docs/district-clarity-validation.md).
 
 The spatial command centre includes detailed windowed façades, real NYC streets and waterfront geometry, rooftop equipment and PV, street furniture, and 64 vehicles following a stored illustrative Python traffic scenario. Explore district, street-level and plan views, inspect buildings, and enable calculated electrical flows. Sky-matched reflections, masonry relief, varied room lighting, fitted shadows and adaptive quality follow [Open 3D Skills](https://github.com/Moh4696/open-3d-skills). Open **Look** to choose simulation sunlight, daylight, golden hour, blue hour or night and automatic/high/balanced/eco quality. Architectural details are estimated; traffic is illustrative. [Urban visualisation and provenance](docs/urban-visualisation.md).
 

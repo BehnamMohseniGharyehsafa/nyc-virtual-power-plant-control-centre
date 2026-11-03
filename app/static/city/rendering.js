@@ -15,7 +15,7 @@ export const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 export const U={time:{value:0},night:{value:0},wind:{value:motionPreference.matches?0:1}};
 const clamp=THREE.MathUtils.clamp,lerp=THREE.MathUtils.lerp;
 const PRESETS={
-  daylight:{elevation:38,azimuth:225,sun:3.4,sunColor:0xffefd9,skyColor:0xc7ddf0,groundColor:0x81735f,hemi:1.3,fog:0xc9d8dd,exposure:.79,environment:.72,night:0,turbidity:3},
+  daylight:{elevation:38,azimuth:225,sun:3.25,sunColor:0xfff2df,skyColor:0xc7ddf0,groundColor:0x81735f,hemi:1.05,fog:0xd4e2ec,exposure:.86,environment:.55,night:0,turbidity:2.4},
   golden:{elevation:9,azimuth:135,sun:3.9,sunColor:0xffc27b,skyColor:0xc8d3e9,groundColor:0xa58263,hemi:1.65,fog:0xd6c4b2,exposure:.84,environment:.76,night:0,turbidity:5},
   blue:{elevation:-4,azimuth:255,sun:.32,sunColor:0xaac4ef,skyColor:0x7c9cc7,groundColor:0x514d56,hemi:.8,fog:0x536985,exposure:.88,environment:.45,night:.75,turbidity:4},
   night:{elevation:-14,azimuth:220,sun:.14,sunColor:0x91b4ed,skyColor:0x435777,groundColor:0x222532,hemi:.58,fog:0x142138,exposure:.9,environment:.27,night:1,turbidity:3},
@@ -55,15 +55,15 @@ export function createRendering(renderer,scene,camera,host){
   sun.shadow.bias=-.00008;sun.shadow.normalBias=.065;sun.shadow.camera.near=.5;sun.shadow.camera.far=3600;
   scene.add(sun,sun.target);
   const hemi=new THREE.HemisphereLight(0xc7ddf0,0x81735f,1.3);scene.add(hemi);
-  scene.fog=new THREE.FogExp2(0xc9d8dd,.00032);
+  scene.fog=new THREE.FogExp2(0xd4e2ec,.00015);
   // Reflections use the same analytic sky as the visible background.
   const reflectionScene=new THREE.Scene(),reflectionSky=new Sky();reflectionSky.scale.setScalar(10000);reflectionScene.add(reflectionSky);
   const reflectionGround=new THREE.Mesh(new THREE.CircleGeometry(12000,32),new THREE.MeshBasicMaterial({color:0x6f7263}));
   reflectionGround.rotation.x=-Math.PI/2;reflectionGround.position.y=-8;reflectionScene.add(reflectionGround);
   const pmrem=new THREE.PMREMGenerator(renderer);let environmentTarget=null;
   const previousShadowPosition=new THREE.Vector3(Infinity,Infinity,Infinity),previousShadowTarget=new THREE.Vector3(Infinity,Infinity,Infinity);
-  let current=values(PRESETS.daylight),from=null,destination=null,transitionStart=0,transitionDuration=1,reflectionDirty=true,lastReflection=-Infinity;
-  let quality='balanced',qualityMode='auto',autoScale=1,frameSamples=[],frameCount=0,lastSample=0,readyAt=Infinity,lastFrameTime=null;
+  let current=values(PRESETS.daylight),from=null,destination=null,transitionStart=0,transitionDuration=1,reflectionDirty=true;
+  let quality='balanced',qualityMode='auto',frameSamples=[],frameCount=0,lastSample=0,readyAt=Infinity,lastFrameTime=null,slowSamples=0,fastSamples=0,lastTierChange=0,lastSize='';
   let diagnostics={fps:0,frameMs:0,p95Ms:0,calls:0,triangles:0};
   const query=new URLSearchParams(location.search),qualitySelect=document.querySelector('#quality');
 
@@ -74,11 +74,11 @@ export function createRendering(renderer,scene,camera,host){
     }
     sun.color.copy(current.sunColor);sun.intensity=current.sun;
     hemi.color.copy(current.skyColor);hemi.groundColor.copy(current.groundColor);hemi.intensity=current.hemi;
-    scene.fog.color.copy(current.fog);scene.fog.density=.00032+current.night*.0001;
+    scene.fog.color.copy(current.fog);scene.fog.density=.00015+current.night*.00013;
     renderer.toneMappingExposure=current.exposure;scene.environmentIntensity=current.environment;
     U.night.value=current.night;nightSky.material.opacity=current.night*.95;
     reflectionGround.material.color.copy(current.groundColor).multiplyScalar(.65);
-    bloom.strength=.08+current.night*.28;bloom.threshold=.95-current.night*.13;bloom.enabled=quality!=='eco'&&current.night>.05;
+    bloom.strength=.06+current.night*.12;bloom.threshold=.95-current.night*.13;bloom.enabled=quality!=='eco'&&current.night>.05;
     document.body.classList.toggle('night',current.night>.5);
   }
   function refreshReflections(){
@@ -88,7 +88,13 @@ export function createRendering(renderer,scene,camera,host){
   }
   function resize(){
     const w=Math.max(1,host.clientWidth),h=Math.max(1,host.clientHeight);
-    const ratio=(quality==='high'?Math.min(Math.max(devicePixelRatio,1.25),2):quality==='balanced'?Math.min(devicePixelRatio,1.5):1)*autoScale;
+    // Preserve at least native resolution. Drop costly effects before clarity.
+    const ratio=quality==='high'?Math.min(Math.max(devicePixelRatio,1.5),2):quality==='balanced'?Math.min(Math.max(devicePixelRatio,1.25),1.75):Math.min(devicePixelRatio,1.25);
+    const size=`${w}/${h}/${ratio}`;
+    if(size!==lastSize){
+      lastSize=size;frameSamples=[];lastFrameTime=null;slowSamples=fastSamples=0;
+      readyAt=performance.now();lastSample=readyAt;
+    }
     renderer.setPixelRatio(ratio);renderer.setSize(w,h,false);
     composer.setPixelRatio(ratio);composer.setSize(w,h);
     fxaa.material.uniforms.resolution.value.set(1/(w*ratio),1/(h*ratio));
@@ -100,19 +106,18 @@ export function createRendering(renderer,scene,camera,host){
   }
   function setTier(next){
     quality=next;ao.enabled=next==='high';
-    fxaa.enabled=next==='eco';
-    const samples=next==='high'?Math.min(4,renderer.capabilities.maxSamples):next==='balanced'?Math.min(2,renderer.capabilities.maxSamples):0;
+    fxaa.enabled=renderer.capabilities.maxSamples===0;
+    const samples=Math.min(next==='high'?4:2,renderer.capabilities.maxSamples);
     for(const rt of [composer.renderTarget1,composer.renderTarget2])if(rt.samples!==samples){rt.samples=samples;rt.dispose();}
     const size=next==='eco'?2048:4096;
     if(sun.shadow.mapSize.x!==size){sun.shadow.mapSize.set(size,size);sun.shadow.map?.dispose();sun.shadow.map=null;renderer.shadowMap.needsUpdate=true;sun.shadow.needsUpdate=true;}
-    applyLight();resize();frameSamples=[];lastSample=performance.now();
+    applyLight();resize();frameSamples=[];slowSamples=fastSamples=0;lastSample=performance.now();lastTierChange=lastSample;
     document.body.dataset.quality=quality;document.querySelector('#quality-state').textContent=qualityMode==='auto'?`Auto · ${quality}`:quality;
   }
   function setQuality(mode){
     qualityMode=['auto','high','balanced','eco'].includes(mode)?mode:'auto';
-    autoScale=1;
     if(qualitySelect)qualitySelect.value=qualityMode;
-    setTier(qualityMode==='auto'?(host.clientWidth>=1000?'high':'balanced'):qualityMode);
+    setTier(qualityMode==='auto'?'balanced':qualityMode);
   }
   function setLight(name,simulation=null,immediate=false){
     let preset=PRESETS[name]||PRESETS.daylight;
@@ -127,14 +132,16 @@ export function createRendering(renderer,scene,camera,host){
   }
   function update(now,lookAt){
     U.time.value=now/1000;U.wind.value=motionPreference.matches?0:1;
+    // Metre-scale AO is useful in street views, not for sub-pixel distant detail.
+    ao.enabled=quality==='high'&&camera.position.distanceTo(lookAt)<240;
     if(destination){
       const k=clamp((now-transitionStart)/transitionDuration,0,1),e=k*k*(3-2*k);
       for(const key of NUM_KEYS)current[key]=lerp(from[key],destination[key],e);
       for(const key of COLOR_KEYS)current[key].copy(from[key]).lerp(destination[key],e);
-      applyLight();if(now-lastReflection>400||k===1)reflectionDirty=true;
+      applyLight();if(k===1)reflectionDirty=true;
       if(k===1)destination=null;
     }
-    if(reflectionDirty){refreshReflections();lastReflection=now;}
+    if(reflectionDirty)refreshReflections();
     sky.position.copy(camera.position);nightSky.position.copy(camera.position);
     const half=clamp(camera.position.distanceTo(lookAt)*.68,65,710),sc=sun.shadow.camera;
     if(Math.abs(sc.right-half)>.05){sc.left=-half;sc.right=half;sc.top=half;sc.bottom=-half;sc.updateProjectionMatrix();renderer.shadowMap.needsUpdate=true;sun.shadow.needsUpdate=true;}
@@ -159,9 +166,11 @@ export function createRendering(renderer,scene,camera,host){
     if(now-lastSample>3000&&frameSamples.length>=45){
       const sorted=[...frameSamples].sort((a,b)=>a-b),mean=frameSamples.reduce((a,b)=>a+b,0)/frameSamples.length;
       diagnostics.frameMs=mean;diagnostics.fps=1000/mean;diagnostics.p95Ms=sorted[Math.floor(sorted.length*.95)];
-      if(qualityMode==='auto'&&!document.querySelector('#record').disabled&&mean>25){
-        if(quality!=='eco')setTier(quality==='high'?'balanced':'eco');
-        else if(mean>30&&autoScale>.76){autoScale=Math.max(.75,autoScale*.87);resize();}
+      slowSamples=mean>32?slowSamples+1:0;
+      fastSamples=mean<22?fastSamples+1:0;
+      if(qualityMode==='auto'&&!document.querySelector('#record').disabled&&now-lastTierChange>15000){
+        if(slowSamples>=2&&quality!=='eco')setTier(quality==='high'?'balanced':'eco');
+        else if(fastSamples>=3&&quality==='eco')setTier('balanced');
       }
       frameSamples=[];lastSample=now;
     }
@@ -191,11 +200,11 @@ export function patchWindows(material){
       .replace('#include <color_fragment>',`#include <color_fragment>
         float blind=step(0.76,vRoom)*step(1.0-vRoom*0.55,vMapUv.y);
         diffuseColor.rgb=mix(diffuseColor.rgb,vec3(0.45,0.42,0.34),blind*0.7);
-        diffuseColor.rgb*=0.78+vRoom*0.38;`)
+        diffuseColor.rgb*=0.92+vRoom*0.13;`)
       .replace('#include <emissivemap_fragment>',`#include <emissivemap_fragment>
         float lit=step(0.43,vRoom)*uNight;
         float edge=smoothstep(0.0,0.12,vMapUv.x)*smoothstep(0.0,0.12,1.0-vMapUv.x);
-        totalEmissiveRadiance+=mix(vec3(1.0,0.56,0.21),vec3(0.7,0.83,1.0),step(0.9,vRoom))*lit*(0.6+vRoom)*edge;`);
+        totalEmissiveRadiance+=mix(vec3(1.0,0.56,0.21),vec3(0.7,0.83,1.0),step(0.9,vRoom))*lit*(0.35+vRoom*0.35)*edge;`);
   };
   material.customProgramCacheKey=()=> 'vpp-rooms-r180-v1';
 }

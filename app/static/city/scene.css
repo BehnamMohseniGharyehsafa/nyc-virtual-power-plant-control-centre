@@ -16,3 +16,16 @@
 .view-controls{max-width:calc(100% - 28px);overflow-x:auto;scrollbar-width:none}.view-controls button{flex-shrink:0}.view-controls::-webkit-scrollbar{display:none}
 /* Avoid backdrop-filter artefacts on an overflowing WebGL toolbar in ANGLE. */
 .view-controls{backdrop-filter:none;background:#fafcf8f5}.selection,.appearance{backdrop-filter:none}
+.scene-heading{padding:11px 14px;border:1px solid #ffffffb0;border-radius:10px;background:#f9fcf5ec;box-shadow:0 4px 18px #163d4d10;text-shadow:none}
+.scene-navigation{position:absolute;right:20px;bottom:43px;display:flex;align-items:flex-end;gap:14px;color:#284c59}
+.zoom-controls{display:flex;align-items:center;padding:4px;border:1px solid #fff;border-radius:10px;background:#fafcf8f5;box-shadow:0 5px 22px #163d4d1a}
+.zoom-controls button{width:33px;height:33px;border:0;border-radius:6px;background:transparent;color:#3c626c;font-size:22px;line-height:1}
+.zoom-controls button:hover{background:#e1f0ec;color:#078b85}
+.zoom-controls button:last-child{font-size:20px;border-left:1px solid #dce7e6;border-radius:0 6px 6px 0;margin-left:3px}
+.scene-scale{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:9px;text-shadow:0 1px 4px #fff;padding-bottom:9px}
+.scene-scale i{display:block;height:6px;border:solid #345460;border-width:0 1px 2px;filter:drop-shadow(0 1px 1px #fff)}
+.night .scene-heading{background:#142e40ed;border-color:#ffffff1c}.night .scene-scale{color:#dcebed;text-shadow:0 1px 4px #102137}.night .scene-scale i{border-color:#dcebed;filter:none}
+.navigation-hint{max-width:calc(100% - 370px);flex-wrap:wrap;row-gap:7px}
+@media(max-width:850px){.scene-heading{top:14px;left:16px;padding:9px 12px}.scene-navigation{right:14px}}
+@media(max-width:540px){.scene-navigation{bottom:47px;right:12px;flex-direction:column;gap:5px}.scene-scale{align-self:center}.zoom-controls button{width:29px;height:31px}.scene-scale i{max-width:90px}}
+@media(max-height:450px){.scene-heading{padding:8px 10px;top:9px;left:12px}.scene-navigation{bottom:35px;right:12px}.scene-scale{display:none}.zoom-controls button{height:28px;width:29px}}

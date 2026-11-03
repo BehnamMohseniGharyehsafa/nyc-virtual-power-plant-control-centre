@@ -1,6 +1,6 @@
 # Render deployment and protected main
 
-The Render Blueprint is `render.yaml`. The configured service name is `behnamproject-nyc-virtual-power-plant-control-centre`, in Frankfurt, on the Free compute plan. Its requested address is `https://behnamproject-nyc-virtual-power-plant-control-centre.onrender.com/`; Render must confirm that the subdomain is available when the service is created.
+The Render Blueprint is `render.yaml`. The configured service name is `behnamproject-nyc-virtual-power-plant-control-centre`, in Frankfurt, on the Free compute plan. The live service is [behnamproject-nyc-virtual-power-plant.onrender.com](https://behnamproject-nyc-virtual-power-plant.onrender.com/).
 
 ## Runtime
 
@@ -14,10 +14,10 @@ See [Render's Flask hosting guide](https://render.com/docs/deploy-flask), [Bluep
 
 ## Deployment updates
 
-This Blueprint uses the public Git repository URL and manual deployments, so it requires no new GitHub account access. Render does not support automatic deploys for an unconnected public repository. After an approved change is merged to protected `main`, use **Manual Deploy → Deploy latest commit** in Render. If GitHub is connected later, automatic deployment can be configured to wait for passing CI (`autoDeployTrigger: checksPass`).
+This Blueprint uses the public Git repository URL and manual deployments, so it requires no new GitHub account access. Render does not support automatic deploys for an unconnected public repository. After the required CI checks pass and a change is merged to protected `main`, use **Manual Deploy → Deploy latest commit** in Render. If GitHub is connected later, automatic deployment can be configured to wait for passing CI (`autoDeployTrigger: checksPass`).
 
 ## Main-branch protections
 
-The requested policy is pull-request changes with one independent approval, stale-approval dismissal, approval of the latest push, resolved conversations, passing GitHub Actions checks for Python 3.12 and 3.13, an up-to-date branch, signed commits and linear history. Force pushes and deletion are disabled, and administrators must follow the protections. The repository owner can still administer the protection settings.
+The solo-developer policy requires pull-request changes, resolved conversations, passing GitHub Actions checks for Python 3.12 and 3.13, an up-to-date branch, signed commits and linear history. Force pushes and deletion are disabled, and administrators must follow the protections. The repository owner can still administer the protection settings.
 
-With independent approval required, a PR author cannot approve their own PR. A second authorised reviewer is needed for future changes. Verified commit signatures are also required for newly introduced commits. Do not bypass these requirements for automated updates. Prepare changes on a `codex/` feature branch and open a PR.
+Independent approvals are optional (`required_approving_review_count: 0`), and approval of the latest push is not required (`require_last_push_approval: false`). This permits the author to merge their own PR after all required checks pass. Stale optional approvals are still dismissed after new pushes. Prepare changes on a `codex/` feature branch and open a PR; do not bypass the required checks, commit signatures or other branch protections.

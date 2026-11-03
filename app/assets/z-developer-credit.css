@@ -1,0 +1,38 @@
+/* Keep the developer credit centred at the very top of every workspace. */
+.topbar {
+  position: relative;
+  height: 82px;
+  min-height: 82px;
+}
+.developer-credit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  text-align: center;
+  line-height: 1.4;
+  color: #254859;
+}
+.developer-credit strong { font-size: 12px; font-weight: 650; }
+.developer-credit span { font-size: 11px; color: #6e8590; }
+.developer-credit a { font-size: 11px; color: #078791; }
+.developer-credit a:hover { text-decoration: underline; }
+.world-stage { height: calc(100dvh - 269px); }
+@media (max-width: 1300px) {
+  .topbar .header-title > .muted { display: none; }
+}
+@media (max-width: 700px) {
+  .topbar .header-title, .topbar .header-right { display: none; }
+  .developer-credit strong { font-size: 11px; }
+  .developer-credit span, .developer-credit a { font-size: 10px; }
+}
+@media (max-height: 650px) {
+  .topbar { height: 78px; min-height: 78px; }
+  .world-stage { min-height: 254px; height: calc(100dvh - 210px); }
+}
